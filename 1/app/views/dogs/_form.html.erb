@@ -1,0 +1,23 @@
+<%= form_for @dog do |f| %>
+    <% @dog.errors.full_messages.each do |message| %>
+        <p><%= message %></p>
+    <% end %>
+
+    <p>
+      <%= f.label :sex %>
+      <%= f.select :sex, [['Male', 'male'],['Female', 'female']], prompt: 'Gender...' %>
+    </p>
+    <p>
+      <%= f.label :titles %>
+      <%= f.text_field :titles %>
+    </p>
+    <p>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :birth_date %>
+      <%= f.text_field :birth_date %>
+    </p>
+    <%= f.submit %>
+<% end %>
