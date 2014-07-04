@@ -3,4 +3,8 @@
 <ul>
   <%= render @dogs %>
 </ul>
-<%= link_to "New Dog", new_dog_path %>
+
+
+<% if user_signed_in? %>
+    <%= link_to "New Dog", new_user_dog_path(current_user) %>
+<% end %>

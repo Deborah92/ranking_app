@@ -1,6 +1,7 @@
 class DogsController < ApplicationController
   before_action :set_dog, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, except: [:index, :show]
+  before_filter :set_user, only: [:new, :edit, :create]
   def index
     @dogs = Dog.all
   end
@@ -10,7 +11,7 @@ class DogsController < ApplicationController
   end
 
   def create
-    @dog= Dog.new(dog_params)
+    @dog = @user.dogs.build(dog_params)
     if @dog.save
       flash[:notice] = 'Dog has been created.'
       redirect_to @dog
@@ -49,5 +50,9 @@ class DogsController < ApplicationController
 
     def set_dog
       @dog = Dog.find(params[:id])
+    end
+
+    def set_user
+      @user = User.find(params[:user_id])
     end
 end

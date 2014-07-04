@@ -15,7 +15,7 @@ Feature: Creating dogs
     And I am on the dogs page
     When I follow "New Dog"
 
-
+  @working
   Scenario: Creating a dog
     And I select "male" from "Sex"
     And I fill in "Titles" with "CH OF SPAIN"
@@ -23,6 +23,7 @@ Feature: Creating dogs
     And I fill in "Birth date" with "01/01/2001"
     And I press "Create Dog"
     Then I should see "Dog has been created."
+    And  I should see "Owned by user@example.com"
     And I should be on the dog page for "Frael Valderrama"
 
   Scenario: Creating a dog without sex

@@ -6,9 +6,11 @@ RankingApp::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   root 'dogs#index'
+  resources :users do
+    resources :dogs, only:  [:new, :create, :edit, :update]
+  end
 
-  resources :dogs
-
+  resources :dogs, only: [:index, :show]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
