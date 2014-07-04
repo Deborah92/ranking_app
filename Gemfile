@@ -15,14 +15,15 @@ group :development, :test do
 end
 
 group :test do
-  gem 'factory_girl_rails'
-  gem 'selenium-webdriver', '2.35.1'
-  gem 'capybara', '2.1.0'
   gem 'cucumber-rails', :require => false
   gem 'cucumber-websteps'
+  gem 'capybara', '2.1.0'
   gem 'database_cleaner'
+  gem 'factory_girl_rails'
   gem 'factory_girl'
   gem 'email_spec'
+  # gem 'selenium-webdriver', '2.35.1'
+  gem 'simplecov', :require => false
 end
 
 
