@@ -1,6 +1,15 @@
 <small>Owned by <%= @dog.user.email %> </small>
 <h2><%= @dog.name %></h2>
-<% if user_signed_in? %>
-    <%= link_to "Edit Dog", edit_user_dog_path(current_user, @dog) %>
-    <%= button_to 'Delete Dog', @dog, method: :delete, data: {confirm: 'Are you sure you want to delete this dog'} %>
-<% end %>
+
+<table width="20%" border="1" cellspacing="1">
+  <tr>
+    <th>Sex</th>
+    <th>Titles</th>
+    <th>Birth Date</th>
+  </tr>
+  <tr>
+    <td><%= @dog.sex %></td>
+    <td><%= @dog.titles %></td>
+    <td><%= @dog.birth_date.strftime('%d/%m/%Y') %></td>
+  </tr>
+</table>

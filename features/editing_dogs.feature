@@ -1,22 +1,23 @@
 Feature: Editing Dogs
   In order to update dog information
+  As a user
   I want to be able to do that through an interface
 
   Background:
-    Given there are the following dogs:
-      | Sex  | Titles | Name                    | Birth Date |
-      | male |        | Samba y Fatiga Idilio   | 27/01/2006 |
-      | male |        | Fortunato Hautacuperche | 15/05/2008 |
+    Given there are the following users:
+      | email             | password |
+      | user1@example.com  | password |
+      | user2@example.com  | password |
 
-    And there are the following users:
-      | email            | password |
-      | user@example.com | password |
+    And there are the following dogs:
+      | Sex  | Titles | Name                    | Birth Date | Owner             |
+      | male |        | Samba y Fatiga Idilio   | 27/01/2006 | user1@example.com |
+      | male |        | Fortunato Hautacuperche | 15/05/2008 | user2@example.com |
 
-    And I am signed in as them
-    And I am on the homepage
-    When I follow "Samba y Fatiga Idilio"
-    When I follow "Edit Dog"
-
+    And I am signed in as "user1@example.com"
+    And I am on the dogs page
+    When I follow "Edit" the "Samba y Fatiga Idilio" dog
+  @working
   Scenario: Updating a dog
     And I fill in "Name" with "Samba y Fatiga Idilio beta"
     And I press "Update Dog"
