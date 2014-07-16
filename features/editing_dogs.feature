@@ -16,7 +16,7 @@ Feature: Editing Dogs
 
     And I am signed in as "user1@example.com"
     And I am on the dogs page
-    When I follow "Edit" the "Samba y Fatiga Idilio" dog
+    When I follow "Edit" within "#dog_1"
   @working
   Scenario: Updating a dog
     And I fill in "Name" with "Samba y Fatiga Idilio beta"
