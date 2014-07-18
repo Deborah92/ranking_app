@@ -4,8 +4,8 @@ Feature: Creating dogs
   I want to create them easily
   Background:
     Given there are the following dogs:
-      | Sex  | Titles | Name                    | Birth Date |
-      | male |        | Samba y Fatiga Idilio   | 27/01/2006 |
+      | Sex  | Titles | Name                    | Birth Date | Owner             |
+      | male |        | Samba y Fatiga Idilio   | 27/01/2006 | user1@example.com |
 
     Given there are the following users:
       | email            | password |

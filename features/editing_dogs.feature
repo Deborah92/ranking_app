@@ -30,16 +30,19 @@ Feature: Editing Dogs
     Then I should see "Name can't be blank"
 
   Scenario: Updating a dog without birth date
-    And I fill in "Birth date" with ""
+    And I click in "Birth date"
+    And I fill in "datepicker" with ""
     And I press "Update Dog"
     Then I should see "Birth date can't be blank"
 
   Scenario: Updating a dog with birth date in the future
-    And I fill in "Birth date" with "1/1/2016"
+    And I click in "Birth date"
+    And I fill in "datepicker" with "1/1/2016"
     And I press "Update Dog"
     Then I should see "Birth date can not be in the future"
 
   Scenario: Updating a dog with an invalid birth date format
-    And I fill in "Birth date" with "1/15/2002"
+    And I click in "Birth date"
+    And I fill in "datepicker" with "1/15/2002"
     And I press "Update Dog"
     Then I should see "Birth date must be a valid date"

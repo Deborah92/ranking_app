@@ -18,6 +18,6 @@ Feature: Deleting dogs
 
   Scenario: Deleting dogs
     And I am on the dogs page
-    When I follow "Delete" of "Samba y Fatiga Idilio" dog
+    When I follow "Delete" within "#dog_1"
     Then I should see "Dog has been deleted."
     Then I should not see "Samba y Fatiga Idilio"
