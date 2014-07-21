@@ -11,12 +11,13 @@ Feature: Creating dogs
       | email            | password |
       | user@example.com | password |
 
-    And I am signed in as them
+
     And I am on the dogs page
     When I follow "New Dog"
 
   @working
   Scenario: Creating a dog
+    And I am signed in as them
     And I select "male" from "Sex"
     And I fill in "Titles" with "CH OF SPAIN"
     And I fill in "Name" with "Frael Valderrama"
@@ -28,6 +29,7 @@ Feature: Creating dogs
     And I should be on the dog page for "Frael Valderrama"
 
   Scenario: Creating a dog without sex
+    And I am signed in as them
     And I fill in "Titles" with "CH OF SPAIN"
     And I fill in "Name" with "Frael Valderrama"
     And I click in "Birth date"
@@ -36,6 +38,7 @@ Feature: Creating dogs
     Then I should see "Sex is not included in the list"
 
   Scenario: Creating a dog without name
+    And I am signed in as them
     And I select "male" from "Sex"
     And I fill in "Titles" with "CH OF SPAIN"
     And I click in "Birth date"
@@ -44,6 +47,7 @@ Feature: Creating dogs
     Then I should see "Name can't be blank"
 
   Scenario: Creating a dog without birth date
+    And I am signed in as them
     And I select "male" from "Sex"
     And I fill in "Titles" with "CH OF SPAIN"
     And I fill in "Name" with "Frael Valderrama"
@@ -51,6 +55,7 @@ Feature: Creating dogs
     Then I should see "Birth date can't be blank"
 
   Scenario: Creating a dog with birth date in the future
+    And I am signed in as them
     And I select "male" from "Sex"
     And I fill in "Titles" with "CH OF SPAIN"
     And I click in "Birth date"

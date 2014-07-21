@@ -25,6 +25,7 @@ class DogsController < ApplicationController
   end
 
   def edit
+    authorize! :edit, @dog
   end
 
   def update

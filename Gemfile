@@ -7,6 +7,7 @@ gem 'rails', '4.0.4'
 
 
 gem 'devise'
+gem 'cancan'
 
 # Use sqlite3 as the database for Active Record
 group :development, :test do

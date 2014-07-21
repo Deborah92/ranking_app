@@ -1,11 +1,17 @@
 require 'spec_helper'
 
 describe DogsController do
+  let(:user){create_user!}
+  let( :project ) {FactoryGirl.create( :project )}
 
-  describe "GET 'index'" do
-    it "returns http success" do
-      get 'index'
-      response.should be_success
+  context 'standard users' do
+    {new: :get, create: :post, edit: :get, update: :put, destroy: :delete}.each do |action, method|
+      it 'cannot access the #{action.to_s} action' do
+        sign_in( :user, user)
+        send(method, action, id: project.id)
+        response.should redirect_to( root_path )
+        flash[:alert].should eql 'You must be an admin to do that.'
+      end
     end
   end
 
