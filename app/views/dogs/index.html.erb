@@ -1,5 +1,5 @@
 <h1>Dogs#index</h1>
-<table width="30%" border="1" cellspacing="1">
+<table>
   <tr>
     <th>Dog Name</th>
     <th>Owner</th>
@@ -10,6 +10,4 @@
   <%= render @dogs %>
 </table></br>
 
-<% if user_signed_in? %>
-   <%= link_to "New Dog", new_dog_path %>
-<% end %>
+<%= link_to "New Dog", new_dog_path %>

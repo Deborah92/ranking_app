@@ -1,6 +1,6 @@
 class DogsController < ApplicationController
   before_action :set_dog, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!, except: [:index, :show]
+  # before_filter :authenticate_user!, except: [:index, :show]
   before_filter :set_user, only: [:new, :edit, :create]
   def index
     @dogs = Dog.all
