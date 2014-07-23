@@ -8,10 +8,15 @@ class DogsController < ApplicationController
 
   def new
     @dog = Dog.new
+    authorize! :new, @dog
   end
 
   def create
-    @dog = @user.dogs.build(dog_params)
+    # @dog = @user.dogs.build(dog_params)
+    @dog = Dog.new(dog_params)
+    @dog.user = current_user
+    authorize! :create, @dog
+
     if @dog.save
       flash[:notice] = 'Dog has been created.'
       redirect_to @dog

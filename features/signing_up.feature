@@ -11,4 +11,4 @@ Feature: Signing up
     And I fill in "Password confirmation" with "password"
     And I press "Sign up"
     And Save and open page
-    Then I should see "Please confirm your account before signing in"
+    Then I should see "A message with a confirmation link has been sent to your email address. Please open the link to activate your account."
