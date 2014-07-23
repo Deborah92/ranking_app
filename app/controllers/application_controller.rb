@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
     if current_user.nil? # user is not logged in
       session[:next] = request.fullpath
-      redirect_to login_url,
+      redirect_to new_user_session_path,
                   :alert => "Please log in to continue."
     else
       if request.env["HTTP_REFERER"].present?

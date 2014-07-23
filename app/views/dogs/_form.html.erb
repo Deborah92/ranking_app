@@ -18,7 +18,7 @@
     <p>
       <%= f.label :birth_date %>
       <%#= f.datetime_field :birth_date, "id" => "datepicker", :value => (@dog.birth_date.blank? ? 'dd/mm/yyyy' :@dog.birth_date.strftime('%d/%m/%Y')) %>
-      <%= f.datetime_field :text_date, "id" => "datepicker", :value => (@dog.birth_date.blank? ? 'dd/mm/yyyy' :@dog.birth_date.strftime('%d/%m/%Y')) %>
+      <%= f.text_field :birth_date, "id" => "datepicker", :value => (@dog.birth_date.blank? ? 'dd/mm/yyyy' :@dog.birth_date.strftime('%d/%m/%Y')) %>
 
     </p>
     <%= f.submit %>

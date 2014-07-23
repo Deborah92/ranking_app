@@ -9,7 +9,7 @@ class Ability
     cannot :manage, :all
     
     if user.persisted?
-      can :edit, Dog, user_id: user.id
+      can [:new, :create], Dog
     end
 
     #   if user.admin?
