@@ -8,7 +8,7 @@ Feature: Creating dogs
       | male |        | Samba y Fatiga Idilio   | 27/01/2006 | user1@example.com |
 
     Given there are the following users:
-      | email            | password |
+      | email             | password |
       | user@example.com | password |
 
     And I am signed in as them

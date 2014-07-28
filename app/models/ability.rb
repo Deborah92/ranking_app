@@ -7,9 +7,11 @@ class Ability
     user ||= User.new # guest user (not logged in)
 
     cannot :manage, :all
-    
+
     if user.persisted?
       can [:new, :create], Dog
+      can [:destroy, :edit, :update], Dog if Dog.user_id == user.id
+
     end
 
     #   if user.admin?

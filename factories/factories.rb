@@ -4,6 +4,7 @@ FactoryGirl.define do
     d.titles  'CH OF RUMANIA'
     d.name 'FRAEL VALDERRAMA'
     d.birth_date '01/01/2001'
+    d.user_id '1'
   end
 
   # factory :user do |u|
