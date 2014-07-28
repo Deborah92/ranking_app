@@ -50,9 +50,9 @@ Feature: Editing Dogs
     And I press "Update Dog"
     Then I should see "Birth date can not be in the future"
 
-  Scenario: Updating a dog with an invalid birth date format
-    When I follow "Edit" within "#dog_1"
-    And I click in "Birth date"
-    And I fill in "datepicker" with "1/15/2002"
-    And I press "Update Dog"
-    Then I should see "Birth date must be a valid date"
+#  Scenario: Updating a dog with an invalid birth date format
+#    When I follow "Edit" within "#dog_1"
+#    And I click in "Birth date"
+#    And I fill in "datepicker" with "1/15/2002"
+#    And I press "Update Dog"
+#    Then I should see "Birth date must be a valid date"
