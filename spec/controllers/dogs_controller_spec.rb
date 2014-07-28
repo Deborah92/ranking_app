@@ -16,8 +16,7 @@ describe DogsController do
     end
 
     it 'cannot access to the create action' do
-      post :create, dog: valid_attributes
-      #expect { post :create, dog: valid_attributes }.not_to change(Dog, :count)
+      expect { post :create, dog: valid_attributes }.not_to change(Dog, :count)
       response.should redirect_to(new_user_session_path)
     end
 
@@ -32,7 +31,6 @@ describe DogsController do
     end
 
     it 'cannot access to the delete action' do
-      #dog = Dog.create! valid_attributes
       expect { delete :destroy, id: @dog.to_param }.not_to change(Dog, :count)
       response.should redirect_to(new_user_session_path)
     end

@@ -10,7 +10,8 @@ class Ability
 
     if user.persisted?
       can [:new, :create], Dog
-      can [:destroy, :edit, :update], Dog if Dog.user_id == user.id
+      can [:edit, :update, :destroy], Dog
+      #can [:destroy, :edit, :update], Dog if Dog.user_id == user.id
 
     end
 
