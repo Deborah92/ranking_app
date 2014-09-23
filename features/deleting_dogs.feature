@@ -5,23 +5,31 @@ Feature: Deleting dogs
 
   Background:
     Given there are the following users:
-      | email            | password |
-      | user1@example.com | password |
-      | user2@example.com | password |
+      | email             | password | admin |
+      | user1@example.com | password | false |
+      | user2@example.com | password | false |
+      | admin@example.com | password | true  |
 
     And there are the following dogs:
       | Sex  | Titles | Name                    | Birth Date | Owner             |
       | male |        | Samba y Fatiga Idilio   | 27/01/2006 | user1@example.com |
       | male |        | Fortunato Hautacuperche | 15/05/2008 | user2@example.com |
 
-    And I am signed in as "user1@example.com"
     And I am on the dogs page
 
   Scenario: Deleting a dog with property
-    When I follow "Delete" within "#dog_1"
+    When I am signed in as "user1@example.com"
+    And I follow "Delete" within "#dog_1"
     Then I should see "Dog has been deleted."
     Then I should not see "Samba y Fatiga Idilio"
 
   Scenario: Deleting a dog without property
-    When I follow "Delete" within "#dog_2"
+    When I am signed in as "user1@example.com"
+    And I follow "Delete" within "#dog_2"
     Then I should see "You are not authorized to access this page"
+
+  Scenario: Deleting a dog for admin
+    When I am signed in as "admin@example.com"
+    And I follow "Delete" within "#dog_1"
+    Then I should see "Dog has been deleted."
+    Then I should not see "Samba y Fatiga Idilio"

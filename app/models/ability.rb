@@ -17,6 +17,11 @@ class Ability
 
     end
 
+    if user.admin?
+      can [:edit, :update, :destroy], Dog
+      can [:destroy], User
+    end
+
     #   if user.admin?
     #     can :manage, :all
     #   else

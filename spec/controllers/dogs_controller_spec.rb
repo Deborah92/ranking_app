@@ -41,7 +41,6 @@ describe DogsController do
 
     let(:hacker) { FactoryGirl.create(:user) }
 
-
     before do
       @dog = FactoryGirl.create(:dog)
       sign_in(:user, hacker)
