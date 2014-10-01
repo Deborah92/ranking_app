@@ -19,7 +19,7 @@ class Ability
 
     if user.admin?
       can [:edit, :update, :destroy], Dog
-      can [:destroy], User
+      can [:new, :create, :edit, :update, :destroy], User
     end
 
     #   if user.admin?

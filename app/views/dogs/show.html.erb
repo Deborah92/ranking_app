@@ -1,4 +1,4 @@
-<small>Owned by <%= @dog.user.email %> </small>
+<small>Owned by <%= @dog.user.try :email %> </small>
 <h2><%= @dog.name %></h2>
 
 <table width="20%" border="1" cellspacing="1">
