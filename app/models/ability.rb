@@ -8,6 +8,8 @@ class Ability
 
     cannot :manage, :all
 
+    can :index, User
+
     if user.persisted?
       can [:new, :create], Dog
       can [:edit, :update, :destroy], Dog, ['dogs.user_id = ?', user.id] do |dog|
@@ -18,6 +20,7 @@ class Ability
     end
 
     if user.admin?
+      can :index, :all
       can [:edit, :update, :destroy], Dog
       can [:new, :create, :edit, :update, :destroy], User
     end

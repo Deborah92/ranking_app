@@ -1,6 +1,6 @@
 Feature: Deleting users
   In order to remove needless users
-  As a admin
+  As an admin
   I want to make them disappear
 
   Background:
@@ -15,10 +15,11 @@ Feature: Deleting users
       | male |        | Samba y Fatiga Idilio   | 27/01/2006 | user1@example.com |
       | male |        | Fortunato Hautacuperche | 15/05/2008 | user2@example.com |
 
+    When I am signed in as "admin@example.com"
     And I am on the users page
 
   Scenario: Deleting a user like admin
-    When I am signed in as "admin@example.com"
-    And I follow "Delete" within "#user_1"
+    When I follow "Delete" within "#user_1"
     Then I should see "User has been deleted."
-    Then I should not see "user1@example.com"
+    And I should not see "user1@example.com"
+    And "Samba y Fatiga Idilio" is not deleted

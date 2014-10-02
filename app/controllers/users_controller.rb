@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
+    authorize! :index, @user
     @users = User.all
   end
 
@@ -46,7 +47,7 @@ class UsersController < ApplicationController
     authorize! :destroy, @user
     @user.destroy
     flash[:notice] = "User has been deleted."
-    redirect_to users_path
+    redirect_to users_index_path
   end
 
   private

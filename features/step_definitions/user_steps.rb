@@ -22,3 +22,13 @@ Given(/^I am signed in as "(.*?)"$/) do |email|
   @user = User.find_by_email!(email)
   step("I am signed in as them")
 end
+
+#And /^I follow "([^\"]*)" on the "([^\"]*)" row$/ do |link, row|
+#  within "tr:contains('#{ row }')" do
+#    click_link(link)
+#  end
+#end
+
+And (/"([^\"]*)" is not deleted$/) do |dog|
+  @dog = Dog.find_by_name(dog)
+end
