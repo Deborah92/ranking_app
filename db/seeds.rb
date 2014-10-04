@@ -16,6 +16,12 @@ user2 = User.create(email: 'user2@example.com',
                     password_confirmation: 'password',
                     confirmed_at: DateTime.now)
 
+user3 = User.create(email: 'admin@example.com',
+                    password: 'password',
+                    password_confirmation: 'password',
+                    confirmed_at: DateTime.now,
+                    admin: 'true')
+
 Dog.create(name: 'Samba y Fatiga Idilio',
            sex: 'male', birth_date: '27/01/2006',
            user_id: user1.id)

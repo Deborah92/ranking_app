@@ -1,7 +1,7 @@
 Feature: Editing Users
-  In order to update user information
+  In order to create a user
   As a user
-  I want to be able to do that through an interface
+  I want to create them easily
 
   Background:
     Given there are the following users:
@@ -15,10 +15,9 @@ Feature: Editing Users
 
 
   Scenario: Updating a dog with property
-    When I follow "Edit" within "#user_1"
-    And I fill in "Email" with "user1beta@example.com"
+    When I follow "New User"
+    And I fill in "Email" with "user3@example.com"
     And I fill in "Password" with "password"
     And I fill in "Password confirmation" with "password"
-    And I press "Update User"
-    Then I should see "User has been updated."
-    Then I should be on the user page for "user1beta@example.com"
+    And I press "Create User"
+    Then I should see "A message with a confirmation link has been sent to your email address. Please open the link to activate your account."
