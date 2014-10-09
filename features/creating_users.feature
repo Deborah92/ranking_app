@@ -1,6 +1,6 @@
-Feature: Editing Users
+Feature: Creating Users
   In order to create a user
-  As a user
+  As an admin
   I want to create them easily
 
   Background:
@@ -14,10 +14,21 @@ Feature: Editing Users
     And I am on the users page
 
 
-  Scenario: Updating a dog with property
+  Scenario: Creating a user
     When I follow "New User"
     And I fill in "Email" with "user3@example.com"
     And I fill in "Password" with "password"
     And I fill in "Password confirmation" with "password"
     And I press "Create User"
-    Then I should see "A message with a confirmation link has been sent to your email address. Please open the link to activate your account."
+    Then I should see "User has been created"
+    And I should see "user3@example.com (User)"
+
+  Scenario: Creating an admin user
+    When I follow "New User"
+    When I fill in "Email" with "admin2@example.com"
+    And I fill in "Password" with "password"
+    And I fill in "Password confirmation" with "password"
+    And I check "Is an admin?"
+    And I press "Create User"
+    Then I should see "User has been created."
+    And I should see "admin2@example.com (Admin)"

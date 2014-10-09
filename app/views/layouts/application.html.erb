@@ -10,7 +10,7 @@
 <nav>
   <% if user_signed_in? %>
     <% if current_user.admin='true' %>
-      <%= link_to "Administrar Usuarios", users_index_path %>
+      <%= link_to "Administrar Usuarios", admin_users_path %>
       <% end %>
       Signed in as <%= current_user.email %>
       <%= link_to "Sign out", destroy_user_session_path, method: :delete %>

@@ -1,24 +1,27 @@
-class UsersController < ApplicationController
+class Admin::UsersController < ApplicationController
   before_filter :authorize_admin!, except: [:show]
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  #before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    authorize! :index, @users
     @users = User.all
   end
 
   def new
-    authorize! :new, @user
     @user = User.new
 
   end
 
   def create
-    authorize! :create, @user
     @user = User.new(user_params)
+    if user_params[:admin]=='1'
+      @user.admin = 'true'
+    else
+      @user.admin = 'false'
+    end
+
     if @user.save
       flash[:notice] = 'User has been created.'
-      redirect_to @user
+      redirect_to admin_users_path
     else
       flash[:alert] = 'User has not been created.'
       render 'new'
@@ -30,7 +33,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    authorize! :edit, @user
   end
 
   def update
@@ -52,12 +54,12 @@ class UsersController < ApplicationController
   end
 
   private
-    def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation)
-    end
+  def user_params
+    params.require(:user).permit(:email, :password, :password_confirmation, :admin)
+  end
 
-    def set_user
-      @user = User.find(params[:id])
-    end
+  def set_user
+    @user = User.find(params[:id])
+  end
 
 end
