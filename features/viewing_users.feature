@@ -1,6 +1,6 @@
 Feature: Viewing users
   In order to view the users
-  As an admin
+  As a  admin
   I want to see them on that user's page
 
   Background:
@@ -12,14 +12,14 @@ Feature: Viewing users
 
     And I am on the dogs page
 
-  Scenario: Viewing users like admin
+  Scenario: Viewing users like an admin
     When I am signed in as "admin@example.com"
     And I follow "Administrar Usuarios"
     Then I should see "user1@example.com"
     And I should see "user2@example.com"
     And I should see "admin@example.com"
 
-  Scenario: Viewing users like not admin user
+  Scenario: Viewing users like not an admin user
     When I am signed in as "user1@example.com"
     And I follow "Administrar Usuarios"
-    Then I should see "You are not authorized to access this page."
+    Then I should see "You must be an admin to do that"

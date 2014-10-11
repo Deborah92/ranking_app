@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
   before_filter :authorize_admin!, except: [:show]
-  #before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -36,7 +36,11 @@ class Admin::UsersController < ApplicationController
   end
 
   def update
-    authorize! :update, @user
+    if params[:user][:password].blank?
+      params[:user].delete(:password)
+      params[:user].delete(:password_confirmation)
+    end
+    set_admin
     if @user.update_attributes(user_params)
       flash[:notice] = 'User has been updated.'
       redirect_to @user
@@ -47,10 +51,13 @@ class Admin::UsersController < ApplicationController
   end
 
   def destroy
-    authorize! :destroy, @user
-    @user.destroy
-    flash[:notice] = "User has been deleted."
-    redirect_to users_index_path
+    if @user == current_user
+      flash[:notice] = "You cannot delete yourself"
+    else
+      @user.destroy
+      flash[:notice] = "User has been deleted."
+    end
+    redirect_to admin_users_path
   end
 
   private
@@ -60,6 +67,10 @@ class Admin::UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def set_admin
+    @user.admin = params[:user][:admin] == "1"
   end
 
 end

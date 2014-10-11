@@ -1,6 +1,6 @@
 <%= content_tag_for :tr, dog do %>
   <td><%= dog.name %></td>
-  <td><%= dog.user.try :email %></td>
+  <td><%= link_to dog.user.try(:email), user_path(dog.user) %></td>
   <td><%= link_to("Show", dog) %></td>
   <td><%= link_to("Edit", edit_dog_path(dog)) %></td>
   <td><%= link_to("Delete", dog, method: :delete, data: {confirm: 'Are you sure you want to delete this dog'} ) %></td>

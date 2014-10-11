@@ -1,6 +1,6 @@
 Feature: Editing Users
   In order to update user information
-  As a user
+  As an admin
   I want to be able to do that through an interface
 
   Background:
@@ -11,10 +11,11 @@ Feature: Editing Users
       | admin@example.com  | password | true  |
 
     And I am signed in as "admin@example.com"
-    And I am on the users page
+    And I am on the dogs page
 
   Scenario: Updating a user's details
-    When I follow "Edit" within "#user_1"
+    When I follow "Administrar Usuarios"
+    And I follow "Edit" within "#user_1"
     And I fill in "Email" with "user1beta@example.com"
     And I fill in "Password" with "password"
     And I fill in "Password confirmation" with "password"
@@ -24,17 +25,20 @@ Feature: Editing Users
     And I should not see "user1@example.com"
 
   Scenario: Toggling a user's admin ability
-    When I follow "Edit" within "#user_1"
+    When I follow "Administrar Usuarios"
+    And I follow "Edit" within "#user_1"
     And I fill in "Email" with "user1@example.com"
     And I fill in "Password" with "password"
     And I fill in "Password confirmation" with "password"
     And I check "Is an admin?"
     And I press "Update User"
     Then I should see "User has been updated."
-    And I should see "user1beta@example.com (Admin)"
-    And I should not see "user1@example.com"
+    And I follow "Administrar Usuarios"
+    And I should see "user1@example.com (Admin)"
+    And I should not see "user1@example.com (User)"
 
   Scenario: Updating with an invalid email fails
+    When I follow "Administrar Usuarios"
     When I follow "Edit" within "#user_1"
     And I fill in "Email" with "fakefakefake"
     And I fill in "Password" with "password"

@@ -1,0 +1,20 @@
+<h2><%= @user.email %></h2>
+
+<table width="20%" border="1" cellspacing="1">
+
+  <% @userdogs.each do |dogs| %>
+      <tr>
+        <th>Dog Name</th>
+        <th>Sex</th>
+        <th>Titles</th>
+        <th>Birth Date</th>
+      </tr>
+      <tr>
+        <td><%= dogs.name %></td>
+        <td><%= dogs.sex %></td>
+        <td><%= dogs.titles %></td>
+        <td><%= dogs.birth_date %></td>
+      </tr>
+      </table>
+  <% end %>
+  </tr>
