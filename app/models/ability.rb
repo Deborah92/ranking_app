@@ -15,6 +15,9 @@ class Ability
       can [:edit, :update, :destroy], Dog, ['dogs.user_id = ?', user.id] do |dog|
         dog.user_id == user.id
       end
+      can [:edit, :update], User, ['user.id = ?', user.id] do |u|
+        u.id == user.id
+      end
 
 
     end

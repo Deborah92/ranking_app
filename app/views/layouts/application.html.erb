@@ -11,9 +11,10 @@
   <% if user_signed_in? %>
     <% if current_user.admin='true' %>
       <%= link_to "Administrar Usuarios", admin_users_path %>
-      <% end %>
-      Signed in as <%= current_user.email %>
-      <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+    <% end %>
+    Signed in as <%= current_user.email %>
+    <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+    <%= link_to "Mi perfil", user_path(current_user) %>
   <% else %>
       <%= link_to "Sign up", new_user_registration_path %>
       <%= link_to "Sign in", new_user_session_path %>

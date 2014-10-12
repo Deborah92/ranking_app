@@ -32,3 +32,27 @@ Feature: Creating Users
     And I press "Create User"
     Then I should see "User has been created."
     And I should see "admin2@example.com (Admin)"
+
+  Scenario: Creating a user without password
+    When I follow "New User"
+    And I fill in "Email" with "user3@example.com"
+    And I press "Create User"
+    Then I should see "User has not been created"
+    And I should see "Password can't be blank"
+
+  Scenario: Creating a user without email
+    When I follow "New User"
+    And I fill in "Password" with "password"
+    And I fill in "Password confirmation" with "password"
+    And I press "Create User"
+    Then I should see "User has not been created"
+    And I should see "Email can't be blank"
+
+  Scenario: Creating a user with a different password and confirmation password
+    When I follow "New User"
+    And I fill in "Email" with "user3@example.com"
+    And I fill in "Password" with "password"
+    And I fill in "Password confirmation" with "pasword"
+    And I press "Create User"
+    Then I should see "User has not been created"
+    And I should see "Password confirmation doesn't match Password"

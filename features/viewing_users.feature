@@ -19,7 +19,7 @@ Feature: Viewing users
     And I should see "user2@example.com"
     And I should see "admin@example.com"
 
-  Scenario: Viewing users like not an admin user
+  Scenario: Viewing users like other user
     When I am signed in as "user1@example.com"
     And I follow "Administrar Usuarios"
     Then I should see "You must be an admin to do that"
