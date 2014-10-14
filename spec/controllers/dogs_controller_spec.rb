@@ -4,8 +4,7 @@ describe DogsController do
 
   let(:user) { FactoryGirl.create(:user) }
 
-  let(:valid_attributes) { {name: 'Samba y Fatiga Idilio', sex: 'male', birth_date: '01/01/2001',
-                            user_id: user.id}  }
+  let(:valid_attributes) { {name: 'Samba y Fatiga Idilio', sex: 'male', birth_date: '01/01/2001', user_id: user.id}  }
 
   context 'Guest users (not logged-in users)' do
 

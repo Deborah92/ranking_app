@@ -40,7 +40,7 @@ Feature: Editing Users
 
   Scenario: Updating a user's details like own user
     When I am signed in as "user1@example.com"
-    And I follow "Mi perfil"
+    And I follow "My profile"
     And I follow "Edit User"
     And I fill in "Email" with "user1beta@example.com"
     And I fill in "Password" with "password"
@@ -64,7 +64,7 @@ Feature: Editing Users
 
   Scenario: Updating with an invalid email fails like own user
     When I am signed in as "user1@example.com"
-    And I follow "Mi perfil"
+    And I follow "My profile"
     And I follow "Edit User"
     And I fill in "Email" with "fakefakefake"
     And I fill in "Password" with "password"
