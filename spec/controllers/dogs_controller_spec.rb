@@ -34,6 +34,16 @@ describe DogsController do
       expect { delete :destroy, id: @dog.to_param }.not_to change(Dog, :count)
       response.should redirect_to(new_user_session_path)
     end
+
+    it 'cannot access to the show action' do
+      get :show, id: @dog.to_param
+      response.should be_success
+    end
+
+    it 'cannot access to the index action' do
+      get :index
+      response.should be_success
+    end
   end
 
   context 'Non-creator users (logged-in users)' do
@@ -64,4 +74,5 @@ describe DogsController do
     end
 
   end
+
 end

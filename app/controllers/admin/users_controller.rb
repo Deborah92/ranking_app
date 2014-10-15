@@ -43,7 +43,7 @@ class Admin::UsersController < ApplicationController
     set_admin
     if @user.update_attributes(user_params)
       flash[:notice] = 'User has been updated.'
-      redirect_to @user
+      redirect_to admin_user_path
     else
       flash[:alert] = 'User has not been updated.'
       render 'edit'
@@ -52,7 +52,7 @@ class Admin::UsersController < ApplicationController
 
   def destroy
     if @user == current_user
-      flash[:notice] = "You cannot delete yourself"
+      flash[:alert] = "You cannot delete yourself"
     else
       @user.destroy
       flash[:notice] = "User has been deleted."

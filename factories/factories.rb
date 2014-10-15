@@ -18,6 +18,10 @@ FactoryGirl.define do
     u.password 'password'
     u.password_confirmation 'password'
 
+    factory :admin do
+      admin true
+    end
+
     after :create, &:confirm!
   end
 
