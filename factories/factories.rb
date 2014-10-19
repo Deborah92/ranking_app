@@ -25,4 +25,10 @@ FactoryGirl.define do
     after :create, &:confirm!
   end
 
+  factory :exhibition do |e|
+    e.name 'exhibition 1'
+    e.date '27/03/2015'
+    e.type 'type 1'
+  end
+
 end

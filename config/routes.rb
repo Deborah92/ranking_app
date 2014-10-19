@@ -10,6 +10,7 @@ RankingApp::Application.routes.draw do
 
   resources :dogs
   resources :users
+  resources :exhibitions
 
   namespace :admin do
     resources :users # Have the admin manage them here.
