@@ -5,9 +5,9 @@ Feature: Editing Exhibitions
 
   Background:
     Given there are the following exhibitions:
-      | name         | date       | type   |
-      | exhibition 1 | 27/03/2015 | type 1 |
-      | exhibition 2 | 15/07/2015 | type 2 |
+      | name         | date       | type      |
+      | exhibition 1 | 27/03/2015 | B.I.S.    |
+      | exhibition 2 | 15/07/2015 | 2º B.I.S. |
 
     Given there are the following users:
       | email             | password | admin |
@@ -50,15 +50,6 @@ Feature: Editing Exhibitions
     And I press "Update Exhibition"
     Then I should see "Exhibition has not been updated."
     And I should see "Date can't be blank"
-
-  Scenario: Updating a exhibition without type
-    When I am signed in as "admin@example.com"
-    And I follow "Exhibitions"
-    And I follow "Edit" within "#exhibition_1"
-    And I fill in "Type" with ""
-    And I press "Update Exhibition"
-    Then I should see "Exhibition has not been updated."
-    And I should see "Type can't be blank"
 
   Scenario: Updating a exhibition with date at the past
     And I am signed in as "admin@example.com"

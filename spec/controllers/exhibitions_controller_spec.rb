@@ -4,7 +4,7 @@ describe ExhibitionsController do
 
   let(:user) { FactoryGirl.create(:user) }
 
-  let(:valid_attributes) { {name: 'Exhibition 1', date: '28/05/2015', type: 'Type 1'}  }
+  let(:valid_attributes) { {name: 'Exhibition 1', date: '28/05/2015', type: 'B.I.S.'}  }
 
   context 'Guest users about exhibitions' do
 

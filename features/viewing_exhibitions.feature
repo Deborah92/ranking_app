@@ -5,9 +5,9 @@ Feature: Viewing exhibitions
 
   Background:
     Given there are the following exhibitions:
-      | name         | date       | type   |
-      | exhibition 1 | 27/03/2015 | type 1 |
-      | exhibition 2 | 15/07/2015 | type 2 |
+      | name         | date       | type      |
+      | exhibition 1 | 27/03/2015 | B.I.S.    |
+      | exhibition 2 | 15/07/2015 | 2º B.I.S. |
 
     Given there are the following users:
       | email             | password | admin |

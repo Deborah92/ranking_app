@@ -5,7 +5,7 @@ Feature: Creating exhibitions
   Background:
     Given there are the following exhibitions:
       | name         | date       | type   |
-      | exhibition 1 | 27/03/2015 | type 1 |
+      | exhibition 1 | 27/03/2015 | B.I.S. |
 
     Given there are the following users:
       | email             | password | admin |
@@ -21,7 +21,7 @@ Feature: Creating exhibitions
     And I fill in "Name" with "exhibition 2"
     And I click in "Date"
     And I fill in "datepicker" with "15/06/2015"
-    And I fill in "Type" with "Type 2"
+    And I select "B.I.S." from "Type"
     And I press "Create Exhibition"
     Then I should see "Exhibition has been created."
     And I should see "exhibition 2"
@@ -39,7 +39,7 @@ Feature: Creating exhibitions
     And I fill in "Name" with ""
     And I click in "Date"
     And I fill in "datepicker" with "15/06/2015"
-    And I fill in "Type" with "Type 2"
+    And I select "B.I.S." from "Type"
     And I press "Create Exhibition"
     Then I should see "Exhibition has not been created."
     And I should see "Name can't be blank"
@@ -51,7 +51,7 @@ Feature: Creating exhibitions
     And I fill in "Name" with "exhibition 2"
     And I click in "Date"
     And I fill in "datepicker" with ""
-    And I fill in "Type" with "Type 2"
+    And I select "B.I.S." from "Type"
     And I press "Create Exhibition"
     Then I should see "Exhibition has not been created."
     And I should see "Date can't be blank"
@@ -63,7 +63,7 @@ Feature: Creating exhibitions
     And I fill in "Name" with "exhibition 2"
     And I click in "Date"
     And I fill in "datepicker" with "15/06/2015"
-    And I fill in "Type" with ""
+    And I select "Type..." from "Type"
     And I press "Create Exhibition"
     Then I should see "Exhibition has not been created."
     And I should see "Type can't be blank"
@@ -75,7 +75,7 @@ Feature: Creating exhibitions
     And I fill in "Name" with "exhibition 2"
     And I click in "Date"
     And I fill in "datepicker" with "15/05/2004"
-    And I fill in "Type" with "Type 2"
+    And I select "B.I.S." from "Type"
     And I press "Create Exhibition"
     Then I should see "Exhibition has not been created."
     Then I should see "Date can not be at the past"
