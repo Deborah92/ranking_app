@@ -1,3 +1,7 @@
+<% content_for :head do %>
+    <%= javascript_include_tag 'dogs', "data-turbolinks-track" => false  %>
+<%end%>
+
 <%= form_for @dog do |f| %>
     <% @dog.errors.full_messages.each do |message| %>
         <p><%= message %></p>

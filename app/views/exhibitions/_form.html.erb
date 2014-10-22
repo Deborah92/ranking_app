@@ -1,3 +1,7 @@
+<% content_for :head do %>
+    <%= javascript_include_tag 'exhibitions', "data-turbolinks-track" => false  %>
+<%end%>
+
 <%= form_for @exhibition do |f| %>
     <% @exhibition.errors.full_messages.each do |message| %>
         <p><%= message %></p>
@@ -13,7 +17,8 @@
     </p>
     <p>
       <%= f.label :type %>
-      <%= f.text_field :type  %>
+      <%= f.select :type, [['B.I.S.'],['2º B.I.S.'],['3º B.I.S.'],['1º GRUPO'],['2º GRUPO'],['3º GRUPO'],['MEJOR RAZA'],['BOS'],['CACIB'],
+                           ['R.CACIB'],['RAPPEL CAC'],['CAC'],['R.CAC'],['MEJOR JOVEN'],['CCJ/EXC.1(JOVEN)']], prompt: 'Type...'  %>
     </p>
     <%= f.submit %>
 <% end %>
