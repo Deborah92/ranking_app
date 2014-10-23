@@ -1,4 +1,5 @@
 class Exhibition < ActiveRecord::Base
+  has_many :point
   validates_presence_of :name, :date, :type
   self.inheritance_column = nil
   validate :past_date
