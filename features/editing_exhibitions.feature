@@ -5,9 +5,9 @@ Feature: Editing Exhibitions
 
   Background:
     Given there are the following exhibitions:
-      | name         | date       | type      |
-      | exhibition 1 | 27/03/2015 | B.I.S.    |
-      | exhibition 2 | 15/07/2015 | 2º B.I.S. |
+      | name         | date       | type                 |
+      | exhibition 1 | 27/03/2015 | MONOGRÁFICA NACIONAL |
+      | exhibition 2 | 15/07/2015 | Punto Obligatorio    |
 
     Given there are the following users:
       | email             | password | admin |

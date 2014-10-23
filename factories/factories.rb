@@ -28,7 +28,7 @@ FactoryGirl.define do
   factory :exhibition do |e|
     e.name 'exhibition 1'
     e.date '27/03/2015'
-    e.type 'B.I.S.'
+    e.type 'MONOGRÁFICA NACIONAL'
   end
 
 end

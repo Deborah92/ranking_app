@@ -4,8 +4,8 @@ Feature: Creating exhibitions
   I want to create them easily
   Background:
     Given there are the following exhibitions:
-      | name         | date       | type   |
-      | exhibition 1 | 27/03/2015 | B.I.S. |
+      | name         | date       | type                  |
+      | exhibition 1 | 27/03/2015 | MONOGRÁFICA NACIONAL |
 
     Given there are the following users:
       | email             | password | admin |
@@ -21,7 +21,7 @@ Feature: Creating exhibitions
     And I fill in "Name" with "exhibition 2"
     And I click in "Date"
     And I fill in "datepicker" with "15/06/2015"
-    And I select "B.I.S." from "Type"
+    And I select "MONOGRÁFICA NACIONAL" from "Type"
     And I press "Create Exhibition"
     Then I should see "Exhibition has been created."
     And I should see "exhibition 2"
@@ -39,7 +39,7 @@ Feature: Creating exhibitions
     And I fill in "Name" with ""
     And I click in "Date"
     And I fill in "datepicker" with "15/06/2015"
-    And I select "B.I.S." from "Type"
+    And I select "MONOGRÁFICA NACIONAL" from "Type"
     And I press "Create Exhibition"
     Then I should see "Exhibition has not been created."
     And I should see "Name can't be blank"
@@ -51,7 +51,7 @@ Feature: Creating exhibitions
     And I fill in "Name" with "exhibition 2"
     And I click in "Date"
     And I fill in "datepicker" with ""
-    And I select "B.I.S." from "Type"
+    And I select "MONOGRÁFICA NACIONAL" from "Type"
     And I press "Create Exhibition"
     Then I should see "Exhibition has not been created."
     And I should see "Date can't be blank"
@@ -75,7 +75,7 @@ Feature: Creating exhibitions
     And I fill in "Name" with "exhibition 2"
     And I click in "Date"
     And I fill in "datepicker" with "15/05/2004"
-    And I select "B.I.S." from "Type"
+    And I select "MONOGRÁFICA NACIONAL" from "Type"
     And I press "Create Exhibition"
     Then I should see "Exhibition has not been created."
     Then I should see "Date can not be at the past"
