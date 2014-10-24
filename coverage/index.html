@@ -14,26 +14,26 @@
       <img src="./assets/0.8.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2014-10-23T16:41:46+01:00">2014-10-23T16:41:46+01:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2014-10-24T12:24:46+01:00">2014-10-24T12:24:46+01:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="yellow">85.06%</span></span>
+    (<span class="covered_percent"><span class="yellow">85.1%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         5.81
+         5.8
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>36</b> files in total.
-    <b>415</b> relevant lines. 
-    <span class="green"><b>353</b> lines covered</span> and
+    <b>416</b> relevant lines. 
+    <span class="green"><b>354</b> lines covered</span> and
     <span class="red"><b>62</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -163,11 +163,11 @@
       <tr>
         <td class="strong"><a href="#6dbe66e52167e160c933f2de52be51d09370a30d" class="src_link" title="app/models/exhibition.rb">app/models/exhibition.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>14</td>
-        <td>9</td>
-        <td>9</td>
+        <td>15</td>
+        <td>10</td>
+        <td>10</td>
         <td>0</td>
-        <td>4.4</td>
+        <td>4.1</td>
       </tr>
       
       <tr>
@@ -2849,8 +2849,8 @@
     <h3>app/models/exhibition.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>9</b> relevant lines. 
-      <span class="green"><b>9</b> lines covered</span> and
+      <b>10</b> relevant lines. 
+      <span class="green"><b>10</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -2867,76 +2867,82 @@
         <li class="covered" data-hits="1" data-linenumber="2">
           <span class="hits">1</span>
           
-          <code class="ruby">  validates_presence_of :name, :date, :type</code>
+          <code class="ruby">  has_many :point</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
-          <code class="ruby">  self.inheritance_column = nil</code>
+          <code class="ruby">  validates_presence_of :name, :date, :type</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="4">
           <span class="hits">1</span>
           
-          <code class="ruby">  validate :past_date</code>
+          <code class="ruby">  self.inheritance_column = nil</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="5">
           <span class="hits">1</span>
           
+          <code class="ruby">  validate :past_date</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="6">
+          <span class="hits">1</span>
+          
           <code class="ruby">  TYPE = [&#39;MONOGRÁFICA NACIONAL&#39;,&#39;CONCURSO MONOGRÁFICO NACIONAL O REGIONAL&#39;,&#39;Especial A.E.F.R.B.F.&#39;,&#39;Punto Obligatorio&#39;,</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="6">
+        <li class="never" data-hits="" data-linenumber="7">
           
           
-          <code class="ruby">          &#39;EXPOSICIÓN INTERNACIONAL&#39;,&#39;EXPOSICION NACIONAL&#39;]</code>
+          <code class="ruby">          &#39;EXPOSICIÓN INTERNACIONAL&#39;,&#39;EXPOSICIÓN NACIONAL&#39;]</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="7">
+        <li class="covered" data-hits="1" data-linenumber="8">
           <span class="hits">1</span>
           
           <code class="ruby">  validates_inclusion_of :type, in: TYPE</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="8">
+        <li class="never" data-hits="" data-linenumber="9">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="9">
+        <li class="covered" data-hits="1" data-linenumber="10">
           <span class="hits">1</span>
           
           <code class="ruby">  def past_date</code>
         </li>
       
-        <li class="covered" data-hits="31" data-linenumber="10">
+        <li class="covered" data-hits="31" data-linenumber="11">
           <span class="hits">31</span>
           
           <code class="ruby">    if !date.blank? and date &lt; Date.today</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="11">
+        <li class="covered" data-hits="2" data-linenumber="12">
           <span class="hits">2</span>
           
           <code class="ruby">      errors.add(:date, &quot;can not be at the past&quot;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="12">
+        <li class="never" data-hits="" data-linenumber="13">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="13">
+        <li class="never" data-hits="" data-linenumber="14">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="14">
+        <li class="never" data-hits="" data-linenumber="15">
           
           
           <code class="ruby">end</code>

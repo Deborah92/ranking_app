@@ -4,7 +4,7 @@ class Exhibition < ActiveRecord::Base
   self.inheritance_column = nil
   validate :past_date
   TYPE = ['MONOGRÁFICA NACIONAL','CONCURSO MONOGRÁFICO NACIONAL O REGIONAL','Especial A.E.F.R.B.F.','Punto Obligatorio',
-          'EXPOSICIÓN INTERNACIONAL','EXPOSICION NACIONAL']
+          'EXPOSICIÓN INTERNACIONAL','EXPOSICIÓN NACIONAL']
   validates_inclusion_of :type, in: TYPE
 
   def past_date
