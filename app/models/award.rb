@@ -1,0 +1,10 @@
+class Award < ActiveRecord::Base
+  has_many :points
+
+  validates_presence_of :award
+  AWARD = ['B.I.S.','2º B.I.S.','3º B.I.S.','1º GRUPO','2ºGRUPO','3º GRUPO','MEJOR DE RAZA','BOS','CACIB','R.CACIB','RAPPEL CAC',
+          'CAC','R.CAC','Mejor Joven','CCJ/Exc.1 (Joven)']
+  validates_inclusion_of :award, in: AWARD
+
+
+end

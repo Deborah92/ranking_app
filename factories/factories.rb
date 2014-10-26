@@ -25,10 +25,17 @@ FactoryGirl.define do
     after :create, &:confirm!
   end
 
+  factory :type do |t|
+    ['MONOGRÁFICA NACIONAL','CONCURSO MONOGRÁFICO NACIONAL O REGIONAL','Especial A.E.F.R.B.F.','Punto Obligatorio',
+     'EXPOSICIÓN INTERNACIONAL','EXPOSICIÓN NACIONAL'].each do |n|
+      t.name n
+    end
+  end
+
   factory :exhibition do |e|
     e.name 'exhibition 1'
     e.date '27/03/2015'
-    e.type 'MONOGRÁFICA NACIONAL'
+    e.type
   end
 
 end

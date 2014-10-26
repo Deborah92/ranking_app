@@ -1,7 +1,8 @@
 class Point < ActiveRecord::Base
-  belongs_to  :exhibition
+  belongs_to  :type
+  belongs_to  :award
 
-  validates_presence_of :year, :exhibition_id, :award, :npoint
+  validates_presence_of :year, :type_id, :award_id, :npoint
 
 
 end

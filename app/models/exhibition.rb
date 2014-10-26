@@ -1,11 +1,11 @@
 class Exhibition < ActiveRecord::Base
-  has_many :point
-  validates_presence_of :name, :date, :type
-  self.inheritance_column = nil
+  belongs_to :type
+  validates_presence_of :name, :date, :type_id
+  #self.inheritance_column = nil
   validate :past_date
-  TYPE = ['MONOGRÁFICA NACIONAL','CONCURSO MONOGRÁFICO NACIONAL O REGIONAL','Especial A.E.F.R.B.F.','Punto Obligatorio',
-          'EXPOSICIÓN INTERNACIONAL','EXPOSICIÓN NACIONAL']
-  validates_inclusion_of :type, in: TYPE
+  #TYPE = ['MONOGRÁFICA NACIONAL','CONCURSO MONOGRÁFICO NACIONAL O REGIONAL','Especial A.E.F.R.B.F.','Punto Obligatorio',
+  #        'EXPOSICIÓN INTERNACIONAL','EXPOSICIÓN NACIONAL']
+  #validates_inclusion_of :type, in: TYPE
 
   def past_date
     if !date.blank? and date < Date.today

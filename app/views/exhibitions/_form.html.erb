@@ -16,9 +16,8 @@
       <%= f.text_field :date, "id" => "datepicker", :value => (@exhibition.date.blank? ? 'dd/mm/yyyy' :@exhibition.date.strftime('%d/%m/%Y')) %>
     </p>
     <p>
-      <%= f.label :type %>
-      <%= f.select :type, [['MONOGRÁFICA NACIONAL'],['CONCURSO MONOGRÁFICO NACIONAL O REGIONAL'],['Especial A.E.F.R.B.F.'],
-                           ['Punto Obligatorio'],['EXPOSICIÓN INTERNACIONAL'],['EXPOSICIÓN NACIONAL']], prompt: 'Type...'  %>
+      <%= f.label :type_id %>
+      <%= f.collection_select :type_id, Type.all, :id, :name, include_blank: true %>
     </p>
     <%= f.submit %>
 <% end %>

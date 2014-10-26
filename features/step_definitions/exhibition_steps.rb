@@ -1,5 +1,6 @@
 Given(/^there are the following exhibitions:$/) do |table|
   # table is a Cucumber::Ast::Table
+  table.map_headers!( 'name' => :name, 'date' => :date, 'type' => :type_id )
   table.hashes.each do |attributes|
     FactoryGirl.create(:exhibition, attributes)
   end

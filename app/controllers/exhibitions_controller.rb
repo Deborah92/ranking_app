@@ -47,7 +47,7 @@ class ExhibitionsController < ApplicationController
 
   private
   def exhibition_params
-    params.require(:exhibition).permit(:name, :date, :type)
+    params.require(:exhibition).permit(:name, :date, :type_id)
   end
 
   def set_exhibition
