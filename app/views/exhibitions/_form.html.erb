@@ -17,7 +17,7 @@
     </p>
     <p>
       <%= f.label :type_id %>
-      <%= f.collection_select :type_id, Type.all, :id, :name, include_blank: true %>
+      <%= f.collection_select :type_id, Type.all, :id, :name, prompt: 'Type...' %>
     </p>
     <%= f.submit %>
 <% end %>

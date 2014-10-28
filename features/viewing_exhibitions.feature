@@ -4,6 +4,15 @@ Feature: Viewing exhibitions
   I want to see them on that exhibition's page
 
   Background:
+    Given there are the following types:
+      | name                                     |
+      | MONOGRÁFICA NACIONAL                     |
+      | CONCURSO MONOGRÁFICO NACIONAL O REGIONAL |
+      | Especial A.E.F.R.B.F.                    |
+      | Punto Obligatorio                        |
+      | EXPOSICIÓN INTERNACIONAL                 |
+      | EXPOSICIÓN NACIONAL                      |
+
     Given there are the following exhibitions:
       | name         | date       | type                 |
       | exhibition 1 | 27/03/2015 | MONOGRÁFICA NACIONAL |

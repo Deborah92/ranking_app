@@ -26,10 +26,10 @@ FactoryGirl.define do
   end
 
   factory :type do |t|
-    ['MONOGRÁFICA NACIONAL','CONCURSO MONOGRÁFICO NACIONAL O REGIONAL','Especial A.E.F.R.B.F.','Punto Obligatorio',
-     'EXPOSICIÓN INTERNACIONAL','EXPOSICIÓN NACIONAL'].each do |n|
-      t.name n
-    end
+    #['MONOGRÁFICA NACIONAL','CONCURSO MONOGRÁFICO NACIONAL O REGIONAL','Especial A.E.F.R.B.F.','Punto Obligatorio',
+    # 'EXPOSICIÓN INTERNACIONAL','EXPOSICIÓN NACIONAL'].each do |n|
+      t.name 'MONOGRÁFICA NACIONAL'
+    #end
   end
 
   factory :exhibition do |e|

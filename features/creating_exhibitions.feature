@@ -3,6 +3,15 @@ Feature: Creating exhibitions
   As an admin
   I want to create them easily
   Background:
+    Given there are the following types:
+      | name                                     |
+      | MONOGRÁFICA NACIONAL                     |
+      | CONCURSO MONOGRÁFICO NACIONAL O REGIONAL |
+      | Especial A.E.F.R.B.F.                    |
+      | Punto Obligatorio                        |
+      | EXPOSICIÓN INTERNACIONAL                 |
+      | EXPOSICIÓN NACIONAL                      |
+
     Given there are the following exhibitions:
       | name         | date       | type                 |
       | exhibition 1 | 27/03/2015 | MONOGRÁFICA NACIONAL |
@@ -21,7 +30,6 @@ Feature: Creating exhibitions
     And I fill in "Name" with "exhibition 2"
     And I click in "Date"
     And I fill in "datepicker" with "15/06/2015"
-    And Save and open page
     And I select "MONOGRÁFICA NACIONAL" from "Type"
     And I press "Create Exhibition"
     Then I should see "Exhibition has been created."
@@ -40,7 +48,6 @@ Scenario: Creating an exhibition without name
     And I fill in "Name" with ""
     And I click in "Date"
     And I fill in "datepicker" with "15/06/2015"
-    And Save and open page
     And I select "MONOGRÁFICA NACIONAL" from "Type"
     And I press "Create Exhibition"
     Then I should see "Exhibition has not been created."

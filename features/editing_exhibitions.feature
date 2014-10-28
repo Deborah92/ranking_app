@@ -4,6 +4,15 @@ Feature: Editing Exhibitions
   I want to be able to do that through an interface
 
   Background:
+    Given there are the following types:
+      | name                                     |
+      | MONOGRÁFICA NACIONAL                     |
+      | CONCURSO MONOGRÁFICO NACIONAL O REGIONAL |
+      | Especial A.E.F.R.B.F.                    |
+      | Punto Obligatorio                        |
+      | EXPOSICIÓN INTERNACIONAL                 |
+      | EXPOSICIÓN NACIONAL                      |
+
     Given there are the following exhibitions:
       | name         | date       | type                 |
       | exhibition 1 | 27/03/2015 | MONOGRÁFICA NACIONAL |
@@ -21,6 +30,7 @@ Feature: Editing Exhibitions
     And I follow "Exhibitions"
     And I follow "Edit" within "#exhibition_1"
     And I fill in "Name" with "exhibition beta 1"
+    And Save and open page
     And I press "Update Exhibition"
     Then I should see "Exhibition has been updated."
     And I should see "exhibition beta 1"
