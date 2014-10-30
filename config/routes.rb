@@ -11,9 +11,11 @@ RankingApp::Application.routes.draw do
   resources :dogs
   resources :users
   resources :exhibitions
+  resources :results
 
   namespace :admin do
     resources :users # Have the admin manage them here.
+    resources :results
   end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

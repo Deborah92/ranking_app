@@ -1,0 +1,17 @@
+<h1>Results#show</h1>
+
+<%= link_to("Edit Result", edit_admin_result_path)  %>
+<table width="20%" border="1" cellspacing="1">
+  <tr>
+    <th>Exhibition</th>
+    <th>Award</th>
+    <th>Dog</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td><%= @exhibition.exhibition %></td>
+    <td><%= @exhibition.award %></td>
+    <td><%= @exhibition.dog %></td>
+    <td><%= @exhibition.status %></td>
+  </tr>
+</table>

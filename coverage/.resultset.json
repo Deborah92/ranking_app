@@ -949,7 +949,7 @@
       ],
       "/home/invitado/rails_projects/ranking_app/features/step_definitions/util_steps.rb": [
         1,
-        1,
+        0,
         null
       ],
       "/home/invitado/rails_projects/ranking_app/features/step_definitions/web_steps.rb": [
@@ -1380,7 +1380,7 @@
         null
       ]
     },
-    "timestamp": 1414498234
+    "timestamp": 1414664703
   },
   "RSpec": {
     "coverage": {

@@ -1,8 +1,61 @@
 require 'spec_helper'
 feature "Seed Data" do
+
   scenario "The basics" do
     load Rails.root + "db/seeds.rb"
-    admin = User.where(email: "admin@example.com").first!
+    User.where(email: "admin@example.com").first!
+  end
+
+  scenario "Types" do
+    load Rails.root + "db/seeds.rb"
+    Type.all.count.should eq 6
+  end
+
+  scenario "Awards" do
+    load Rails.root + "db/seeds.rb"
+    Award.all.count.should eq 15
+  end
+
+  scenario "Exhibitions" do
+    load Rails.root + "db/seeds.rb"
+    Exhibition.all.count.should eq 3
+    Exhibition.where(type_id: Type.where(name: 'MONOGRÁFICA NACIONAL')).count.should eq 2
+    Exhibition.where(type_id: '3').count.should eq 1
+  end
+
+  scenario "MONOGRÁFICA NACIONAL" do
+    load Rails.root + "db/seeds.rb"
+    Point.where(type_id: '1').count.should eq 7
+  end
+
+  scenario "CONCURSO MONOGRÁFICO NACIONAL O REGIONAL" do
+    load Rails.root + "db/seeds.rb"
+    Point.where(type_id: '2').count.should eq 4
+  end
+
+  scenario "Especial A.E.F.R.B.F." do
+    load Rails.root + "db/seeds.rb"
+    Point.where(type_id: '3').count.should eq 14
+  end
+
+  scenario "Punto Obligatorio" do
+    load Rails.root + "db/seeds.rb"
+    Point.where(type_id: '4').count.should eq 14
+  end
+
+  scenario "EXPOSICIÓN INTERNACIONAL" do
+    load Rails.root + "db/seeds.rb"
+    Point.where(type_id: '5').count.should eq 13
+  end
+
+  scenario "EXPOSICIÓN NACIONAL" do
+    load Rails.root + "db/seeds.rb"
+    Point.where(type_id: '6').count.should eq 14
+  end
+
+  scenario "Points" do
+    load Rails.root + "db/seeds.rb"
+    Point.where(year: '2014').count.should eq 66
   end
 
 #  scenario "The basics" do

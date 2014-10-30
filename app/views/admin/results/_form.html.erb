@@ -1,0 +1,23 @@
+<%= form_for @result do |f| %>
+    <% @result.errors.full_messages.each do |message| %>
+        <p><%= message %></p>
+    <% end %>
+
+    <p>
+      <%= f.label :exhibition_id %>
+      <%= f.collection_select :exhibition_id, Exhibition.all, :id, :name, prompt: 'Exhibition...' %>
+    </p>
+    <p>
+      <%= f.label :award_id %>
+      <%= f.collection_select :award_id, Award.all, :id, :award, prompt: 'Award...' %>
+    </p>
+    <p>
+      <%= f.label :dog_id %>
+      <%= f.collection_select :dog_id, Dog.all, :id, :name, prompt: 'Dog...' %>
+    </p>
+    <p>
+      <%= f.label :status %>
+      <%= f.select :status, ['Pending','Validated', 'Rejected'], prompt: 'Status...' %>
+    </p>
+    <%= f.submit %>
+<% end %>

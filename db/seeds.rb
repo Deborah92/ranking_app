@@ -40,90 +40,44 @@ end
   Award.where(award: a).first_or_create!
 end
 
+[['Exhibition 1', '26/12/2014', '1'],['Exhibition 2', '27/12/2014', '3'],
+ ['Exhibition 3', '28/12/2014', '1']].each do |n, d, t|
+  Exhibition.where(name: n, date: d, type_id: t).first_or_create
+end
 
-
-#exhibition1 = Exhibition.create(name: 'MONOGRÁFICA NACIONAL', date: '26/12/2014', type: 'MONOGRÁFICA NACIONAL')
-#exhibition2 = Exhibition.create(name: 'CONCURSO MONOGRÁFICO NACIONAL O REGIONAL', date: '27/12/2014', type: 'CONCURSO MONOGRÁFICO NACIONAL O REGIONAL')
-#exhibition3 = Exhibition.create(name: 'Especial A.E.F.R.B.F.', date: '28/12/2014', type: 'Especial A.E.F.R.B.F.')
-#exhibition4 = Exhibition.create(name: 'Punto Obligatorio', date: '29/12/2014', type: 'Punto Obligatorio')
-#exhibition5 = Exhibition.create(name: 'EXPOSICIÓN INTERNACIONAL', date: '30/12/2014', type: 'EXPOSICIÓN INTERNACIONAL')
-#exhibition6 = Exhibition.create(name: 'EXPOSICIÓN NACIONAL', date: '31/12/2014', type: 'EXPOSICIÓN NACIONAL')
-#
-#
-######### MONOGRÁFICO NACIONAL ##########
-#Point.create(year: '2014', exhibition_id: exhibition1.id, award: 'MEJOR DE RAZA', npoint: '200')
-#Point.create(year: '2014', exhibition_id: exhibition1.id, award: 'BOS', npoint: '150')
-#Point.create(year: '2014', exhibition_id: exhibition1.id, award: 'RAPPEL CAC', npoint: '125')
-#Point.create(year: '2014', exhibition_id: exhibition1.id, award: 'CAC', npoint: '100')
-#Point.create(year: '2014', exhibition_id: exhibition1.id, award: 'R.CAC', npoint: '50')
-#Point.create(year: '2014', exhibition_id: exhibition1.id, award: 'Mejor Joven', npoint: '50')
-#Point.create(year: '2014', exhibition_id: exhibition1.id, award: 'CCJ/Exc.1 (Joven)', npoint: '30')
-#
-######### CONCURSO MONOGRÁFICO NACIONAL O REGIONAL ##########
-#Point.create(year: '2014', exhibition_id: exhibition2.id, award: 'MEJOR DE RAZA', npoint: '150')
-#Point.create(year: '2014', exhibition_id: exhibition2.id, award: 'BOS', npoint: '110')
-#Point.create(year: '2014', exhibition_id: exhibition2.id, award: 'Mejor Joven', npoint: '35')
-#Point.create(year: '2014', exhibition_id: exhibition2.id, award: 'CCJ/Exc.1 (Joven)', npoint: '25')
-#
-######### Especial A.E.F.R.B.F. ##########
-#Point.create(year: '2014', exhibition_id: exhibition3.id, award: 'B.I.S.', npoint: '250')
-#Point.create(year: '2014', exhibition_id: exhibition3.id, award: '2º B.I.S.', npoint: '225')
-#Point.create(year: '2014', exhibition_id: exhibition3.id, award: '3º B.I.S.', npoint: '200')
-#Point.create(year: '2014', exhibition_id: exhibition3.id, award: '1º GRUPO', npoint: '175')
-#Point.create(year: '2014', exhibition_id: exhibition3.id, award: '2º GRUPO', npoint: '150')
-#Point.create(year: '2014', exhibition_id: exhibition3.id, award: '3º GRUPO', npoint: '125')
-#Point.create(year: '2014', exhibition_id: exhibition3.id, award: 'MEJOR DE RAZA', npoint: '100')
-#Point.create(year: '2014', exhibition_id: exhibition3.id, award: 'CACIB', npoint: '75')
-#Point.create(year: '2014', exhibition_id: exhibition3.id, award: 'R.CACIB', npoint: '35')
-#Point.create(year: '2014', exhibition_id: exhibition3.id, award: 'RAPPEL CAC', npoint: '55')
-#Point.create(year: '2014', exhibition_id: exhibition3.id, award: 'CAC', npoint: '50')
-#Point.create(year: '2014', exhibition_id: exhibition3.id, award: 'R.CAC', npoint: '25')
-#Point.create(year: '2014', exhibition_id: exhibition3.id, award: 'Mejor Joven', npoint: '23')
-#Point.create(year: '2014', exhibition_id: exhibition3.id, award: 'CCJ/Exc.1 (Joven)', npoint: '15')
-#
-######### Punto Obligatorio ##########
-#Point.create(year: '2014', exhibition_id: exhibition4.id, award: 'B.I.S.', npoint: '300')
-#Point.create(year: '2014', exhibition_id: exhibition4.id, award: '2º B.I.S.', npoint: '250')
-#Point.create(year: '2014', exhibition_id: exhibition4.id, award: '3º B.I.S.', npoint: '225')
-#Point.create(year: '2014', exhibition_id: exhibition4.id, award: '1º GRUPO', npoint: '200')
-#Point.create(year: '2014', exhibition_id: exhibition4.id, award: '2º GRUPO', npoint: '175')
-#Point.create(year: '2014', exhibition_id: exhibition4.id, award: '3º GRUPO', npoint: '150')
-#Point.create(year: '2014', exhibition_id: exhibition4.id, award: 'MEJOR DE RAZA', npoint: '125')
-#Point.create(year: '2014', exhibition_id: exhibition4.id, award: 'CACIB', npoint: '85')
-#Point.create(year: '2014', exhibition_id: exhibition4.id, award: 'R.CACIB', npoint: '40')
-#Point.create(year: '2014', exhibition_id: exhibition4.id, award: 'RAPPEL CAC', npoint: '65')
-#Point.create(year: '2014', exhibition_id: exhibition4.id, award: 'CAC', npoint: '60')
-#Point.create(year: '2014', exhibition_id: exhibition4.id, award: 'R.CAC', npoint: '30')
-#Point.create(year: '2014', exhibition_id: exhibition4.id, award: 'Mejor Joven', npoint: '28')
-#Point.create(year: '2014', exhibition_id: exhibition4.id, award: 'CCJ/Exc.1 (Joven)', npoint: '20')
-#
-######### EXPOSICIÓN INTERNACIONAL ##########
-#Point.create(year: '2014', exhibition_id: exhibition5.id, award: 'B.I.S.', npoint: '125')
-#Point.create(year: '2014', exhibition_id: exhibition5.id, award: '2º B.I.S.', npoint: '115')
-#Point.create(year: '2014', exhibition_id: exhibition5.id, award: '3º B.I.S.', npoint: '100')
-#Point.create(year: '2014', exhibition_id: exhibition5.id, award: '1º GRUPO', npoint: '95')
-#Point.create(year: '2014', exhibition_id: exhibition5.id, award: '2º GRUPO', npoint: '90')
-#Point.create(year: '2014', exhibition_id: exhibition5.id, award: '3º GRUPO', npoint: '85')
-#Point.create(year: '2014', exhibition_id: exhibition5.id, award: 'MEJOR DE RAZA', npoint: '80')
-#Point.create(year: '2014', exhibition_id: exhibition5.id, award: 'CACIB', npoint: '65')
-#Point.create(year: '2014', exhibition_id: exhibition5.id, award: 'R.CACIB', npoint: '10')
-#Point.create(year: '2014', exhibition_id: exhibition5.id, award: 'CAC', npoint: '40')
-#Point.create(year: '2014', exhibition_id: exhibition5.id, award: 'R.CAC', npoint: '20')
-#Point.create(year: '2014', exhibition_id: exhibition5.id, award: 'Mejor Joven', npoint: '18')
-#Point.create(year: '2014', exhibition_id: exhibition5.id, award: 'CCJ/Exc.1 (Joven)', npoint: '10')
-#
-######### EXPOSICIÓN NACIONAL ##########
-#Point.create(year: '2014', exhibition_id: exhibition6.id, award: 'B.I.S.', npoint: '100')
-#Point.create(year: '2014', exhibition_id: exhibition6.id, award: '2º B.I.S.', npoint: '90')
-#Point.create(year: '2014', exhibition_id: exhibition6.id, award: '3º B.I.S.', npoint: '80')
-#Point.create(year: '2014', exhibition_id: exhibition6.id, award: '1º GRUPO', npoint: '75')
-#Point.create(year: '2014', exhibition_id: exhibition6.id, award: '2º GRUPO', npoint: '70')
-#Point.create(year: '2014', exhibition_id: exhibition6.id, award: '3º GRUPO', npoint: '65')
-#Point.create(year: '2014', exhibition_id: exhibition6.id, award: 'MEJOR DE RAZA', npoint: '60')
-#Point.create(year: '2014', exhibition_id: exhibition6.id, award: 'CACIB', npoint: '55')
-#Point.create(year: '2014', exhibition_id: exhibition6.id, award: 'R.CACIB', npoint: '8')
-#Point.create(year: '2014', exhibition_id: exhibition6.id, award: 'RAPPEL CAC', npoint: '35')
-#Point.create(year: '2014', exhibition_id: exhibition6.id, award: 'CAC', npoint: '30')
-#Point.create(year: '2014', exhibition_id: exhibition6.id, award: 'R.CAC', npoint: '15')
-#Point.create(year: '2014', exhibition_id: exhibition6.id, award: 'Mejor Joven', npoint: '15')
-#Point.create(year: '2014', exhibition_id: exhibition6.id, award: 'CCJ/Exc.1 (Joven)', npoint: '5')
+[['1','7','200'],['1','8','150'], ###### MONOGRÁFICA NACIONAL ######
+  ['1','11','125'], ['1','12','100'],
+  ['1','13','50'], ['1','14','50'],
+  ['1','15','30'],
+  ['2','7','150'],['2','8','110'], ###### CONCURSO MONOGRÁFICO NACIONAL O REGIONAL ######
+  ['2','14','35'], ['2','15','25'],
+  ['3','1','250'], ['3','2','225'], ###### Especial A.E.F.R.B.F. ######
+  ['3','3','200'], ['3','4','175'],
+  ['3','5','150'], ['3','6','125'],
+  ['3','7','100'], ['3','9','75'],
+  ['3','10','35'], ['3','11','55'],
+  ['3','12','50'], ['3','13','25'],
+  ['3','14','23'], ['3','15','15'],
+  ['4','1','300'], ['4','2','250'], ###### Punto Obligatorio ######
+  ['4','3','225'], ['4','4','200'],
+  ['4','5','175'], ['4','6','150'],
+  ['4','7','125'], ['4','9','85'],
+  ['4','10','40'], ['4','11','65'],
+  ['4','12','60'], ['4','13','30'],
+  ['4','14','28'], ['4','15','20'],
+  ['5','1','125'], ['5','2','115'], ###### EXPOSICIÓN INTERNACIONAL ######
+  ['5','3','100'], ['5','4','95'],
+  ['5','5','90'], ['5','6','85'],
+  ['5','7','80'], ['5','9','65'],
+  ['5','10','10'], ['5','12','40'],
+  ['5','13','20'], ['5','14','18'],
+  ['5','15','10'],
+  ['6','1','100'], ['6','2','90'], ###### EXPOSICIÓN NACIONAL ######
+  ['6','3','80'], ['6','4','75'],
+  ['6','5','70'], ['6','6','65'],
+  ['6','7','60'], ['6','9','55'],
+  ['6','10','8'], ['6','11','35'],
+  ['6','12','30'], ['6','13','15'],
+  ['6','14','15'], ['6','15','5']].each do |t, a, p|
+  Point.create(year: '2014', type_id: t, award_id: a, npoint: p)
+end

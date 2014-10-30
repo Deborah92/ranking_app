@@ -1,5 +1,7 @@
 class Exhibition < ActiveRecord::Base
   belongs_to :type
+  has_many :results
+
   validates_presence_of :name, :date, :type_id
   #self.inheritance_column = nil
   validate :past_date

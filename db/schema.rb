@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141026125054) do
+ActiveRecord::Schema.define(version: 20141030104347) do
 
   create_table "awards", force: true do |t|
     t.string "award"
@@ -40,6 +40,15 @@ ActiveRecord::Schema.define(version: 20141026125054) do
     t.integer "type_id"
     t.integer "npoint"
     t.integer "award_id"
+  end
+
+  create_table "results", force: true do |t|
+    t.integer  "exhibition_id"
+    t.integer  "award_id"
+    t.integer  "dog_id"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "types", force: true do |t|

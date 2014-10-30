@@ -30,7 +30,6 @@ Feature: Editing Exhibitions
     And I follow "Exhibitions"
     And I follow "Edit" within "#exhibition_1"
     And I fill in "Name" with "exhibition beta 1"
-    And Save and open page
     And I press "Update Exhibition"
     Then I should see "Exhibition has been updated."
     And I should see "exhibition beta 1"

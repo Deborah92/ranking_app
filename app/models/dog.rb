@@ -1,5 +1,6 @@
 class Dog < ActiveRecord::Base
   belongs_to  :user
+  has_many :results
 
   validates_presence_of :name, :birth_date
   validate :future_birth_date

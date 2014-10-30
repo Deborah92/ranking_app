@@ -9,6 +9,8 @@ class Ability
     cannot :manage, :all
 
     can :index, User
+    can :index, Dog
+    can :manage, Result
 
     if user.persisted?
       can [:new, :create], Dog
@@ -18,6 +20,16 @@ class Ability
       can [:edit, :update], User, ['user.id = ?', user.id] do |u|
         u.id == user.id
       end
+      can [:index], Result
+      #can [:new, :create], Result, ['dog_id.user_id = ?', user.id] do |r|
+      #  r.dog_id.user_id == user.id
+      #end
+      #can [:destroy], Result, ['result.status = ?', 'Pending'] do |r|
+      #  r.status == 'Pending'
+      #end
+      #can [:destroy], Result, ['result.status = ?', 'Rejected'] do |r|
+      #  r.status == 'Rejected'
+      #end
 
 
     end
@@ -26,6 +38,7 @@ class Ability
       can :index, :all
       can [:edit, :update, :destroy], Dog
       can [:new, :create, :edit, :update, :destroy], User
+      can [:new, :create, :edit, :update, :destroy], Result
     end
 
     #   if user.admin?
