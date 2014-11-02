@@ -33,7 +33,7 @@ class Admin::ResultsController < ApplicationController
       flash[:notice] = 'Result has been updated.'
       redirect_to @result
     else
-      flash[:alert] = 'result has not been updated.'
+      flash[:alert] = 'Result has not been updated.'
       render 'edit'
     end
   end

@@ -1,9 +1,12 @@
 FactoryGirl.define do
   factory :dog do |d|
     d.sex 'male'
-    d.titles  'CH OF RUMANIA'
-    d.name 'FRAEL VALDERRAMA'
-    d.birth_date '01/01/2001'
+    #d.titles  'CH OF RUMANIA'
+    d.titles ''
+    #d.name 'FRAEL VALDERRAMA'
+    d.name 'Samba y Fatiga Idilio'
+    #d.birth_date '01/01/2001'
+    d.birth_date '27/01/2006'
     d.user
   end
 
@@ -33,9 +36,20 @@ FactoryGirl.define do
   end
 
   factory :exhibition do |e|
-    e.name 'exhibition 1'
+    e.name "exhibition 1"
     e.date '27/03/2015'
     e.type
+  end
+
+  factory :award do |a|
+    a.award 'BOS'
+  end
+
+  factory :result do |r|
+    r.exhibition_id
+    r.award_id
+    r.dog_id
+    r.status 'Pending'
   end
 
 end

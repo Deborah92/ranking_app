@@ -15,9 +15,5 @@
       <%= f.label :dog_id %>
       <%= f.collection_select :dog_id, Dog.find_all_by_user_id(current_user), :id, :name, prompt: 'Dog...' %>
     </p>
-    <p>
-      <%= f.label :status %>
-      <%= f.select :status, ['Pending'] %>
-    </p>
     <%= f.submit %>
 <% end %>

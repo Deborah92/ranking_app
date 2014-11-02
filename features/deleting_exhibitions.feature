@@ -1,5 +1,5 @@
 Feature: Deleting exhibitions
-  In order to to remove needless exhibitions
+  In order to remove needless exhibitions
   As an admin
   I want to make them disappear
   Background:
