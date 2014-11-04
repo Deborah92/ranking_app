@@ -1,8 +1,12 @@
-<%= form_for [:admin, @user] do |f| %>
+<%= form_for [:admin, @user], html: {multipart: true, "data-ajax" => "false"}  do |f| %>
     <% @user.errors.full_messages.each do |message| %>
         <p><%= message %></p>
     <% end %>
 
+    <p>
+      <%= f.label :image %>
+      <%= f.file_field :image %>
+    </p>
     <p>
       <%= f.label :email %>
       <%= f.text_field :email %>

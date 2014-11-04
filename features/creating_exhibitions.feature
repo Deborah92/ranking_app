@@ -17,9 +17,9 @@ Feature: Creating exhibitions
       | exhibition 1 | 27/03/2015 | MONOGRÁFICA NACIONAL |
 
     Given there are the following users:
-      | email             | password | admin |
-      | user@example.com  | password | false |
-      | admin@example.com | password | true  |
+      | email             | password | admin | image     |
+      | user@example.com  | password | false | user.jpeg |
+      | admin@example.com | password | true  |           |
 
     And I am on the dogs page
   @working

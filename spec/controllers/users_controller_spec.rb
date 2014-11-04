@@ -4,7 +4,8 @@ describe UsersController do
 
   let(:user) { FactoryGirl.create(:user) }
   let(:user2) { FactoryGirl.create(:user) }
-  valid_attributes = {email: 'user2@example.com', password: "password", password_confirmation: "password"}
+  valid_attributes = {email: 'user2@example.com', password: "password", password_confirmation: "password",
+                      image: File.open(File.join(Rails.root, 'spec/support/attachments/images/user/user.jpeg'))}
 
   context "standard users on themselves" do
     it 'can access the edit action' do

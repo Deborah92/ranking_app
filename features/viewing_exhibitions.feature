@@ -19,9 +19,9 @@ Feature: Viewing exhibitions
       | exhibition 2 | 15/07/2015 | Punto Obligatorio    |
 
     Given there are the following users:
-      | email             | password | admin |
-      | user@example.com  | password | false |
-      | admin@example.com | password | true  |
+      | email             | password | admin | image     |
+      | user@example.com  | password | false | user.jpeg |
+      | admin@example.com | password | true  |           |
 
     And I am on the dogs page
 

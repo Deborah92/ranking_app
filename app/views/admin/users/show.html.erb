@@ -1,5 +1,7 @@
 <h2><%= @user.email %></h2>
 
+<h2><%= image_tag(@user.image_url) if @user.image.present? %></h2>
+
 <table width="20%" border="1" cellspacing="1">
 
   <% @userdogs.each do |dogs| %>

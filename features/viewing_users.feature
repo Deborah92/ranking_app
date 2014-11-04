@@ -5,10 +5,10 @@ Feature: Viewing users
 
   Background:
     Given there are the following users:
-      | email             | password | admin |
-      | user1@example.com | password | false |
-      | user2@example.com | password | false |
-      | admin@example.com | password | true  |
+      | email             | password | admin | image     |
+      | user1@example.com | password | false | user.jpeg |
+      | user2@example.com | password | false |           |
+      | admin@example.com | password | true  |           |
 
     And I am on the dogs page
 

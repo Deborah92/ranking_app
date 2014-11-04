@@ -2,11 +2,15 @@
     <%= javascript_include_tag 'dogs', "data-turbolinks-track" => false  %>
 <%end%>
 
-<%= form_for @dog do |f| %>
+<%= form_for @dog, html: {multipart: true, "data-ajax" => "false"} do |f|  %>
     <% @dog.errors.full_messages.each do |message| %>
         <p><%= message %></p>
     <% end %>
 
+    <p>
+      <%= f.label :image %>
+      <%= f.file_field :image%>
+    </p>
     <p>
       <%= f.label :sex %>
       <%= f.select :sex, [['Male', 'male'],['Female', 'female']], prompt: 'Gender...' %>

@@ -9,9 +9,9 @@ Feature: Viewing dogs
 
 
     And "user@example.com" is the owner of the following dogs:
-      | Sex  | Titles | Name                    | Birth Date |
-      | male |        | Samba y Fatiga Idilio   | 27/01/2006 |
-      | male |        | Fortunato Hautacuperche | 15/05/2008 |
+      | Sex  | Titles | Name                    | Birth Date | Image      |
+      | male |        | Samba y Fatiga Idilio   | 27/01/2006 | perro.jpeg |
+      | male |        | Fortunato Hautacuperche | 15/05/2008 |            |
 
   Scenario: Viewing dogs
     When I am on the dogs page

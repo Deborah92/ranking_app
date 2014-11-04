@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141030104347) do
+ActiveRecord::Schema.define(version: 20141104183808) do
 
   create_table "awards", force: true do |t|
     t.string "award"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20141030104347) do
     t.string   "sex"
     t.date     "birth_date"
     t.integer  "user_id"
+    t.string   "image"
   end
 
   create_table "exhibitions", force: true do |t|
@@ -73,6 +74,7 @@ ActiveRecord::Schema.define(version: 20141030104347) do
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
     t.boolean  "admin",                  default: false
+    t.string   "image"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

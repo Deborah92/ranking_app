@@ -5,10 +5,10 @@ Feature: Editing Users
 
   Background:
     Given there are the following users:
-      | email              | password | admin |
-      | user1@example.com  | password | false |
-      | user2@example.com  | password | false |
-      | admin@example.com  | password | true  |
+      | email              | password | admin | image     |
+      | user1@example.com  | password | false | user.jpeg |
+      | user2@example.com  | password | false |           |
+      | admin@example.com  | password | true  |           |
 
     And I am on the dogs page
 
@@ -16,6 +16,7 @@ Feature: Editing Users
     When I am signed in as "admin@example.com"
     And I follow "Administrar Usuarios"
     And I follow "Edit" within "#user_1"
+    And I attach the file "images/user/user.jpeg" to "Image"
     And I fill in "Email" with "user1beta@example.com"
     And I fill in "Password" with "password"
     And I fill in "Password confirmation" with "password"
@@ -42,6 +43,7 @@ Feature: Editing Users
     When I am signed in as "user1@example.com"
     And I follow "My profile"
     And I follow "Edit User"
+    And I attach the file "images/user/user.jpeg" to "Image"
     And I fill in "Email" with "user1beta@example.com"
     And I fill in "Password" with "password"
     And I fill in "Password confirmation" with "password"

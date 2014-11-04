@@ -10,7 +10,8 @@ describe Admin::UsersController do
   #end
 
   let(:user){ FactoryGirl.create(:user) }
-  valid_attributes = {email: 'user2@example.com', password: "password", password_confirmation: "password"}
+  valid_attributes = {email: 'user2@example.com', password: "password", password_confirmation: "password",
+                      image: File.open(File.join(Rails.root, 'spec/support/attachments/images/user/user.jpeg'))}
   let(:admin){FactoryGirl.create(:admin)}
 
   context "admin user actions on himself" do

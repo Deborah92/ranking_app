@@ -5,10 +5,10 @@ Feature: Creating Users
 
   Background:
     Given there are the following users:
-      | email              | password | admin |
-      | user1@example.com  | password | false |
-      | user2@example.com  | password | false |
-      | admin@example.com  | password | true  |
+      | email              | password | admin | image     |
+      | user1@example.com  | password | false | user.jpeg |
+      | user2@example.com  | password | false |           |
+      | admin@example.com  | password | true  |           |
 
     And I am signed in as "admin@example.com"
     And I am on the users page
@@ -16,6 +16,7 @@ Feature: Creating Users
 
   Scenario: Creating a user
     When I follow "New User"
+    And I attach the file "images/user/user.jpeg" to "Image"
     And I fill in "Email" with "user3@example.com"
     And I fill in "Password" with "password"
     And I fill in "Password confirmation" with "password"
@@ -25,6 +26,7 @@ Feature: Creating Users
 
   Scenario: Creating an admin user
     When I follow "New User"
+    And I attach the file "images/user/user.jpeg" to "Image"
     When I fill in "Email" with "admin2@example.com"
     And I fill in "Password" with "password"
     And I fill in "Password confirmation" with "password"
@@ -35,6 +37,7 @@ Feature: Creating Users
 
   Scenario: Creating a user without password
     When I follow "New User"
+    And I attach the file "images/user/user.jpeg" to "Image"
     And I fill in "Email" with "user3@example.com"
     And I press "Create User"
     Then I should see "User has not been created"
@@ -42,6 +45,7 @@ Feature: Creating Users
 
   Scenario: Creating a user without email
     When I follow "New User"
+    And I attach the file "images/user/user.jpeg" to "Image"
     And I fill in "Password" with "password"
     And I fill in "Password confirmation" with "password"
     And I press "Create User"
@@ -50,6 +54,7 @@ Feature: Creating Users
 
   Scenario: Creating a user with a different password and confirmation password
     When I follow "New User"
+    And I attach the file "images/user/user.jpeg" to "Image"
     And I fill in "Email" with "user3@example.com"
     And I fill in "Password" with "password"
     And I fill in "Password confirmation" with "pasword"

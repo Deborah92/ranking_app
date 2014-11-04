@@ -2,6 +2,8 @@ class Dog < ActiveRecord::Base
   belongs_to  :user
   has_many :results
 
+  mount_uploader :image, ImageUploader
+
   validates_presence_of :name, :birth_date
   validate :future_birth_date
   SEX = ['male', 'female']
