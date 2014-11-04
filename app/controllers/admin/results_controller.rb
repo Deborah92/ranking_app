@@ -14,7 +14,7 @@ class Admin::ResultsController < ApplicationController
 
     if @result.save
       flash[:notice] = 'Result has been created.'
-      redirect_to @result
+      redirect_to admin_results_path
     else
       flash[:alert] = 'Result has not been created.'
       render 'new'
@@ -30,9 +30,9 @@ class Admin::ResultsController < ApplicationController
   def update
     if @result.update_attributes(result_params)
       set_result_user
-      ResultMailer.edit_result_by_admin(@user,@result)
+      ResultMailer.edit_result_by_admin(@user,@result,current_user)
       flash[:notice] = "Result has been updated. A message with the result's link has been sent to user email address"
-      redirect_to @result
+      redirect_to admin_results_path
     else
       flash[:alert] = 'Result has not been updated.'
       render 'edit'
@@ -42,7 +42,7 @@ class Admin::ResultsController < ApplicationController
   def destroy
     @result.destroy
     flash[:notice] = "Result has been deleted."
-    redirect_to results_path
+    redirect_to admin_results_path
   end
 
 

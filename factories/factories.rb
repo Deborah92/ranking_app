@@ -51,4 +51,5 @@ FactoryGirl.define do
     r.dog
     r.status 'Pending'
   end
+
 end

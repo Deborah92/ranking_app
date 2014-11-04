@@ -18,7 +18,8 @@ class ResultsController < ApplicationController
     authorize! :create, Result
     if @result.save
       ResultMailer.create_result(current_user, @result)
-      ResultMailer.create_result_to_admin(current_user, @result)
+      set_admins
+      ResultMailer.create_result_to_admin(current_user, @result, @admins)
       flash[:notice] = "Result has been created. A message with the result's link has been sent to your email address"
       redirect_to Result
     else
@@ -59,7 +60,7 @@ class ResultsController < ApplicationController
       flash[:notice] = "Result has been deleted."
       redirect_to results_path
     else
-      flash[:notice] = "Result has not been deleted."
+      flash[:alert] = "Result has not been deleted."
       redirect_to results_path
     end
   end
@@ -81,5 +82,9 @@ class ResultsController < ApplicationController
 
   def set_user
     @user = current_user.id
+  end
+
+  def set_admins
+    @admins = User.find(admin: 'true')
   end
 end
