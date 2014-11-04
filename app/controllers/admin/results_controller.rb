@@ -3,7 +3,6 @@ class Admin::ResultsController < ApplicationController
   before_action :set_result, only: [:show, :edit, :update, :destroy]
   def index
     @results = Result.all
-
   end
 
   def new
@@ -30,7 +29,9 @@ class Admin::ResultsController < ApplicationController
 
   def update
     if @result.update_attributes(result_params)
-      flash[:notice] = 'Result has been updated.'
+      set_result_user
+      ResultMailer.edit_result_by_admin(@user,@result)
+      flash[:notice] = "Result has been updated. A message with the result's link has been sent to user email address"
       redirect_to @result
     else
       flash[:alert] = 'Result has not been updated.'
@@ -53,5 +54,9 @@ class Admin::ResultsController < ApplicationController
 
   def set_result
     @result = Result.find(params[:id])
+  end
+
+  def set_result_user
+    @user = User.find(@result.dog_id)
   end
 end

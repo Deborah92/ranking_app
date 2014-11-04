@@ -50,4 +50,4 @@ Feature: Editing Results
     And I follow "Edit" within "#result_1"
     And I select "Validated" from "Status"
     And I press "Update Result"
-    Then I should see "Result has been updated."
+    Then I should see "Result has been updated. A message with the result's link has been sent to user email address"

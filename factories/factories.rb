@@ -38,7 +38,7 @@ FactoryGirl.define do
   factory :exhibition do |e|
     e.name "exhibition 1"
     e.date '27/03/2015'
-    e.type
+    e.type_id '1'
   end
 
   factory :award do |a|
@@ -46,10 +46,9 @@ FactoryGirl.define do
   end
 
   factory :result do |r|
-    r.exhibition_id
-    r.award_id
-    r.dog_id
+    r.exhibition
+    r.award
+    r.dog
     r.status 'Pending'
   end
-
 end

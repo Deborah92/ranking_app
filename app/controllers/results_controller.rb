@@ -17,7 +17,9 @@ class ResultsController < ApplicationController
     @result.status = 'Pending'
     authorize! :create, Result
     if @result.save
-      flash[:notice] = 'Result has been created.'
+      ResultMailer.create_result(current_user, @result)
+      ResultMailer.create_result_to_admin(current_user, @result)
+      flash[:notice] = "Result has been created. A message with the result's link has been sent to your email address"
       redirect_to Result
     else
       flash[:alert] = 'Result has not been created.'
@@ -34,9 +36,10 @@ class ResultsController < ApplicationController
   end
 
   def update
-    authorize! :update, Result
     if @result.update_attributes(result_params)
-      flash[:notice] = 'Result has been updated.'
+      set_result_user
+      ResultMailer.edit_result_by_admin(@user,@result)
+      flash[:notice] = "Result has been updated. A message with the result's link has been sent to user email address"
       redirect_to @result
     else
       flash[:alert] = 'Result has not been updated.'
@@ -46,7 +49,12 @@ class ResultsController < ApplicationController
 
   def destroy
     authorize! :destroy, Result
+    authenticate_user!
     if @result.status == 'Pending' || @result.status == 'Rejected'
+      @result.destroy
+      flash[:notice] = "Result has been deleted."
+      redirect_to results_path
+    elsif current_user.admin? @result.status == 'Validated'
       @result.destroy
       flash[:notice] = "Result has been deleted."
       redirect_to results_path
@@ -65,6 +73,10 @@ class ResultsController < ApplicationController
 
   def set_result
     @result = Result.find(params[:id])
+  end
+
+  def set_result_user
+    @user = User.find(@result.dog_id)
   end
 
   def set_user

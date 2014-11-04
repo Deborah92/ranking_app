@@ -43,6 +43,7 @@ Feature: Creating results
 
     And I am on the dogs page
 
+
   Scenario: Creating a result like an admin
     When I am signed in as "admin@example.com"
     And I follow "Administrar Resultados"
@@ -52,8 +53,9 @@ Feature: Creating results
     And I select "Fortunato Hautacuperche" from "Dog"
     And I select "Validated" from "Status"
     And I press "Create Result"
-    Then I should see "Result has been created."
+    Then I should see "Result has been created. A message with the result's link has been sent to your email address"
 
+  @working
   Scenario: Creating a result like a user
     When I am signed in as "user2@example.com"
     And I follow "My Results"
@@ -62,7 +64,7 @@ Feature: Creating results
     And I select "MEJOR DE RAZA" from "Award"
     And I select "Fortunato Hautacuperche" from "Dog"
     And I press "Create Result"
-    Then I should see "Result has been created."
+    Then I should see "Result has been created. A message with the result's link has been sent to your email address"
 
   Scenario: Creating a result without exhibition
     When I am signed in as "user2@example.com"

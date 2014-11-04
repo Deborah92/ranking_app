@@ -55,4 +55,5 @@ RSpec.configure do |config|
   config.mock_with :rspec
   ##############config.include Devise::TestHelpers
   config.include Capybara::DSL ######## Añadido nuevo
+  config.include FactoryGirl::Syntax::Methods
 end
