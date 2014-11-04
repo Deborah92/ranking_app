@@ -10,7 +10,8 @@ class ResultMailer < ActionMailer::Base
   def create_result_to_admin(user, result, admins)
     @user = user
     @url  = edit_admin_result_path(result)
-    mail(from: @user.email, to: admins.email, subject: "A result has been created by #{@user.email}")
+    emails = admins.collect(&:email).join(",")
+    mail(from: @user.email, to: emails, subject: "A result has been created by #{@user.email}")
   end
 
   def edit_result_by_admin(user, result, admin)

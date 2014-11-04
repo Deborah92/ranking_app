@@ -39,7 +39,7 @@ class ResultsController < ApplicationController
   def update
     if @result.update_attributes(result_params)
       set_result_user
-      ResultMailer.edit_result_by_admin(@user,@result)
+      ResultMailer.edit_result_by_admin(@user,@result,current_user)
       flash[:notice] = "Result has been updated. A message with the result's link has been sent to user email address"
       redirect_to @result
     else
@@ -85,6 +85,6 @@ class ResultsController < ApplicationController
   end
 
   def set_admins
-    @admins = User.find(admin: 'true')
+    @admins = User.where(admin: 'true')
   end
 end

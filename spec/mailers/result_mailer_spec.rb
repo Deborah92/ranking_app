@@ -43,7 +43,8 @@ describe ResultMailer do
     let(:user) { FactoryGirl.create(:user) }
     let(:result) { FactoryGirl.create(:result)}
     let(:admin) { FactoryGirl.create(:admin)}
-    let(:mail) { ResultMailer.create_result_to_admin(user, result, admin) }
+    let(:admin2) { FactoryGirl.create(:admin)}
+    let(:mail) { ResultMailer.create_result_to_admin(user, result, [admin, admin2]) }
 
     let(:asserted_body) { ["The user #{user.email} has been created a dog's result.",
                            "You can validate or reject in the following link",
@@ -54,7 +55,7 @@ describe ResultMailer do
     end
 
     it 'renders the receiver email' do
-      expect(mail.to).to eql([admin.email])
+      expect(mail.to).to eql([admin.email,admin2.email])
     end
 
     it 'renders the sender email' do
