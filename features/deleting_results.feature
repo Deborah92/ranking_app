@@ -29,21 +29,26 @@ Feature: Deleting results
       | CCJ/Exc.1 (Joven) |
 
     And there are the following users:
-      | email             | password | admin | image     |
-      | user1@example.com | password | false | user.jpeg |
-      | user2@example.com | password | false |           |
-      | admin@example.com | password | true  |           |
+      | email              | password | admin | image     | cahoot |
+      | user1@example.com  | password | false | user.jpeg | true   |
+      | user2@example.com  | password | false |           | true   |
+      | user3@example.com  | password | false |           | false  |
+      | admin@example.com  | password | true  |           | true   |
 
     And there are the following dogs:
       | Sex  | Titles | Name                    | Birth Date | Owner             | Image      |
       | male |        | Samba y Fatiga Idilio   | 27/01/2006 | user1@example.com | perro.jpeg |
       | male |        | Fortunato Hautacuperche | 15/05/2008 | user2@example.com |            |
+      | male |        | Frael Valderrama        | 01/01/2001 | user3@example.com |            |
 
     And there are the following results:
       | exhibition | award | dog | status    |
       | 1          | 8     | 1   | Pending   |
       | 2          | 7     | 2   | Rejected  |
       | 3          | 12    | 1   | Validated |
+      | 1          | 7     | 3   | Pending   |
+      | 2          | 4     | 3   | Rejected  |
+      | 3          | 2     | 3   | Validated |
 
     And I am on the dogs page
 
@@ -65,20 +70,38 @@ Feature: Deleting results
     And I follow "Delete" within "#result_3"
     Then I should see "Result has been deleted."
 
-  Scenario: Deleting a Pending result like a user
+  Scenario: Deleting a Pending result like a cahoot user
     When I am signed in as "user1@example.com"
     And I follow "My Results"
     And I follow "Delete" within "#result_1"
     Then I should see "Result has been deleted"
 
-  Scenario: Deleting a Rejected result like a user
+  Scenario: Deleting a Rejected result like a cahoot user
     When I am signed in as "user2@example.com"
     And I follow "My Results"
     And I follow "Delete" within "#result_2"
     Then I should see "Result has been deleted"
 
-  Scenario: Deleting a Validated result like a user
+  Scenario: Deleting a Validated result like a cahoot user
     When I am signed in as "user1@example.com"
     And I follow "My Results"
     And I follow "Delete" within "#result_3"
     Then I should see "Result has not been deleted."
+
+  Scenario: Deleting a Pending result like a registered user
+    When I am signed in as "user3@example.com"
+    And I follow "My Results"
+    And I follow "Delete" within "#result_4"
+    Then I should see "You are not authorized to access this page. "
+
+  Scenario: Deleting a Rejected result like a registered user
+    When I am signed in as "user3@example.com"
+    And I follow "My Results"
+    And I follow "Delete" within "#result_5"
+    Then I should see "You are not authorized to access this page. "
+
+  Scenario: Deleting a Validated result like a registered user
+    When I am signed in as "user3@example.com"
+    And I follow "My Results"
+    And I follow "Delete" within "#result_6"
+    Then I should see "You are not authorized to access this page. "

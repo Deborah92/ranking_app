@@ -8,6 +8,7 @@ Feature: Viewing results
       | name         | date       | type                 |
       | exhibition 1 | 27/03/2015 | MONOGRÁFICA NACIONAL |
       | exhibition 2 | 15/07/2015 | Punto Obligatorio    |
+      | exhibition 3 | 12/03/2015 | EXPOSICIÓN NACIONAL  |
 
     Given there are the following awards:
       | award             |
@@ -31,18 +32,21 @@ Feature: Viewing results
       | Sex  | Titles | Name                    | Birth Date | Owner             | Image      |
       | male |        | Samba y Fatiga Idilio   | 27/01/2006 | user1@example.com | perro.jpeg |
       | male |        | Fortunato Hautacuperche | 15/05/2008 | user2@example.com |            |
+      | male |        | Frael Valderrama        | 01/01/2001 | user3@example.com |            |
 
-    Given there are the following results:
-      | exhibition   | award         | dog                     | status  |
-      | exhibition 1 | BOS           | Samba y Fatiga Idilio   | Pending |
-      | exhibition 2 | MEJOR DE RAZA | Fortunato Hautacuperche | Pending |
+    And there are the following results:
+      | exhibition | award | dog | status    |
+      | 1          | 8     | 1   | Pending   |
+      | 2          | 7     | 2   | Rejected  |
+      | 3          | 12    | 1   | Validated |
+      | 3          | 2     | 3   | Validated |
 
-    And there are the following users:
-      | email             | password | admin | image     |
-      | user1@example.com | password | false | user.jpeg |
-      | user2@example.com | password | false |           |
-      | admin@example.com | password | true  |           |
-
+    Given there are the following users:
+      | email              | password | admin | image     | cahoot |
+      | user1@example.com  | password | false | user.jpeg | true   |
+      | user2@example.com  | password | false |           | true   |
+      | user3@example.com  | password | false |           | false  |
+      | admin@example.com  | password | true  |           | true   |
 
 
     And I am on the dogs page
@@ -50,9 +54,19 @@ Feature: Viewing results
   Scenario: Viewing results like an admin
     When I am signed in as "admin@example.com"
     And I follow "Administrar Resultados"
-    Then you should see the admin results page
+    Then I should see the admin results page
+    And I should see "exhibition 1 BOS Samba y Fatiga Idilio Pending"
+    And I should see "exhibition 2 MEJOR DE RAZA Fortunato Hautacuperche Rejected"
+    And I should see "exhibition 3 CAC Samba y Fatiga Idilio Validated"
+    And I should see "exhibition 3 2º B.I.S. Frael Valderrama Validated"
 
-  Scenario: Viewing results like a user
+  @working
+  Scenario: Viewing results like a cahoot user
     When I am signed in as "user1@example.com"
     And I follow "My Results"
-    Then you should see the results page
+    Then I should see the results page
+
+  Scenario: Viewing results like a registered user
+    When I am signed in as "user3@example.com"
+    And I follow "My Results"
+    Then I should see the results page

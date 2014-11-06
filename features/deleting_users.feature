@@ -5,10 +5,11 @@ Feature: Deleting users
 
   Background:
     Given there are the following users:
-      | email             | password | admin | image     |
-      | user1@example.com | password | false | user.jpeg |
-      | user2@example.com | password | false |           |
-      | admin@example.com | password | true  |           |
+      | email              | password | admin | image     | cahoot |
+      | user1@example.com  | password | false | user.jpeg | true   |
+      | user2@example.com  | password | false |           | true   |
+      | user3@example.com  | password | false |           | false  |
+      | admin@example.com  | password | true  |           | true   |
 
     Given there are the following dogs:
       | Sex  | Titles | Name                    | Birth Date | Owner             | Image      |
@@ -26,5 +27,5 @@ Feature: Deleting users
     And "Samba y Fatiga Idilio" is not deleted
 
   Scenario: Users cannot delete themselves
-    When I follow "Delete" within "#user_3"
+    When I follow "Delete" within "#user_4"
     Then I should see "You cannot delete yourself"

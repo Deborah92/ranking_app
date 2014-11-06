@@ -21,6 +21,10 @@ FactoryGirl.define do
     u.password 'password'
     u.password_confirmation 'password'
 
+    factory :cahoot do
+      cahoot true
+    end
+
     factory :admin do
       admin true
     end

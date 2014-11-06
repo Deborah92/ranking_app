@@ -19,6 +19,12 @@ class Admin::UsersController < ApplicationController
       @user.admin = 'false'
     end
 
+    if user_params[:cahoot]=='1'
+      @user.cahoot = 'true'
+    else
+      @user.cahoot = 'false'
+    end
+
     if @user.save
       flash[:notice] = 'User has been created.'
       redirect_to admin_users_path
@@ -41,6 +47,7 @@ class Admin::UsersController < ApplicationController
       params[:user].delete(:password_confirmation)
     end
     set_admin
+    set_cahoot
     if @user.update_attributes(user_params)
       flash[:notice] = 'User has been updated.'
       redirect_to admin_user_path
@@ -62,7 +69,7 @@ class Admin::UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :admin, :image)
+    params.require(:user).permit(:email, :password, :password_confirmation, :admin, :image, :cahoot)
   end
 
   def set_user
@@ -71,6 +78,9 @@ class Admin::UsersController < ApplicationController
 
   def set_admin
     @user.admin = params[:user][:admin] == "1"
+  end
+  def set_cahoot
+    @user.cahoot = params[:user][:cahoot] == "1"
   end
 
 end

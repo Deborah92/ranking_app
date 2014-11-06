@@ -5,10 +5,11 @@ Feature: Editing Users
 
   Background:
     Given there are the following users:
-      | email              | password | admin | image     |
-      | user1@example.com  | password | false | user.jpeg |
-      | user2@example.com  | password | false |           |
-      | admin@example.com  | password | true  |           |
+      | email              | password | admin | image     | cahoot |
+      | user1@example.com  | password | false | user.jpeg | true   |
+      | user2@example.com  | password | false |           | true   |
+      | user3@example.com  | password | false |           | false  |
+      | admin@example.com  | password | true  |           | true   |
 
     And I am on the dogs page
 
@@ -39,7 +40,20 @@ Feature: Editing Users
     And I should see "user1@example.com (Admin)"
     And I should not see "user1@example.com (User)"
 
-  Scenario: Updating a user's details like own user
+  Scenario: Toggling a user's cahoot ability like an admin
+    When I am signed in as "admin@example.com"
+    And I follow "Administrar Usuarios"
+    And I follow "Edit" within "#user_3"
+    And I fill in "Email" with "user3@example.com"
+    And I fill in "Password" with "password"
+    And I fill in "Password confirmation" with "password"
+    And I check "Is a cahoot?"
+    And I press "Update User"
+    Then I should see "User has been updated."
+    And I follow "Administrar Usuarios"
+    And I should see "user3@example.com (User) (Cahoot)"
+
+  Scenario: Updating a user's details like own user cahoot
     When I am signed in as "user1@example.com"
     And I follow "My profile"
     And I follow "Edit User"
@@ -51,6 +65,19 @@ Feature: Editing Users
     Then I should see "User has been updated."
     And I should see "user1beta@example.com"
     And I should not see "user1@example.com"
+
+  Scenario: Updating a user's details like own user registered
+    When I am signed in as "user3@example.com"
+    And I follow "My profile"
+    And I follow "Edit User"
+    And I attach the file "images/user/user.jpeg" to "Image"
+    And I fill in "Email" with "user3beta@example.com"
+    And I fill in "Password" with "password"
+    And I fill in "Password confirmation" with "password"
+    And I press "Update User"
+    Then I should see "User has been updated."
+    And I should see "user3beta@example.com"
+    And I should not see "user3@example.com"
 
   Scenario: Updating with an invalid email fails like an admin
     When I am signed in as "admin@example.com"

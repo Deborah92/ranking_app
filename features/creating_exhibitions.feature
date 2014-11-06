@@ -17,12 +17,14 @@ Feature: Creating exhibitions
       | exhibition 1 | 27/03/2015 | MONOGRÁFICA NACIONAL |
 
     Given there are the following users:
-      | email             | password | admin | image     |
-      | user@example.com  | password | false | user.jpeg |
-      | admin@example.com | password | true  |           |
+      | email              | password | admin | image     | cahoot |
+      | user1@example.com  | password | false | user.jpeg | true   |
+      | user2@example.com  | password | false |           | true   |
+      | user3@example.com  | password | false |           | false  |
+      | admin@example.com  | password | true  |           | true   |
 
     And I am on the dogs page
-  @working
+
   Scenario: Creating an exhibition like an admin
     When I am signed in as "admin@example.com"
     And I follow "Exhibitions"
@@ -35,13 +37,19 @@ Feature: Creating exhibitions
     Then I should see "Exhibition has been created."
     And I should see "exhibition 2"
 
-  Scenario: Creating an exhibition like an other user
-    When I am signed in as "user@example.com"
+  Scenario: Creating an exhibition like a cahoot user
+    When I am signed in as "user1@example.com"
     And I follow "Exhibitions"
     And I follow "New Exhibition"
     Then I should see "You must be an admin to do that"
 
-Scenario: Creating an exhibition without name
+  Scenario: Creating an exhibition like a registered user
+    When I am signed in as "user3@example.com"
+    And I follow "Exhibitions"
+    And I follow "New Exhibition"
+    Then I should see "You must be an admin to do that"
+
+  Scenario: Creating an exhibition without name
     When I am signed in as "admin@example.com"
     And I follow "Exhibitions"
     And I follow "New Exhibition"

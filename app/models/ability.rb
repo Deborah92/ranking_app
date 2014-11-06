@@ -12,6 +12,17 @@ class Ability
     can :index, Dog
 
     if user.persisted?
+      can [:index, :show], Dog
+      can [:edit, :update], User, ['user.id = ?', user.id] do |u|
+        u.id == user.id
+      end
+      can [:index, :show], Result, ['dog_id = ?', user.id] do |r|
+        r.dog_id.user_id == user.id
+      end
+    end
+
+    if user.cahoot?
+      can [:index, :show], Dog
       can [:new, :create], Dog
       can [:edit, :update, :destroy], Dog, ['dogs.user_id = ?', user.id] do |dog|
         dog.user_id == user.id
@@ -23,20 +34,6 @@ class Ability
       can [:index, :show, :destroy], Result, ['dog_id = ?', user.id] do |r|
         r.dog_id.user_id == user.id
       end
-      #can :destroy, Result do |result|
-      #  result.status == 'Pending' || result.status == 'Rejected'
-      #end
-      #can [:new, :create], Result, ['dog_id.user_id = ?', user.id] do |r|
-      #  r.dog_id.user_id == user.id
-      #end
-      #can [:destroy], Result, ['result.status = ?', 'Pending'] do |r|
-      #  r.status == 'Pending'
-      #end
-      #can [:destroy], Result, ['result.status = ?', 'Rejected'] do |r|
-      #  r.status == 'Rejected'
-      #end
-
-
     end
 
     if user.admin?

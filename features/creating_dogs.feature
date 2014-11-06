@@ -8,15 +8,17 @@ Feature: Creating dogs
       | male |        | Samba y Fatiga Idilio   | 27/01/2006 | user1@example.com | perro.jpeg |
 
     Given there are the following users:
-      | email             | password | admin | image     |
-      | user@example.com  | password | false | user.jpeg |
-      | admin@example.com | password | true  |           |
+      | email              | password | admin | image     | cahoot |
+      | user1@example.com  | password | false | user.jpeg | true   |
+      | user2@example.com  | password | false |           | true   |
+      | user3@example.com  | password | false |           | false  |
+      | admin@example.com  | password | true  |           | true   |
+
 
     And I am on the dogs page
 
-  @working
-  Scenario: Creating a dog
-    When I am signed in as "user@example.com"
+  Scenario: Creating a dog like a cahoot user
+    When I am signed in as "user1@example.com"
     And I follow "New Dog"
     And I attach the file "images/dog/perro.jpeg" to "Image"
     And I select "male" from "Sex"
@@ -26,10 +28,10 @@ Feature: Creating dogs
     And I fill in "datepicker" with "01/01/2001"
     And I press "Create Dog"
     Then I should see "Dog has been created."
-    And  I should see "Owned by user@example.com"
+    And  I should see "Owned by user1@example.com"
     And I should be on the dog page for "Frael Valderrama"
 
-  Scenario: Creating a dog for admin
+  Scenario: Creating a dog like an admin
     When I am signed in as "admin@example.com"
     And I follow "New Dog"
     And I attach the file "images/dog/perro.jpeg" to "Image"
@@ -43,8 +45,13 @@ Feature: Creating dogs
     And  I should see "Owned by admin@example.com"
     And I should be on the dog page for "Frael Valderrama"
 
+  Scenario: Creating a dog like a user registered
+    When I am signed in as "user3@example.com"
+    And I follow "New Dog"
+    Then I should see "You are not authorized to access this page. "
+
   Scenario: Creating a dog without sex
-    When I am signed in as "user@example.com"
+    When I am signed in as "user1@example.com"
     And I follow "New Dog"
     And I attach the file "images/dog/perro.jpeg" to "Image"
     And I fill in "Titles" with "CH OF SPAIN"
@@ -55,7 +62,7 @@ Feature: Creating dogs
     Then I should see "Sex is not included in the list"
 
   Scenario: Creating a dog without name
-    When I am signed in as "user@example.com"
+    When I am signed in as "user1@example.com"
     And I follow "New Dog"
     And I attach the file "images/dog/perro.jpeg" to "Image"
     And I select "male" from "Sex"
@@ -66,7 +73,7 @@ Feature: Creating dogs
     Then I should see "Name can't be blank"
 
   Scenario: Creating a dog without birth date
-    When I am signed in as "user@example.com"
+    When I am signed in as "user1@example.com"
     And I follow "New Dog"
     And I attach the file "images/dog/perro.jpeg" to "Image"
     And I select "male" from "Sex"
@@ -76,7 +83,7 @@ Feature: Creating dogs
     Then I should see "Birth date can't be blank"
 
   Scenario: Creating a dog with birth date in the future
-    When I am signed in as "user@example.com"
+    When I am signed in as "user1@example.com"
     And I follow "New Dog"
     And I attach the file "images/dog/perro.jpeg" to "Image"
     And I select "male" from "Sex"

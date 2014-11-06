@@ -7,11 +7,12 @@ Feature: Creating results
       | exhibition   | award | dog                   | status  |
       | exhibition 1 | BOS   | Samba y Fatiga Idilio | Pending |
 
-    And there are the following users:
-      | email             | password | admin | image     |
-      | user1@example.com | password | false | user.jpeg |
-      | user2@example.com | password | false |           |
-      | admin@example.com | password | true  |           |
+    Given there are the following users:
+      | email              | password | admin | image     | cahoot |
+      | user1@example.com  | password | false | user.jpeg | true   |
+      | user2@example.com  | password | false |           | true   |
+      | user3@example.com  | password | false |           | false  |
+      | admin@example.com  | password | true  |           | true   |
 
     And there are the following dogs:
       | Sex  | Titles | Name                    | Birth Date | Owner             | Image      |
@@ -55,8 +56,7 @@ Feature: Creating results
     And I press "Create Result"
     Then I should see "Result has been created. A message with the result's link has been sent to your email address"
 
-  @working
-  Scenario: Creating a result like a user
+  Scenario: Creating a result like a cahoot user
     When I am signed in as "user2@example.com"
     And I follow "My Results"
     And I follow "New Result"
@@ -65,6 +65,12 @@ Feature: Creating results
     And I select "Fortunato Hautacuperche" from "Dog"
     And I press "Create Result"
     Then I should see "Result has been created. A message with the result's link has been sent to your email address"
+
+  Scenario: Creating a result like a registered user
+    When I am signed in as "user3@example.com"
+    And I follow "My Results"
+    And I follow "New Result"
+    Then I should see "You are not authorized to access this page. "
 
   Scenario: Creating a result without exhibition
     When I am signed in as "user2@example.com"

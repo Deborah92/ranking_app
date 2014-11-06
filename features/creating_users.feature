@@ -5,10 +5,11 @@ Feature: Creating Users
 
   Background:
     Given there are the following users:
-      | email              | password | admin | image     |
-      | user1@example.com  | password | false | user.jpeg |
-      | user2@example.com  | password | false |           |
-      | admin@example.com  | password | true  |           |
+      | email              | password | admin | image     | cahoot |
+      | user1@example.com  | password | false | user.jpeg | true   |
+      | user2@example.com  | password | false |           | true   |
+      | user3@example.com  | password | false |           | false  |
+      | admin@example.com  | password | true  |           | true   |
 
     And I am signed in as "admin@example.com"
     And I am on the users page
@@ -17,12 +18,23 @@ Feature: Creating Users
   Scenario: Creating a user
     When I follow "New User"
     And I attach the file "images/user/user.jpeg" to "Image"
-    And I fill in "Email" with "user3@example.com"
+    And I fill in "Email" with "user4@example.com"
     And I fill in "Password" with "password"
     And I fill in "Password confirmation" with "password"
     And I press "Create User"
     Then I should see "User has been created"
-    And I should see "user3@example.com (User)"
+    And I should see "user4@example.com (User)"
+@working
+  Scenario: Creating a cahoot user
+    When I follow "New User"
+    And I attach the file "images/user/user.jpeg" to "Image"
+    And I fill in "Email" with "user4@example.com"
+    And I fill in "Password" with "password"
+    And I fill in "Password confirmation" with "password"
+    And I check "Is a cahoot?"
+    And I press "Create User"
+    Then I should see "User has been created"
+    And I should see "user4@example.com (User) (Cahoot)"
 
   Scenario: Creating an admin user
     When I follow "New User"
@@ -38,7 +50,7 @@ Feature: Creating Users
   Scenario: Creating a user without password
     When I follow "New User"
     And I attach the file "images/user/user.jpeg" to "Image"
-    And I fill in "Email" with "user3@example.com"
+    And I fill in "Email" with "user4@example.com"
     And I press "Create User"
     Then I should see "User has not been created"
     And I should see "Password can't be blank"
@@ -55,7 +67,7 @@ Feature: Creating Users
   Scenario: Creating a user with a different password and confirmation password
     When I follow "New User"
     And I attach the file "images/user/user.jpeg" to "Image"
-    And I fill in "Email" with "user3@example.com"
+    And I fill in "Email" with "user4@example.com"
     And I fill in "Password" with "password"
     And I fill in "Password confirmation" with "pasword"
     And I press "Create User"

@@ -49,7 +49,7 @@ describe ExhibitionsController do
 
   end
 
-  context 'Standard users about exhibitions' do
+  context 'Registered users about exhibitions' do
 
     before { @exhibition =  FactoryGirl.create(:exhibition) }
 
@@ -95,6 +95,55 @@ describe ExhibitionsController do
       response.should be_success
     end
 
+  end
+
+  context 'Cahoot users about exhibitions' do
+    let(:cahoot) { FactoryGirl.create(:cahoot) }
+
+
+    before { @exhibition =  FactoryGirl.create(:exhibition) }
+
+    it 'cannot access to the new action' do
+      sign_in(:user, cahoot)
+      get :new
+      response.should redirect_to(root_path)
+    end
+
+    it 'cannot access to the create action' do
+      sign_in(:user, cahoot)
+      expect { post :create, exhibition: valid_attributes }.not_to change(Exhibition, :count)
+      response.should redirect_to(root_path)
+    end
+
+    it 'cannot access to the edit action' do
+      sign_in(:user, cahoot)
+      get :edit, id: @exhibition.to_param
+      response.should redirect_to(root_path)
+    end
+
+    it 'cannot access to the update action' do
+      sign_in(:user, cahoot)
+      put :update, {id: @exhibition.to_param, exhibition: valid_attributes}
+      response.should redirect_to(root_path)
+    end
+
+    it 'cannot access to the delete action' do
+      sign_in(:user, cahoot)
+      expect { delete :destroy, id: @exhibition.to_param }.not_to change(Exhibition, :count)
+      response.should redirect_to(root_path)
+    end
+
+    it 'cannot access to the show action' do
+      sign_in(:user, cahoot)
+      get :show, id: @exhibition.to_param
+      response.should be_success
+    end
+
+    it 'cannot access to the index action' do
+      sign_in(:user, cahoot)
+      get :index
+      response.should be_success
+    end
   end
 
 

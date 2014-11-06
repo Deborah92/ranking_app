@@ -37,18 +37,59 @@ describe DogsController do
       response.should redirect_to(new_user_session_path)
     end
 
-    it 'cannot access to the show action' do
+    it 'can access to the show action' do
       get :show, id: @dog.to_param
       response.should be_success
     end
 
-    it 'cannot access to the index action' do
+    it 'can access to the index action' do
       get :index
       response.should be_success
     end
   end
 
-  context 'Non-creator users (logged-in users)' do
+  context 'Non-creator users (logged-in cahoot users)' do
+
+    let(:cahoot) { FactoryGirl.create(:cahoot) }
+
+    before do
+      @dog = FactoryGirl.create(:dog)
+      sign_in(:user, cahoot)
+    end
+
+    it 'cannot access to the edit action' do
+      get :edit, id: @dog.to_param
+      response.status.should == 403
+      response.should render_template(file: "#{Rails.root}/public/403.html")
+    end
+
+    it 'cannot access to the update action' do
+      put :update, {id: @dog.to_param, dog: valid_attributes}
+      response.status.should == 403
+      response.should render_template(file: "#{Rails.root}/public/403.html")
+    end
+
+    it 'cannot access to the delete action' do
+      expect { delete :destroy, id: @dog.to_param }.not_to change(Dog, :count)
+      response.status.should == 403
+      response.should render_template(file: "#{Rails.root}/public/403.html")
+    end
+
+    it 'can access to the show action' do
+      get :show, id: @dog.to_param
+      response.should be_success
+    end
+
+    it 'can access to the index action' do
+      get :index
+      response.should be_success
+    end
+
+  end
+
+
+
+  context 'Non-creator users (logged-in registered users)' do
 
     let(:hacker) { FactoryGirl.create(:user) }
 
@@ -73,6 +114,54 @@ describe DogsController do
       expect { delete :destroy, id: @dog.to_param }.not_to change(Dog, :count)
       response.status.should == 403
       response.should render_template(file: "#{Rails.root}/public/403.html")
+    end
+
+    it 'can access to the show action' do
+      get :show, id: @dog.to_param
+      response.should be_success
+    end
+
+    it 'can access to the index action' do
+      get :index
+      response.should be_success
+    end
+
+  end
+
+  context 'Creator users (logged-in registered users)' do
+    let(:registered) { FactoryGirl.create(:user) }
+
+    before do
+      @dog = FactoryGirl.create(:dog)
+      sign_in(:user, registered)
+    end
+
+    it 'cannot access to the edit action' do
+      get :edit, id: @dog.to_param
+      response.status.should == 403
+      response.should render_template(file: "#{Rails.root}/public/403.html")
+    end
+
+    it 'cannot access to the update action' do
+      put :update, {id: @dog.to_param, dog: valid_attributes}
+      response.status.should == 403
+      response.should render_template(file: "#{Rails.root}/public/403.html")
+    end
+
+    it 'cannot access to the delete action' do
+      expect { delete :destroy, id: @dog.to_param }.not_to change(Dog, :count)
+      response.status.should == 403
+      response.should render_template(file: "#{Rails.root}/public/403.html")
+    end
+
+    it 'can access to the show action' do
+      get :show, id: @dog.to_param
+      response.should be_success
+    end
+
+    it 'can access to the index action' do
+      get :index
+      response.should be_success
     end
 
   end
