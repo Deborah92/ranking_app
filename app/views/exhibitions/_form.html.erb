@@ -1,23 +1,28 @@
 <% content_for :head do %>
     <%= javascript_include_tag 'exhibitions', "data-turbolinks-track" => false  %>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css" data-turbolinks-track="true">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
 <%end%>
 
-<%= form_for @exhibition do |f| %>
-    <% @exhibition.errors.full_messages.each do |message| %>
-        <p><%= message %></p>
-    <% end %>
+<%= form_for @exhibition, html: { class: "form"} do |f| %>
+    <div  class="alert alert-error">
+        <% @exhibition.errors.full_messages.each do |message| %>
+            <p><%= message %></p>
+        <% end %>
+    </div>
 
-    <p>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-    </p>
-    <p>
-      <%= f.label :date %>
-      <%= f.text_field :date, "id" => "datepicker", :value => (@exhibition.date.blank? ? 'dd/mm/yyyy' :@exhibition.date.strftime('%d/%m/%Y')) %>
-    </p>
-    <p>
-      <%= f.label :type_id %>
-      <%= f.collection_select :type_id, Type.all, :id, :name, prompt: 'Type...' %>
-    </p>
-    <%= f.submit %>
+    <div class="form-group">
+      <%= f.label :name, class: "control-label" %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :date, class: "control-label" %>
+      <%= f.text_field :date, "id" => "datepicker", :value => (@exhibition.date.blank? ? 'dd/mm/yyyy' :@exhibition.date.strftime('%d/%m/%Y')), class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :type_id, class: "control-label" %>
+      <%= f.collection_select :type_id, Type.all, :id, :name, {prompt: 'Type...'}, {class: "form-control", style: "width:40%;"} %>
+    </div>
+    <%= f.submit :class => "btn btn-primary"%>
 <% end %>

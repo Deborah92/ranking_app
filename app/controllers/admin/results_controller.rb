@@ -2,6 +2,7 @@ class Admin::ResultsController < ApplicationController
   before_filter :authorize_admin!, except: [:show]
   before_action :set_result, only: [:show, :edit, :update, :destroy]
   def index
+    @adminResults = 'selected'
     @results = Result.all
   end
 

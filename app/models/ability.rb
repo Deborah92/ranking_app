@@ -11,7 +11,7 @@ class Ability
     can :index, User
     can :index, Dog
 
-    if user.persisted?
+    if !user.cahoot?
       can [:index, :show], Dog
       can [:edit, :update], User, ['user.id = ?', user.id] do |u|
         u.id == user.id
@@ -38,9 +38,9 @@ class Ability
 
     if user.admin?
       can :index, :all
-      can [:edit, :update, :destroy], Dog
+      can [:new, :create, :edit, :update, :destroy], Dog
       can [:new, :create, :edit, :update, :destroy], User
-      can [:new, :create, :edit, :update, :destroy], Result
+      can [:new, :create, :edit, :update, :destroy, :show], Result
     end
 
     #   if user.admin?

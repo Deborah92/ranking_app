@@ -1,15 +1,19 @@
-<h1>Dogs#index</h1>
-<table>
+<h2>Censo de perros de la Asociación Española para el Fomento de la Raza Bulldog Francés</h2>
+<table class="table table-hover table-striped">
   <tr>
-    <th>Dog Name</th>
-    <th>Owner</th>
+    <th>Fotogragía</th>
+    <th>Nombre</th>
+    <th>Propietario</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
   <%= render @dogs %>
 </table></br>
+<%= @year %>
+<%= @points %>
 
 <%# if can? :new, Dog  %>
-  <%= link_to "New Dog", new_dog_path %>
+<%= link_to "New Dog", new_dog_path, class: "glyphicon glyphicon-plus link" %>
+<%= link_to "Ranking", :controller => :dogs, :action => :ranking %>
 <%# end %>

@@ -1,4 +1,5 @@
 <%= content_tag_for :tr, user do %>
+    <td><%= image_tag(user.image_url, class: "imgUser img-rounded") if user.image.present? %></td>
     <td><%= user %>
       <% if user.cahoot? %> (Cahoot) <% end %>
     </td>

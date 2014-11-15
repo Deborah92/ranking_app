@@ -1,0 +1,22 @@
+<h2>Ranking</h2>
+<table class="table table-hover table-striped">
+  <tr>
+    <th>Puntos</th>
+    <th>Fotografía</th>
+    <th>Nombre</th>
+    <th>Sexo</th>
+  </tr>
+
+  <% @points.each do |k,v| %>
+    <tr>
+      <td><%= v[0] %></td>
+      <td><%= image_tag(v[1], class: "imageDog img-rounded") %></td>
+      <td><%= k %></td>
+      <td><%= v[2] %></td>
+    </tr>
+   <% end %>
+</table>
+
+<!--<%# if can? :new, Dog  %>-->
+<!--<%#= link_to "New Dog", new_dog_path, class: "glyphicon glyphicon-plus link" %>-->
+<%# end %>

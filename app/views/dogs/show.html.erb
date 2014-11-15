@@ -1,17 +1,21 @@
-<small>Owned by <%= @dog.user.try :email %> </small>
-<h2><%= @dog.name %></h2>
+<% content_for :head do %>
+    <%= stylesheet_link_tag "dogs", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag 'dogs' %>
+<%end%>
+<div class="row">
+    <div class="col-md-4">
+      <%= image_tag(@dog.image_url, class: "imgDog img-thumbnail") if @dog.image.present? %>
+    </div>
+    <div class="col-md-8 textDog">
+      <ul >
+          <li><label>Nombre: </label><%= @dog.name %></li>
+          <li><label>Sexo: </label><%= @dog.sex %></br></li>
+          <li><label>Títulos: </label><%= @dog.titles %></br></li>
+          <li><label>Fecha de nacimiento: </label><%= @dog.birth_date.strftime('%d/%m/%Y') %></br></li>
+          <li><label>Propietario: </label><%= @dog.user.try :email %></br></li>
+          <li>
+      </ul>
+    </div>
+  <div class="col-md-2 editDog"><%= link_to "Edit Dog", edit_dog_path, class: "glyphicon glyphicon-pencil link" %></div>
+</div>
 
-<%= image_tag(@dog.image_url) if @dog.image.present? %>
-
-<table width="20%" border="1" cellspacing="1">
-  <tr>
-    <th>Sex</th>
-    <th>Titles</th>
-    <th>Birth Date</th>
-  </tr>
-  <tr>
-    <td><%= @dog.sex %></td>
-    <td><%= @dog.titles %></td>
-    <td><%= @dog.birth_date.strftime('%d/%m/%Y') %></td>
-  </tr>
-</table>

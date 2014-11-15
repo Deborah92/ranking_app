@@ -1,8 +1,13 @@
-<h1>Exhibitions#index</h1>
-<table>
+<h2>Exposiciones</h2>
+
+<table class="table table-hover table-striped">
   <tr>
-    <th>Exhibition Name</th>
+    <th>Nombre</th>
+    <th></th>
+    <th></th>
+    <th></th>
   </tr>
   <%= render @exhibitions %>
-  <%= link_to("New Exhibition", new_exhibition_path) %>
 </table></br>
+
+<%= link_to("New Exhibition", new_exhibition_path, class: "glyphicon glyphicon-plus") %>

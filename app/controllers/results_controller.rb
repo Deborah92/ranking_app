@@ -4,6 +4,7 @@ class ResultsController < ApplicationController
   def index
     set_user
     @results = Result.where(dog_id: Dog.where(user_id: @user))
+    @myResults = 'selected'
     authorize! :index, Result
   end
 

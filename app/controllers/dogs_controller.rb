@@ -50,6 +50,22 @@ class DogsController < ApplicationController
     redirect_to dogs_path
   end
 
+  def ranking
+    @dogs = Dog.all
+    @points = Hash.new
+
+    @dogs.each do |d|
+      @results = Result.select(:award_id, :exhibition_id).where(dog_id: d.id).distinct
+      @points[d.name]=0
+      for t in @results do
+        @awards = Result.select(:award_id).where(dog_id: d.id, exhibition_id: t).distinct
+        @points[d.name] = @points[d.name]+ Point.where(award_id: t.award_id,type_id: t.exhibition.type_id, year: t.exhibition.date.year).sum(:npoint)
+      end
+      @points[d.name] = [@points[d.name], d.image, d.sex]
+    end
+    @points = Hash[@points.sort_by{|k, v| v}.reverse]
+  end
+
   private
     def dog_params
       params.require(:dog).permit(:sex, :titles, :name, :birth_date, :image)

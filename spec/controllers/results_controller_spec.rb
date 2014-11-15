@@ -46,15 +46,6 @@ describe ResultsController do
       response.should redirect_to(new_user_session_path)
     end
 
-    it 'cannot access to the show action' do
-      get :show, id: @result.to_param
-      response.should redirect_to(new_user_session_path)
-    end
-
-    #it 'cannot access to the index action' do
-    #  get :index
-    #  response.should redirect_to(new_user_session_path)
-    #end
 
   end
 

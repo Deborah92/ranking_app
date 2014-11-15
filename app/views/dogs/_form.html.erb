@@ -1,33 +1,37 @@
 <% content_for :head do %>
     <%= javascript_include_tag 'dogs', "data-turbolinks-track" => false  %>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css" data-turbolinks-track="true">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
 <%end%>
 
-<%= form_for @dog, html: {multipart: true, "data-ajax" => "false"} do |f|  %>
-    <% @dog.errors.full_messages.each do |message| %>
-        <p><%= message %></p>
-    <% end %>
+<%= form_for @dog, html: {multipart: true, "data-ajax" => "false", class: "form" } do |f|  %>
+    <div  class="alert alert-error">
+        <% @dog.errors.full_messages.each do |message| %>
+            <p><%= message %></p>
+        <% end %>
+    </div>
 
-    <p>
-      <%= f.label :image %>
-      <%= f.file_field :image%>
-    </p>
-    <p>
-      <%= f.label :sex %>
-      <%= f.select :sex, [['Male', 'male'],['Female', 'female']], prompt: 'Gender...' %>
-    </p>
-    <p>
-      <%= f.label :titles %>
-      <%= f.text_field :titles %>
-    </p>
-    <p>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-    </p>
-    <p>
-      <%= f.label :birth_date %>
+    <div class="form-group">
+      <%= f.label :image, class: "control-label" %>
+      <%= f.file_field :image, class: "btn btn-default"%>
+    </div>
+    <div class="form-group">
+      <%= f.label :sex, class: "control-label" %>
+      <%= f.select :sex, [['Male', 'male'],['Female', 'female']], {prompt: 'Gender...'}, {class: "form-control", style: "width:10%;"}%>
+    </div>
+    <div class="form-group">
+      <%= f.label :titles, class: "control-label" %>
+      <%= f.text_area(:titles, rows: '2', class: "form-control") %>
+    </div>
+    <div class="form-group">
+      <%= f.label :name, class: "control-label" %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :birth_date, class: "control-label" %>
       <%#= f.datetime_field :birth_date, "id" => "datepicker", :value => (@dog.birth_date.blank? ? 'dd/mm/yyyy' :@dog.birth_date.strftime('%d/%m/%Y')) %>
-      <%= f.text_field :birth_date, "id" => "datepicker", :value => (@dog.birth_date.blank? ? 'dd/mm/yyyy' :@dog.birth_date.strftime('%d/%m/%Y')) %>
-
-    </p>
-    <%= f.submit %>
+      <%= f.text_field :birth_date, "id" => "datepicker", :value => (@dog.birth_date.blank? ? 'dd/mm/yyyy' :@dog.birth_date.strftime('%d/%m/%Y')), class: "form-control" %>
+    </div>
+    <%= f.submit :class => "btn btn-primary" %>
 <% end %>

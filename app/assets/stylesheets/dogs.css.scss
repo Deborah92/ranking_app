@@ -1,3 +1,48 @@
 // Place all the styles related to the dogs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.textDog{
+  margin-left: -35px;
+  margin-top: 28px;
+}
+
+.editDog{
+  margin-left: 35px;
+}
+
+.imgDog {
+  position:relative;
+  overflow:visible;
+  border: 4px 4px 4px;
+  width: 300px;
+  height:25%;
+  margin-top: 40px;
+  margin-bottom:20px;
+  margin-left:30px;
+  -webkit-transition: -webkit-transform 0.5s ease-in-out;
+  -moz-transition: -moz-transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+}
+.imgDog:hover {
+  position:relative;
+  overflow:visible;
+  transform: scale(1,1.05) skew(5deg, -5deg) translate(-5px,-5px);
+  -webkit-transform: scale(1,1.05) skew(5deg, -5deg) translate(-5px,-5px);
+  -moz-transform: scale(1,1.05) skew(5deg, -5deg) translate(-5px,-5px);
+  -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+ul{
+  list-style: none;
+}
+
+li{
+  margin-top: 10px;
+}
+
+.title{
+  margin-left: 3%;
+}

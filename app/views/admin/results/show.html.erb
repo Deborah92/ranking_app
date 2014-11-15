@@ -1,17 +1,18 @@
-<h1>Results#show</h1>
+<h2>Resultado de <%= @result.dog.user.email %></h2>
 
-<%= link_to("Edit Result", edit_admin_result_path)  %>
-<table width="20%" border="1" cellspacing="1">
+<table  class="table table-hover table-striped">
   <tr>
-    <th>Exhibition</th>
-    <th>Award</th>
-    <th>Dog</th>
-    <th>Status</th>
+    <th>Exposición</th>
+    <th>Premio</th>
+    <th>Perro</th>
+    <th>Estado</th>
   </tr>
   <tr>
-    <td><%= @exhibition.exhibition %></td>
-    <td><%= @exhibition.award %></td>
-    <td><%= @exhibition.dog %></td>
-    <td><%= @exhibition.status %></td>
+    <td><%= @result.exhibition.name %></td>
+    <td><%= @result.award.award %></td>
+    <td><%= @result.dog.name %></td>
+    <td><%= @result.status %></td>
   </tr>
 </table>
+
+<%= link_to("Edit Result", edit_admin_result_path, class: "glyphicon glyphicon-pencil link")  %>

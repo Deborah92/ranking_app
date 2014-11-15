@@ -11,3 +11,49 @@
  *= require_self
  *= require_tree .
  */
+
+    body { padding-top: 100px;}
+
+    table, td, th {margin-top: 100px;}
+    th { border-bottom: 3px solid #DDD;}
+    td { border-bottom: 1px solid #DDD;}
+    textarea { resize: vertical; }
+    .imageDog { width: 110px;}
+    #menu #selected{
+        background-color: #E5ECF9;
+    }
+
+    #header2 #menu #selected .textHeader{
+        color: #000000;
+    }
+
+    .page {
+        background-color: #E5ECF9;
+    }
+
+    #bar{
+        background-color: #205081;
+    }
+
+    #header1{
+        margin-left: 20%;
+    }
+
+    #header2 #menu li .textHeader, #header1 a{
+        color:#FFFFFF;
+        font-weight: bold;
+    }
+
+    .link{
+        color:#205081;
+    }
+
+    #gif{
+        margin-left: 450px;
+        width: 70px;
+    }
+
+/*.table-striped>tbody>tr:nth-child(even)>td,*/
+/*.table-striped>tbody>tr:nth-child(even)>th {*/
+    /*background-color: #cdfbf7;*/
+/*}*/

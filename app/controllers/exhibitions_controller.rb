@@ -3,6 +3,7 @@ class ExhibitionsController < ApplicationController
   before_action :set_exhibition, only: [:show, :edit, :update, :destroy]
   def index
     @exhibitions = Exhibition.all
+    @allExhibitions = 'selected'
   end
 
   def new

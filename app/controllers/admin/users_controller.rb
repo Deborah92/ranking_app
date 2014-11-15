@@ -3,7 +3,9 @@ class Admin::UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
+    @adminUsers = 'selected'
     @users = User.all
+
   end
 
   def new

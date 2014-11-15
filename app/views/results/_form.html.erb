@@ -1,19 +1,21 @@
-<%= form_for @result do |f| %>
-    <% @result.errors.full_messages.each do |message| %>
-        <p><%= message %></p>
-    <% end %>
+<%= form_for @result, html: {multipart: true, "data-ajax" => "false", class: "form" } do |f| %>
+    <div  class="alert alert-error">
+        <% @result.errors.full_messages.each do |message| %>
+            <p><%= message %></p>
+        <% end %>
+    </div>
 
-    <p>
-      <%= f.label :exhibition_id %>
-      <%= f.collection_select :exhibition_id, Exhibition.all, :id, :name, prompt: 'Exhibition...' %>
-    </p>
-    <p>
-      <%= f.label :award_id %>
-      <%= f.collection_select :award_id, Award.all, :id, :award, prompt: 'Award...' %>
-    </p>
-    <p>
-      <%= f.label :dog_id %>
-      <%= f.collection_select :dog_id, Dog.find_all_by_user_id(current_user), :id, :name, prompt: 'Dog...' %>
-    </p>
-    <%= f.submit %>
+    <div class="form-group">
+      <%= f.label :exhibition_id, class: "control-label" %>
+      <%= f.collection_select :exhibition_id, Exhibition.all, :id, :name, {prompt: 'Exhibition...'}, {class: "form-control", style: "width:20%;"} %>
+    </div>
+    <div class="form-group">
+      <%= f.label :award_id, class: "control-label" %>
+      <%= f.collection_select :award_id, Award.all, :id, :award, {prompt: 'Award...'}, {class: "form-control", style: "width:20%;"} %>
+    </div>
+    <div class="form-group">
+      <%= f.label :dog_id, class: "control-label" %>
+      <%= f.collection_select :dog_id, Dog.find_all_by_user_id(current_user), :id, :name, {prompt: 'Dog...'}, {class: "form-control", style: "width:20%;"} %>
+    </div>
+    <%= f.submit :class => "btn btn-primary" %>
 <% end %>

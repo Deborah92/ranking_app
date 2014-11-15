@@ -1,8 +1,15 @@
-<h1>Results#index</h1>
-<table>
+<h2>Administración de Resultados</h2>
+<table class="table table-hover table-striped">
   <tr>
-    <th>Result Name</th>
+    <th>Exposición</th>
+    <th>Premio</th>
+    <th>Perro</th>
+    <th>Estado</th>
+    <th></th>
+    <th></th>
+    <th></th>
   </tr>
   <%= render @results %>
-  <%= link_to("New Result", new_admin_result_path) %>
 </table></br>
+
+<%= link_to("New Result", new_admin_result_path, class: "glyphicon glyphicon-plus link") %>

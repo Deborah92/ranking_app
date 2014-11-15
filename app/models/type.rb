@@ -2,6 +2,8 @@ class Type < ActiveRecord::Base
   has_many :exhibitions
   has_many :points
 
+  has_many :results, through: :exhibitions
+
   validates_presence_of :name
   self.inheritance_column = nil
 

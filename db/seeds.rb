@@ -42,7 +42,7 @@ end
 
 [['Exhibition 1', '26/12/2014', '1'],['Exhibition 2', '27/12/2014', '3'],
  ['Exhibition 3', '28/12/2014', '1']].each do |n, d, t|
-  Exhibition.where(name: n, date: d, type_id: t).first_or_create
+  Exhibition.where(name: n, date: d, type_id: t).first_or_create!
 end
 
 [['1','7','200'],['1','8','150'], ###### MONOGRÁFICA NACIONAL ######
@@ -80,4 +80,8 @@ end
   ['6','12','30'], ['6','13','15'],
   ['6','14','15'], ['6','15','5']].each do |t, a, p|
   Point.create(year: '2014', type_id: t, award_id: a, npoint: p)
+end
+[['1', '7', '1'],['2', '9', '2'],
+ ['3', '14', '1'],['3', '7', '2']].each do |e, a, d|
+  Result.create(exhibition_id: e, award_id: a, dog_id: d, status: 'Validated')
 end

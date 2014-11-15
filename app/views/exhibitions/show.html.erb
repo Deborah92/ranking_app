@@ -1,12 +1,10 @@
-<h1>Exhibitions#show</h1>
 <h2><%= @exhibition.name %></h2>
 
-<%= link_to("Edit Exhibition", edit_exhibition_path)  %>
-<table width="20%" border="1" cellspacing="1">
+<table class="table table-hover table-striped">
     <tr>
-        <th>Exhibition Name</th>
-        <th>Date</th>
-        <th>Type</th>
+        <th>Nombre</th>
+        <th>Fecha</th>
+        <th>Tipo</th>
     </tr>
     <tr>
         <td><%= @exhibition.name %></td>
@@ -14,3 +12,5 @@
         <td><%= @exhibition.type.name %></td>
     </tr>
 </table>
+
+<%= link_to("Edit Exhibition", edit_exhibition_path, class: "glyphicon glyphicon-pencil")  %>
