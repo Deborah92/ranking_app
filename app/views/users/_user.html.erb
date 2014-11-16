@@ -1,4 +1,5 @@
 <%= content_tag_for :tr, user do %>
+    <td><%= image_tag(user.image_url, class: "imgUser img-rounded") if user.image.present? %></td>
     <td><%= user.email %></td>
     <td><%= link_to("Show", user) %></td>
     <td><%= link_to("Edit", edit_user_path(user)) %></td>

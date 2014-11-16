@@ -14,27 +14,27 @@
       <img src="./assets/0.8.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2014-11-16T13:03:50+00:00">2014-11-16T13:03:50+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2014-11-16T15:14:51+00:00">2014-11-16T15:14:51+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="yellow">84.57%</span></span>
+    (<span class="covered_percent"><span class="yellow">84.31%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         10.91
+         10.76
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
-    <b>46</b> files in total.
-    <b>622</b> relevant lines. 
-    <span class="green"><b>526</b> lines covered</span> and
-    <span class="red"><b>96</b> lines missed </span>
+    <b>47</b> files in total.
+    <b>631</b> relevant lines. 
+    <span class="green"><b>532</b> lines covered</span> and
+    <span class="red"><b>99</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -383,9 +383,9 @@
       <tr>
         <td class="strong"><a href="#c2bd3dbb069091eb12fa6d71ca52b1c4f1221499" class="src_link" title="factories/factories.rb">factories/factories.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>59</td>
-        <td>29</td>
-        <td>29</td>
+        <td>66</td>
+        <td>34</td>
+        <td>34</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -428,6 +428,16 @@
         <td>7</td>
         <td>2</td>
         <td>19.4</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#18756b55e33c5bdb515a3ae3a9c55b6665c572ff" class="src_link" title="features/step_definitions/point_steps.rb">features/step_definitions/point_steps.rb</a></td>
+        <td class="red strong">25.0 %</td>
+        <td>7</td>
+        <td>4</td>
+        <td>1</td>
+        <td>3</td>
+        <td>0.3</td>
       </tr>
       
       <tr>
@@ -2085,7 +2095,7 @@
         <li class="missed" data-hits="0" data-linenumber="67">
           
           
-          <code class="ruby">    @points = Hash[@points.sort_by{|k, v| v}.reverse]</code>
+          <code class="ruby">    @points =@points.sort_by{|a, b| b[0]}.reverse</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="68">
@@ -8331,8 +8341,8 @@
     <h3>factories/factories.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>29</b> relevant lines. 
-      <span class="green"><b>29</b> lines covered</span> and
+      <b>34</b> relevant lines. 
+      <span class="green"><b>34</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -8688,7 +8698,49 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="59">
+        <li class="covered" data-hits="1" data-linenumber="59">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  factory :point do |p|</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="60">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    p.year &#39;2014&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="61">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    p.award</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="62">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    p.type</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="63">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    p.npoint &#39;200&#39;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="64">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="65">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="66">
           
           
           <code class="ruby">end</code>
@@ -10285,6 +10337,66 @@
         </li>
       
         <li class="never" data-hits="" data-linenumber="17">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
+        <div class="source_table" id="18756b55e33c5bdb515a3ae3a9c55b6665c572ff">
+  <div class="header">
+    <h3>features/step_definitions/point_steps.rb</h3>
+    <h4><span class="red">25.0 %</span> covered</h4>
+    <div>
+      <b>4</b> relevant lines. 
+      <span class="green"><b>1</b> lines covered</span> and
+      <span class="red"><b>3</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">Given(/^there are the following points:$/) do |table|</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="2">
+          
+          
+          <code class="ruby">  # table is a Cucumber::Ast::Table</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="3">
+          
+          
+          <code class="ruby">  table.map_headers!( &#39;year&#39; =&gt; :year, &#39;type&#39; =&gt; :type_id, &#39;award&#39; =&gt; &#39;award_id&#39;, &#39;points&#39; =&gt; :npoint )</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="4">
+          
+          
+          <code class="ruby">  table.hashes.each do |attributes|</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="5">
+          
+          
+          <code class="ruby">    FactoryGirl.create(:point, attributes)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="6">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="7">
           
           
           <code class="ruby">end</code>

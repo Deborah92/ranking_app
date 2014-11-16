@@ -496,6 +496,13 @@
         1,
         null,
         null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
         null
       ],
       "/home/invitado/rails_projects/ranking_app/config/routes.rb": [
@@ -985,6 +992,15 @@
         null,
         null,
         1,
+        0,
+        0,
+        null,
+        null
+      ],
+      "/home/invitado/rails_projects/ranking_app/features/step_definitions/point_steps.rb": [
+        1,
+        null,
+        0,
         0,
         0,
         null,
@@ -1752,7 +1768,7 @@
         null
       ]
     },
-    "timestamp": 1416143030
+    "timestamp": 1416150891
   },
   "RSpec": {
     "coverage": {

@@ -64,7 +64,7 @@ class DogsController < ApplicationController
       end
       @points[d.name] = [@points[d.name], d.image, d.sex]
     end
-    @points = Hash[@points.sort_by{|k, v| v}.reverse]
+    @points =@points.sort_by{|a, b| b[0]}.reverse
   end
 
   private

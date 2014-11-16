@@ -56,4 +56,11 @@ FactoryGirl.define do
     r.status 'Pending'
   end
 
+  factory :point do |p|
+    p.year '2014'
+    p.award
+    p.type
+    p.npoint '200'
+  end
+
 end
