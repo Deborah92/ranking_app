@@ -28,7 +28,7 @@ Feature: Creating dogs
     And I fill in "datepicker" with "01/01/2001"
     And I press "Create Dog"
     Then I should see "Dog has been created."
-    And  I should see "Owned by user1@example.com"
+    And  I should see "Owner: user1@example.com"
     And I should be on the dog page for "Frael Valderrama"
 
   Scenario: Creating a dog like an admin
@@ -42,7 +42,7 @@ Feature: Creating dogs
     And I fill in "datepicker" with "01/01/2001"
     And I press "Create Dog"
     Then I should see "Dog has been created."
-    And  I should see "Owned by admin@example.com"
+    And  I should see "Owner: admin@example.com"
     And I should be on the dog page for "Frael Valderrama"
 
   Scenario: Creating a dog like a user registered

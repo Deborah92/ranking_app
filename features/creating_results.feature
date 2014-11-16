@@ -47,7 +47,7 @@ Feature: Creating results
 
   Scenario: Creating a result like an admin
     When I am signed in as "admin@example.com"
-    And I follow "Administrar Resultados"
+    And I follow "Results management"
     And I follow "New Result"
     And I select "exhibition 2" from "Exhibition"
     And I select "MEJOR DE RAZA" from "Award"
@@ -58,7 +58,7 @@ Feature: Creating results
 
   Scenario: Creating a result like a cahoot user
     When I am signed in as "user2@example.com"
-    And I follow "My Results"
+    And I follow "My results"
     And I follow "New Result"
     And I select "exhibition 2" from "Exhibition"
     And I select "MEJOR DE RAZA" from "Award"
@@ -68,13 +68,13 @@ Feature: Creating results
 
   Scenario: Creating a result like a registered user
     When I am signed in as "user3@example.com"
-    And I follow "My Results"
+    And I follow "My results"
     And I follow "New Result"
     Then I should see "You are not authorized to access this page. "
 
   Scenario: Creating a result without exhibition
     When I am signed in as "user2@example.com"
-    And I follow "My Results"
+    And I follow "My results"
     And I follow "New Result"
     And I select "Exhibition..." from "Exhibition"
     And I select "MEJOR DE RAZA" from "Award"
@@ -85,7 +85,7 @@ Feature: Creating results
 
   Scenario: Creating a result without award
     When I am signed in as "user2@example.com"
-    And I follow "My Results"
+    And I follow "My results"
     And I follow "New Result"
     And I select "exhibition 2" from "Exhibition"
     And I select "Award..." from "Award"
@@ -96,7 +96,7 @@ Feature: Creating results
 
   Scenario: Creating a result without dog
     When I am signed in as "user2@example.com"
-    And I follow "My Results"
+    And I follow "My results"
     And I follow "New Result"
     And I select "exhibition 2" from "Exhibition"
     And I select "MEJOR DE RAZA" from "Award"

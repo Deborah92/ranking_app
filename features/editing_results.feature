@@ -48,7 +48,7 @@ Feature: Editing Results
 
   Scenario: Updating a result like an admin
     When I am signed in as "admin@example.com"
-    And I follow "Administrar Resultados"
+    And I follow "Results management"
     And I follow "Edit" within "#result_1"
     And I select "Validated" from "Status"
     And I press "Update Result"
@@ -56,10 +56,10 @@ Feature: Editing Results
 
   Scenario: Updating a result like a cahoot user
     When I am signed in as "user1@example.com"
-    And I follow "Administrar Resultados"
+    And I follow "Results management"
     Then I should see "You must be an admin to do that"
 
   Scenario: Updating a result like a registered user
     When I am signed in as "user3@example.com"
-    And I follow "Administrar Resultados"
+    And I follow "Results management"
     Then I should see "You must be an admin to do that"

@@ -8,11 +8,11 @@
     </div>
     <div class="col-md-8 textDog">
       <ul >
-          <li><label>Nombre: </label><%= @dog.name %></li>
-          <li><label>Sexo: </label><%= @dog.sex %></br></li>
-          <li><label>Títulos: </label><%= @dog.titles %></br></li>
-          <li><label>Fecha de nacimiento: </label><%= @dog.birth_date.strftime('%d/%m/%Y') %></br></li>
-          <li><label>Propietario: </label><%= @dog.user.try :email %></br></li>
+          <li><label>Name: </label><%= @dog.name %></li>
+          <li><label>Sex: </label><%= @dog.sex %></br></li>
+          <li><label>CH: </label><%= @dog.titles %></br></li>
+          <li><label>Birthdate: </label><%= @dog.birth_date.strftime('%d/%m/%Y') %></br></li>
+          <li><label>Owner: </label><%= @dog.user.try :email %></br></li>
           <li>
       </ul>
     </div>

@@ -1,4 +1,4 @@
-<h2>Perfil de <%= @user.email %></h2>
+<h2>Profile of <%= @user.email %></h2>
 
 <h2><%= image_tag(@user.image_url) if @user.image.present? %></h2>
 
@@ -8,14 +8,14 @@
 
   <% @userdogs.each do |dogs| %>
       <tr>
-        <th colspan="5" style="text-align:center">Perros de <%= @user.email %></th>
+        <th colspan="5" style="text-align:center">Dogs of <%= @user.email %></th>
       </tr>
       <tr>
-        <th>Fotogragía</th>
-        <th>Nombre</th>
-        <th>Sexo</th>
-        <th>Títulos</th>
-        <th>Fecha de nacimiento</th>
+        <th>Photo</th>
+        <th>Name</th>
+        <th>Sex</th>
+        <th>CH</th>
+        <th>Birthdate</th>
       </tr>
       <tr>
         <td><%= link_to image_tag(dogs.image, class: "imageDog"), dog_path(dogs) %></td>

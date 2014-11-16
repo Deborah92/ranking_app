@@ -51,6 +51,7 @@ class DogsController < ApplicationController
   end
 
   def ranking
+    @theRanking = 'selected'
     @dogs = Dog.all
     @points = Hash.new
 

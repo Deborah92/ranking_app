@@ -15,7 +15,7 @@ Feature: Viewing users
 
   Scenario: Viewing users like an admin
     When I am signed in as "admin@example.com"
-    And I follow "Administrar Usuarios"
+    And I follow "Users management"
     Then I should see "user1@example.com"
     And I should see "user2@example.com"
     And I should see "user3@example.com"
@@ -23,10 +23,10 @@ Feature: Viewing users
 
   Scenario: Viewing users like a cahoot user
     When I am signed in as "user1@example.com"
-    And I follow "Administrar Usuarios"
+    And I follow "Users management"
     Then I should see "You must be an admin to do that"
 
   Scenario: Viewing users like a registered user
     When I am signed in as "user3@example.com"
-    And I follow "Administrar Usuarios"
+    And I follow "Users management"
     Then I should see "You must be an admin to do that"

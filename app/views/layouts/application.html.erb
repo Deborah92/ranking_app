@@ -23,17 +23,18 @@
             <!--<span class="icon-bar"></span>-->
             <!--<span class="icon-bar"></span>-->
         <!--</button>-->
-        <a class="navbar-brand" href="/">Ranking App</a>
+        <a class="navbar-brand" href="/">AEFRBF</a>
     </div>
     <div id="header2" class="collapse navbar-collapse">
         <ul id="menu" class="nav navbar-nav">
             <% if user_signed_in? %>
                 <% if current_user.admin='true' %>
-                    <li id=<%= @adminUsers%>><%= link_to "Administrar Usuarios", admin_users_path, class:'textHeader' %></li>
-                    <li id=<%= @adminResults%>><%= link_to "Administrar Resultados", admin_results_path, class:'textHeader' %></li>
+                    <li id=<%= @adminUsers%>><%= link_to "Users management", admin_users_path, class:'textHeader' %></li>
+                    <li id=<%= @adminResults%>><%= link_to "Results management", admin_results_path, class:'textHeader' %></li>
                 <% end %>
+                <li id=<%= @theRanking%>><%= link_to "Ranking", dogs_ranking_path, {class:'textHeader'}  %></li>
                 <li id=<%= @myProfile%>><%= link_to "My profile", user_path(current_user), class:'textHeader' %></li>
-                <li id=<%= @myResults%>><%= link_to "My Results",results_path, class:'textHeader' %></li>
+                <li id=<%= @myResults%>><%= link_to "My results",results_path, class:'textHeader' %></li>
                 <li id=<%= @allExhibitions%>><%= link_to "Exhibitions", exhibitions_path, class:'textHeader' %></li>
                 <li><%= link_to "Sign out", destroy_user_session_path, method: :delete, class:'textHeader' %></li>
             <% else %>

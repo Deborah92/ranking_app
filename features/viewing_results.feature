@@ -53,7 +53,7 @@ Feature: Viewing results
 
   Scenario: Viewing results like an admin
     When I am signed in as "admin@example.com"
-    And I follow "Administrar Resultados"
+    And I follow "Results management"
     Then I should see the admin results page
     And I should see "exhibition 1 BOS Samba y Fatiga Idilio Pending"
     And I should see "exhibition 2 MEJOR DE RAZA Fortunato Hautacuperche Rejected"
@@ -63,10 +63,10 @@ Feature: Viewing results
   @working
   Scenario: Viewing results like a cahoot user
     When I am signed in as "user1@example.com"
-    And I follow "My Results"
+    And I follow "My results"
     Then I should see the results page
 
   Scenario: Viewing results like a registered user
     When I am signed in as "user3@example.com"
-    And I follow "My Results"
+    And I follow "My results"
     Then I should see the results page

@@ -54,54 +54,54 @@ Feature: Deleting results
 
   Scenario: Deleting a Pending result like an admin
     When I am signed in as "admin@example.com"
-    And I follow "Administrar Resultados"
+    And I follow "Results management"
     And I follow "Delete" within "#result_1"
     Then I should see "Result has been deleted."
 
   Scenario: Deleting a Rejected result like an admin
     When I am signed in as "admin@example.com"
-    And I follow "Administrar Resultados"
+    And I follow "Results management"
     And I follow "Delete" within "#result_2"
     Then I should see "Result has been deleted."
 
   Scenario: Deleting a Validated result like an admin
     When I am signed in as "admin@example.com"
-    And I follow "Administrar Resultados"
+    And I follow "Results management"
     And I follow "Delete" within "#result_3"
     Then I should see "Result has been deleted."
 
   Scenario: Deleting a Pending result like a cahoot user
     When I am signed in as "user1@example.com"
-    And I follow "My Results"
+    And I follow "My results"
     And I follow "Delete" within "#result_1"
     Then I should see "Result has been deleted"
 
   Scenario: Deleting a Rejected result like a cahoot user
     When I am signed in as "user2@example.com"
-    And I follow "My Results"
+    And I follow "My results"
     And I follow "Delete" within "#result_2"
     Then I should see "Result has been deleted"
 
   Scenario: Deleting a Validated result like a cahoot user
     When I am signed in as "user1@example.com"
-    And I follow "My Results"
+    And I follow "My results"
     And I follow "Delete" within "#result_3"
     Then I should see "Result has not been deleted."
 
   Scenario: Deleting a Pending result like a registered user
     When I am signed in as "user3@example.com"
-    And I follow "My Results"
+    And I follow "My results"
     And I follow "Delete" within "#result_4"
     Then I should see "You are not authorized to access this page. "
 
   Scenario: Deleting a Rejected result like a registered user
     When I am signed in as "user3@example.com"
-    And I follow "My Results"
+    And I follow "My results"
     And I follow "Delete" within "#result_5"
     Then I should see "You are not authorized to access this page. "
 
   Scenario: Deleting a Validated result like a registered user
     When I am signed in as "user3@example.com"
-    And I follow "My Results"
+    And I follow "My results"
     And I follow "Delete" within "#result_6"
     Then I should see "You are not authorized to access this page. "

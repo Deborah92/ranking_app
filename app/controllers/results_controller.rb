@@ -15,7 +15,9 @@ class ResultsController < ApplicationController
 
   def create
     @result = Result.new(result_params)
-    @result.status = 'Pending'
+    if @result.status.blank?
+      @result.status = 'Pending'
+    end
     authorize! :create, Result
     if @result.save
       ResultMailer.create_result(current_user, @result)
