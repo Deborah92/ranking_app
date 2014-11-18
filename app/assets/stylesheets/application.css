@@ -12,13 +12,28 @@
  *= require_tree .
  */
 
-    body { padding-top: 100px;}
+    body {
+        padding-top: 100px;
+    }
 
-    table, td, th {margin-top: 100px;}
-    th { border-bottom: 3px solid #DDD;}
-    td { border-bottom: 1px solid #DDD;}
-    textarea { resize: vertical; }
-    .imageDog { width: 110px;}
+    table, td, th {
+        margin-top: 100px;
+    }
+
+    th {
+        border-bottom: 3px solid #DDD;
+    }
+
+    td {
+        border-bottom: 1px solid #DDD;
+    }
+    textarea {
+        resize: vertical;
+    }
+
+    .imageDog { width: 110px;
+    }
+
     #menu #selected{
         background-color: #E5ECF9;
     }
@@ -35,13 +50,17 @@
         background-color: #205081;
     }
 
-    #header1{
-        margin-left: 20%;
+    .bigBar {
+        background-color: #205081;
     }
 
     #header2 #menu li .textHeader, #header1 a{
         color:#FFFFFF;
         font-weight: bold;
+    }
+
+    #header2 #menu li .textSign{
+        color:#FFFFFF;
     }
 
     .link{
@@ -53,7 +72,33 @@
         width: 70px;
     }
 
-/*.table-striped>tbody>tr:nth-child(even)>td,*/
-/*.table-striped>tbody>tr:nth-child(even)>th {*/
-    /*background-color: #cdfbf7;*/
-/*}*/
+    .aefrbf{
+        margin-top: 7%;
+    }
+
+    .title{
+        text-align: center;
+        color: #ffffff;
+        font-family: Sans-Serif ,Georgia, Serif;;
+        font-size: 27px;
+        letter-spacing: 0;
+        text-shadow: -2px -2px 1px #170B3B, 2px 2px 1px #170B3B, -2px 2px 1px #170B3B, 2px -2px 1px #170B3B;
+    }
+
+    .title2{
+        color: #ffffff;
+        font-family: Sans-Serif ,Georgia, Serif;;
+        font-size: 27px;
+        letter-spacing: 0;
+        text-shadow: -2px -2px 1px #170B3B, 2px 2px 1px #170B3B, -2px 2px 1px #170B3B, 2px -2px 1px #170B3B;
+    }
+
+    .search{
+        margin-top: 5%;
+        margin-bottom: -7%;
+    }
+
+    .search span{
+        background: #205081;
+        color: #ffffff;
+    }

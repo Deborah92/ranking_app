@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe "dogs/index.html.erb" do
+  after(:all) { DatabaseCleaner.clean_with(:truncation) }
   it "display all dogs" do
     user = FactoryGirl.create(:user)
     assign(:dogs, [

@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe "admin/results/index.html.erb" do
+  after(:all) { DatabaseCleaner.clean_with(:truncation) }
   it "display all results" do
     user = FactoryGirl.create(:admin)
     assign(:results, [

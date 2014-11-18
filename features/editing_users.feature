@@ -51,7 +51,7 @@ Feature: Editing Users
     And I press "Update User"
     Then I should see "User has been updated."
     And I follow "Users management"
-    And I should see "user3@example.com (User) (Cahoot)"
+    And I should see "user3@example.com (User)(Cahoot)"
 
   Scenario: Updating a user's details like own user cahoot
     When I am signed in as "user1@example.com"

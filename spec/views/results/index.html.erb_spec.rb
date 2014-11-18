@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe "results/index.html.erb" do
+  after(:all) { DatabaseCleaner.clean_with(:truncation) }
   it "display my results" do
     user = FactoryGirl.create(:user)
     assign(:results, [
