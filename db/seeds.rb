@@ -9,25 +9,34 @@
 user1 = User.create(email: 'user1@example.com',
                     password: 'password',
                     password_confirmation: 'password',
-                    confirmed_at: DateTime.now)
+                    confirmed_at: DateTime.now,
+                    image: File.open(File.join(Rails.root, "/public/uploads/user/image/1/man.jpg")))
 
 user2 = User.create(email: 'user2@example.com',
                     password: 'password',
                     password_confirmation: 'password',
-                    confirmed_at: DateTime.now)
+                    confirmed_at: DateTime.now,
+                    image: File.open(File.join(Rails.root, "/public/uploads/user/image/2/man.jpg")))
 
 user3 = User.create(email: 'admin@example.com',
                     password: 'password',
                     password_confirmation: 'password',
                     confirmed_at: DateTime.now,
-                    admin: 'true')
+                    admin: 'true',
+                    image: File.open(File.join(Rails.root, "/public/uploads/user/image/3/woman.jpg")))
 
-Dog.create(name: 'Samba y Fatiga Idilio',
+
+
+dog1 = Dog.create(name: 'Samba y Fatiga Idilio',
            sex: 'male', birth_date: '27/01/2006',
-           user_id: user1.id)
-Dog.create(name: 'Fortunato Hautacuperche',
+           user_id: user1.id, image: File.open(File.join(Rails.root, "/public/uploads/dog/image/1/samba.jpg")))
+
+dog2 = Dog.create(name: 'Fortunato Hautacuperche',
            sex: 'male', birth_date: '15/05/2008',
-           user_id: user2.id)
+           user_id: user2.id, image: File.open(File.join(Rails.root, "/public/uploads/dog/image/2/fortunato.jpg")))
+dog3 = Dog.create(name: 'Iron County I Gina',
+           sex: 'female', birth_date: '10/10/2009',
+           user_id: user3.id, image: File.open(File.join(Rails.root, "/public/uploads/dog/image/3/iron.jpg")))
 
 
 ['MONOGRÁFICA NACIONAL','CONCURSO MONOGRÁFICO NACIONAL O REGIONAL','Especial A.E.F.R.B.F.','Punto Obligatorio',
@@ -82,6 +91,7 @@ end
   Point.create(year: '2014', type_id: t, award_id: a, npoint: p)
 end
 [['1', '7', '1'],['2', '9', '2'],
- ['3', '14', '1'],['3', '7', '2']].each do |e, a, d|
+ ['3', '14', '1'],['3', '7', '2'],
+ ['3','8','3'],['2','12','3']].each do |e, a, d|
   Result.create(exhibition_id: e, award_id: a, dog_id: d, status: 'Validated')
 end

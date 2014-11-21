@@ -32,6 +32,7 @@
     }
 
     .imageDog { width: 110px;
+                height: 100px;
     }
 
     #menu #selected{
@@ -72,25 +73,27 @@
         width: 70px;
     }
 
-    .aefrbf{
-        margin-top: 7%;
+    .aefrbf img{
+        width: 5em;
+        height: 6em;
+        border: 4px solid #205081;
     }
 
     .title{
         text-align: center;
-        color: #ffffff;
-        font-family: Sans-Serif ,Georgia, Serif;;
-        font-size: 27px;
+        color: #000000;
+        /*font-family: Sans-Serif ,Georgia, Serif;*/
+        font-size: 32px;
         letter-spacing: 0;
-        text-shadow: -2px -2px 1px #170B3B, 2px 2px 1px #170B3B, -2px 2px 1px #170B3B, 2px -2px 1px #170B3B;
+        /*text-shadow: -2px -2px 1px #170B3B, 2px 2px 1px #170B3B, -2px 2px 1px #170B3B, 2px -2px 1px #170B3B;*/
     }
 
     .title2{
-        color: #ffffff;
-        font-family: Sans-Serif ,Georgia, Serif;;
-        font-size: 27px;
+        color: #000000;
+        /*font-family: Sans-Serif ,Georgia, Serif;*/
+        font-size: 32px;
         letter-spacing: 0;
-        text-shadow: -2px -2px 1px #170B3B, 2px 2px 1px #170B3B, -2px 2px 1px #170B3B, 2px -2px 1px #170B3B;
+        /*text-shadow: -2px -2px 1px #170B3B, 2px 2px 1px #170B3B, -2px 2px 1px #170B3B, 2px -2px 1px #170B3B;*/
     }
 
     .search{
@@ -101,4 +104,8 @@
     .search span{
         background: #205081;
         color: #ffffff;
+    }
+
+    .msg {
+        margin-left: 10em;
     }

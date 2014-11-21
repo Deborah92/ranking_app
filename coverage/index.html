@@ -14,27 +14,27 @@
       <img src="./assets/0.8.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2014-11-18T18:16:19+00:00">2014-11-18T18:16:19+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2014-11-21T18:50:55+00:00">2014-11-21T18:50:55+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="yellow">83.99%</span></span>
+    (<span class="covered_percent"><span class="yellow">81.97%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         10.64
+         10.36
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>47</b> files in total.
-    <b>631</b> relevant lines. 
-    <span class="green"><b>530</b> lines covered</span> and
-    <span class="red"><b>101</b> lines missed </span>
+    <b>649</b> relevant lines. 
+    <span class="green"><b>532</b> lines covered</span> and
+    <span class="red"><b>117</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -72,12 +72,12 @@
       
       <tr>
         <td class="strong"><a href="#7842872c573049b1978d3d05c37c2c85b38bbba1" class="src_link" title="app/controllers/application_controller.rb">app/controllers/application_controller.rb</a></td>
-        <td class="red strong">80.0 %</td>
-        <td>31</td>
-        <td>15</td>
-        <td>12</td>
-        <td>3</td>
-        <td>14.5</td>
+        <td class="red strong">43.33 %</td>
+        <td>56</td>
+        <td>30</td>
+        <td>13</td>
+        <td>17</td>
+        <td>7.3</td>
       </tr>
       
       <tr>
@@ -112,11 +112,11 @@
       
       <tr>
         <td class="strong"><a href="#98d4137af86677b32b89fd907d68daffc9176987" class="src_link" title="app/controllers/users_controller.rb">app/controllers/users_controller.rb</a></td>
-        <td class="red strong">61.54 %</td>
-        <td>64</td>
-        <td>39</td>
-        <td>24</td>
-        <td>15</td>
+        <td class="red strong">59.52 %</td>
+        <td>68</td>
+        <td>42</td>
+        <td>25</td>
+        <td>17</td>
         <td>1.3</td>
       </tr>
       
@@ -1481,11 +1481,11 @@
         <div class="source_table" id="7842872c573049b1978d3d05c37c2c85b38bbba1">
   <div class="header">
     <h3>app/controllers/application_controller.rb</h3>
-    <h4><span class="red">80.0 %</span> covered</h4>
+    <h4><span class="red">43.33 %</span> covered</h4>
     <div>
-      <b>15</b> relevant lines. 
-      <span class="green"><b>12</b> lines covered</span> and
-      <span class="red"><b>3</b> lines missed.</span>
+      <b>30</b> relevant lines. 
+      <span class="green"><b>13</b> lines covered</span> and
+      <span class="red"><b>17</b> lines missed.</span>
     </div>
   </div>
   
@@ -1672,7 +1672,157 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="31">
+        <li class="covered" data-hits="1" data-linenumber="31">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def devise_error_messages!</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="32">
+          
+          
+          <code class="ruby">    html = &quot;&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="33">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="34">
+          
+          
+          <code class="ruby">    return html if resource.errors.empty?</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="35">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="36">
+          
+          
+          <code class="ruby">    errors_number = 0</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="37">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="38">
+          
+          
+          <code class="ruby">    html &lt;&lt; &quot;&lt;ul class=\&quot;#{resource_name}_errors_list\&quot;&gt;&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="39">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="40">
+          
+          
+          <code class="ruby">    saved_key = &quot;&quot;</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="41">
+          
+          
+          <code class="ruby">    resource.errors.each do |key, value|</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="42">
+          
+          
+          <code class="ruby">      if key != saved_key</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="43">
+          
+          
+          <code class="ruby">        html &lt;&lt; &quot;&lt;li class=\&quot;#{key} error\&quot;&gt; This #{key} #{value} &lt;/li&gt;&quot;</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="44">
+          
+          
+          <code class="ruby">        errors_number += 1</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="45">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="46">
+          
+          
+          <code class="ruby">      saved_key = key</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="47">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="48">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="49">
+          
+          
+          <code class="ruby">    unsolved_errors = pluralize(errors_number, &quot;unsolved error&quot;)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="50">
+          
+          
+          <code class="ruby">    html = &quot;&lt;h2 class=\&quot;#{resource_name}_errors_title\&quot;&gt; You have #{unsolved_errors} &lt;/h2&gt;&quot; + html</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="51">
+          
+          
+          <code class="ruby">    html &lt;&lt; &quot;&lt;/ul&gt;&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="52">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="53">
+          
+          
+          <code class="ruby">    return html.html_safe</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="54">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="55">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="56">
           
           
           <code class="ruby">end</code>
@@ -3131,11 +3281,11 @@
         <div class="source_table" id="98d4137af86677b32b89fd907d68daffc9176987">
   <div class="header">
     <h3>app/controllers/users_controller.rb</h3>
-    <h4><span class="red">61.54 %</span> covered</h4>
+    <h4><span class="red">59.52 %</span> covered</h4>
     <div>
-      <b>39</b> relevant lines. 
-      <span class="green"><b>24</b> lines covered</span> and
-      <span class="red"><b>15</b> lines missed.</span>
+      <b>42</b> relevant lines. 
+      <span class="green"><b>25</b> lines covered</span> and
+      <span class="red"><b>17</b> lines missed.</span>
     </div>
   </div>
   
@@ -3373,139 +3523,139 @@
         <li class="covered" data-hits="3" data-linenumber="39">
           <span class="hits">3</span>
           
-          <code class="ruby">    if @user.update_attributes(user_params)</code>
+          <code class="ruby">    if params[:user][:password].blank?</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="40">
-          <span class="hits">2</span>
+        <li class="missed" data-hits="0" data-linenumber="40">
           
-          <code class="ruby">      flash[:notice] = &#39;User has been updated.&#39;</code>
+          
+          <code class="ruby">      params[:user].delete(:password)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="41">
-          <span class="hits">2</span>
+        <li class="missed" data-hits="0" data-linenumber="41">
           
-          <code class="ruby">      redirect_to @user</code>
+          
+          <code class="ruby">      params[:user].delete(:password_confirmation)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="42">
           
           
-          <code class="ruby">    else</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="43">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      flash[:alert] = &#39;User has not been updated.&#39;</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="44">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      render &#39;edit&#39;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="45">
-          
-          
           <code class="ruby">    end</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="43">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    if @user.update_attributes(user_params)</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="44">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      flash[:notice] = &#39;User has been updated.&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="45">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      redirect_to @user</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="46">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    else</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="47">
+        <li class="covered" data-hits="1" data-linenumber="47">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">      flash[:alert] = &#39;User has not been updated.&#39;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="48">
           <span class="hits">1</span>
           
-          <code class="ruby">  def destroy</code>
+          <code class="ruby">      render &#39;edit&#39;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="49">
-          
-          
-          <code class="ruby">    authorize! :destroy, @user</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="50">
-          
-          
-          <code class="ruby">    @user.destroy</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="51">
-          
-          
-          <code class="ruby">    flash[:notice] = &quot;User has been deleted.&quot;</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="52">
-          
-          
-          <code class="ruby">    redirect_to users_index_path</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="53">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="54">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="55">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  private</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="56">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    def user_params</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="57">
-          <span class="hits">3</span>
-          
-          <code class="ruby">      params.require(:user).permit(:email, :password, :password_confirmation, :image)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="58">
+        <li class="never" data-hits="" data-linenumber="49">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="59">
+        <li class="never" data-hits="" data-linenumber="50">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="51">
           
           
           <code class="ruby"></code>
         </li>
       
+        <li class="covered" data-hits="1" data-linenumber="52">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def destroy</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="53">
+          
+          
+          <code class="ruby">    authorize! :destroy, @user</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="54">
+          
+          
+          <code class="ruby">    @user.destroy</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="55">
+          
+          
+          <code class="ruby">    flash[:notice] = &quot;User has been deleted.&quot;</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="56">
+          
+          
+          <code class="ruby">    redirect_to users_index_path</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="57">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="58">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="59">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  private</code>
+        </li>
+      
         <li class="covered" data-hits="1" data-linenumber="60">
           <span class="hits">1</span>
           
-          <code class="ruby">    def set_user</code>
+          <code class="ruby">    def user_params</code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="61">
-          <span class="hits">11</span>
+        <li class="covered" data-hits="3" data-linenumber="61">
+          <span class="hits">3</span>
           
-          <code class="ruby">      @user = User.find(params[:id])</code>
+          <code class="ruby">      params.require(:user).permit(:email, :password, :password_confirmation, :image)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="62">
@@ -3520,7 +3670,31 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="64">
+        <li class="covered" data-hits="1" data-linenumber="64">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def set_user</code>
+        </li>
+      
+        <li class="covered" data-hits="11" data-linenumber="65">
+          <span class="hits">11</span>
+          
+          <code class="ruby">      @user = User.find(params[:id])</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="66">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="67">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="68">
           
           
           <code class="ruby">end</code>

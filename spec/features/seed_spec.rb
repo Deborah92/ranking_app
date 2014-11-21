@@ -60,7 +60,7 @@ feature "Seed Data" do
 
   scenario "Results" do
     load Rails.root + "db/seeds.rb"
-    Result.all.count.should eq 4
+    Result.all.count.should eq 6
     @dogs = Dog.all
     @points = Hash.new
 
@@ -73,8 +73,12 @@ feature "Seed Data" do
       end
     end
     @points =@points.sort_by{|a, b| b[0]}.reverse
+
+
+
     @points[0].should eq ["Fortunato Hautacuperche", 275]
-    @points[1].should eq ["Samba y Fatiga Idilio", 250]
+    @points[2].should eq ["Samba y Fatiga Idilio", 250]
+    @points[1].should eq ["Iron County I Gina", 200]
 
   end
 end

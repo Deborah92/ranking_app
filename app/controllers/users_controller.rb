@@ -36,6 +36,10 @@ class UsersController < ApplicationController
 
   def update
     authorize! :update, @user
+    if params[:user][:password].blank?
+      params[:user].delete(:password)
+      params[:user].delete(:password_confirmation)
+    end
     if @user.update_attributes(user_params)
       flash[:notice] = 'User has been updated.'
       redirect_to @user
