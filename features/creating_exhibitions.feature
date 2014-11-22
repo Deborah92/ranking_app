@@ -37,18 +37,6 @@ Feature: Creating exhibitions
     Then I should see "Exhibition has been created."
     And I should see "exhibition 2"
 
-  Scenario: Creating an exhibition like a cahoot user
-    When I am signed in as "user1@example.com"
-    And I follow "Exhibitions"
-    And I follow "New Exhibition"
-    Then I should see "You must be an admin to do that"
-
-  Scenario: Creating an exhibition like a registered user
-    When I am signed in as "user3@example.com"
-    And I follow "Exhibitions"
-    And I follow "New Exhibition"
-    Then I should see "You must be an admin to do that"
-
   Scenario: Creating an exhibition without name
     When I am signed in as "admin@example.com"
     And I follow "Exhibitions"

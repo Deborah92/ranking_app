@@ -66,12 +66,6 @@ Feature: Creating results
     And I press "Create Result"
     Then I should see "Result has been created. A message with the result's link has been sent to your email address"
 
-  Scenario: Creating a result like a registered user
-    When I am signed in as "user3@example.com"
-    And I follow "My results"
-    And I follow "New Result"
-    Then I should see "You are not authorized to access this page. "
-
   Scenario: Creating a result without exhibition
     When I am signed in as "user2@example.com"
     And I follow "My results"

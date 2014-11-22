@@ -13,4 +13,6 @@
     </tr>
 </table>
 
-<%= link_to("Edit Exhibition", edit_exhibition_path, class: "glyphicon glyphicon-pencil")  %>
+<% if  current_user.try(:admin?) %>
+  <%= link_to("Edit Exhibition", edit_exhibition_path, class: "glyphicon glyphicon-pencil")  %>
+<% end %>

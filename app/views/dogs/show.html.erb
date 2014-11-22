@@ -5,6 +5,9 @@
 <div class="row">
     <div class="col-md-4">
       <%= image_tag(@dog.image_url, class: "imgDog img-thumbnail") if @dog.image.present? %>
+      <% if current_user.try(:admin?) || ( current_user.try(:id) == @dog.user_id && current_user.try(:cahoot?)) %>
+        <p class="editDog"><%= link_to "Edit Dog", edit_dog_path, class: "glyphicon glyphicon-pencil link" %></p>
+      <% end %>
     </div>
     <div class="col-md-8 textDog">
       <ul >
@@ -16,6 +19,5 @@
           <li>
       </ul>
     </div>
-  <div class="col-md-2 editDog"><%= link_to "Edit Dog", edit_dog_path, class: "glyphicon glyphicon-pencil link" %></div>
 </div>
 

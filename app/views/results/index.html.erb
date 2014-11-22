@@ -6,8 +6,12 @@
     <th>Dog</th>
     <th>Status</th>
     <th></th>
-    <th></th>
+    <% if can? :destroy, Result %>
+      <th></th>
+    <% end %>
   </tr>
   <%= render @results %>
 </table></br>
-<%= link_to("New Result", new_result_path, class: "glyphicon glyphicon-plus link") %>
+<% if can? :new, Result %>
+  <%= link_to("New Result", new_result_path, class: "glyphicon glyphicon-plus link") %>
+<% end %>

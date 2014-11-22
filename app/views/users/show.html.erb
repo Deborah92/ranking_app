@@ -1,8 +1,10 @@
 <h2 class="title">Profile of <%= @user.email %></h2>
 
-<h2><%= image_tag(@user.image_url) if @user.image.present? %></h2>
+<h2 class="imageUser"><%= image_tag(@user.image_url) if @user.image.present? %></h2>
 
-<%= link_to("Edit User", edit_user_path, class: "glyphicon glyphicon-user")  %>
+<% if current_user.try(:admin?) || current_user.try(:id) == @user.id %>
+    <%= link_to("Edit User", edit_user_path, class: "glyphicon glyphicon-user")  %>
+<% end %>
 
 <table class="table table-hover table-striped">
 

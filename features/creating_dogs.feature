@@ -45,11 +45,6 @@ Feature: Creating dogs
     And  I should see "Owner: admin@example.com"
     And I should be on the dog page for "Frael Valderrama"
 
-  Scenario: Creating a dog like a user registered
-    When I am signed in as "user3@example.com"
-    And I follow "New Dog"
-    Then I should see "You are not authorized to access this page. "
-
   Scenario: Creating a dog without sex
     When I am signed in as "user1@example.com"
     And I follow "New Dog"

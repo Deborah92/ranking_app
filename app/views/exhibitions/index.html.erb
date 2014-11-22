@@ -4,10 +4,14 @@
   <tr>
     <th>Name</th>
     <th></th>
-    <th></th>
-    <th></th>
+    <% if current_user.try(:admin?) %>
+        <th></th>
+        <th></th>
+    <% end %>
   </tr>
   <%= render @exhibitions %>
 </table></br>
 
-<%= link_to("New Exhibition", new_exhibition_path, class: "glyphicon glyphicon-plus link") %>
+<% if  current_user.try(:admin?) %>
+  <%= link_to("New Exhibition", new_exhibition_path, class: "glyphicon glyphicon-plus link") %>
+<% end %>

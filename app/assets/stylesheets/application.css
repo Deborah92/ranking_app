@@ -49,6 +49,15 @@
 
     #bar{
         background-color: #205081;
+        overflow: visible;
+    }
+
+    #menu{
+        overflow: visible;
+    }
+
+    #header2{
+        margin-left: 7%;
     }
 
     .bigBar {
@@ -58,7 +67,9 @@
     #header2 #menu li .textHeader, #header1 a{
         color:#FFFFFF;
         font-weight: bold;
+        font-size: 11pt;
     }
+
 
     #header2 #menu li .textSign{
         color:#FFFFFF;
@@ -85,7 +96,7 @@
         /*font-family: Sans-Serif ,Georgia, Serif;*/
         font-size: 32px;
         letter-spacing: 0;
-        /*text-shadow: -2px -2px 1px #170B3B, 2px 2px 1px #170B3B, -2px 2px 1px #170B3B, 2px -2px 1px #170B3B;*/
+        margin-top: 1em;
     }
 
     .title2{
@@ -93,7 +104,7 @@
         /*font-family: Sans-Serif ,Georgia, Serif;*/
         font-size: 32px;
         letter-spacing: 0;
-        /*text-shadow: -2px -2px 1px #170B3B, 2px 2px 1px #170B3B, -2px 2px 1px #170B3B, 2px -2px 1px #170B3B;*/
+        margin-top: 1em;
     }
 
     .search{
@@ -107,5 +118,6 @@
     }
 
     .msg {
-        margin-left: 10em;
+        margin-left: 8em;
+        margin-top: -1em;
     }
