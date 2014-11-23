@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Admin::ResultsController do
-
+  after(:all) { DatabaseCleaner.clean_with(:truncation) }
   let(:admin){FactoryGirl.create(:admin)}
 
   let(:exhibition) { FactoryGirl.create(:exhibition)}

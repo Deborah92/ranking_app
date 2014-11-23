@@ -25,21 +25,6 @@ Feature: Deleting dogs
     Then I should see "Dog has been deleted."
     Then I should not see "Samba y Fatiga Idilio"
 
-  Scenario: Deleting a dog without property like a cahoot user
-    When I am signed in as "user1@example.com"
-    And I follow "Delete" within "#dog_2"
-    Then I should see "You are not authorized to access this page"
-
-  Scenario: Deleting a dog with property like a registered user
-    When I am signed in as "user3@example.com"
-    And I follow "Delete" within "#dog_3"
-    Then I should see "You are not authorized to access this page"
-
-  Scenario: Deleting a dog without property like a registered user
-    When I am signed in as "user3@example.com"
-    And I follow "Delete" within "#dog_1"
-    Then I should see "You are not authorized to access this page"
-
   Scenario: Deleting a dog like admin
     When I am signed in as "admin@example.com"
     And I follow "Delete" within "#dog_1"

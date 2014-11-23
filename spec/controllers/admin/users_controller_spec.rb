@@ -1,13 +1,7 @@
 require 'spec_helper'
 
 describe Admin::UsersController do
-
-  #describe "GET 'index'" do
-  #  it "returns http success" do
-  #    get 'index'
-  #    response.should be_success
-  #  end
-  #end
+  after(:all) { DatabaseCleaner.clean_with(:truncation) }
 
   let(:user){ FactoryGirl.create(:user) }
   valid_attributes = {email: 'user2@example.com', password: "password", password_confirmation: "password",

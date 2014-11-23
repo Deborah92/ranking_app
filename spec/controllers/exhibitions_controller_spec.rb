@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe ExhibitionsController do
-
+  after(:all) { DatabaseCleaner.clean_with(:truncation) }
   let(:user) { FactoryGirl.create(:user) }
 
   let(:type) { FactoryGirl.create(:type)}

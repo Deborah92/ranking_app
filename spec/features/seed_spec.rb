@@ -1,6 +1,7 @@
 require 'spec_helper'
 feature "Seed Data" do
 
+  after(:all) { DatabaseCleaner.clean_with(:truncation) }
   scenario "The basics" do
     load Rails.root + "db/seeds.rb"
     User.where(email: "admin@example.com").first!

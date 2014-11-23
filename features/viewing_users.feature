@@ -20,13 +20,3 @@ Feature: Viewing users
     And I should see "user2@example.com"
     And I should see "user3@example.com"
     And I should see "admin@example.com"
-
-  Scenario: Viewing users like a cahoot user
-    When I am signed in as "user1@example.com"
-    And I follow "Users management"
-    Then I should see "You must be an admin to do that"
-
-  Scenario: Viewing users like a registered user
-    When I am signed in as "user3@example.com"
-    And I follow "Users management"
-    Then I should see "You must be an admin to do that"

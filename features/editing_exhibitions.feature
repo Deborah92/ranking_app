@@ -27,7 +27,7 @@ Feature: Editing Exhibitions
 
     And I am on the dogs page
 
-  Scenario: Updating a exhibition like an admin
+  Scenario: Updating an exhibition like an admin
     When I am signed in as "admin@example.com"
     And I follow "Exhibitions"
     And I follow "Edit" within "#exhibition_1"
@@ -37,19 +37,7 @@ Feature: Editing Exhibitions
     And I should see "exhibition beta 1"
     And I should not see "exhibition 1"
 
-  Scenario: Updating a exhibition like a cahoot user
-    When I am signed in as "user1@example.com"
-    And I follow "Exhibitions"
-    And I follow "Edit" within "#exhibition_1"
-    Then I should see "You must be an admin to do that"
-
-  Scenario: Updating a exhibition like a registered user
-    When I am signed in as "user3@example.com"
-    And I follow "Exhibitions"
-    And I follow "Edit" within "#exhibition_1"
-    Then I should see "You must be an admin to do that"
-
-  Scenario: Updating a exhibition without name
+  Scenario: Updating an exhibition without name
     When I am signed in as "admin@example.com"
     And I follow "Exhibitions"
     And I follow "Edit" within "#exhibition_1"
@@ -58,7 +46,7 @@ Feature: Editing Exhibitions
     Then I should see "Exhibition has not been updated."
     And I should see "Name can't be blank"
 
-  Scenario: Updating a exhibition without date
+  Scenario: Updating an exhibition without date
     When I am signed in as "admin@example.com"
     And I follow "Exhibitions"
     And I follow "Edit" within "#exhibition_1"
@@ -68,7 +56,7 @@ Feature: Editing Exhibitions
     Then I should see "Exhibition has not been updated."
     And I should see "Date can't be blank"
 
-  Scenario: Updating a exhibition with date at the past
+  Scenario: Updating an exhibition with date at the past
     And I am signed in as "admin@example.com"
     And I follow "Exhibitions"
     When I follow "Edit" within "#exhibition_1"

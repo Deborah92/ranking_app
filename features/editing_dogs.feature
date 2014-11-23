@@ -29,21 +29,6 @@ Feature: Editing Dogs
     Then I should see "Dog has been updated."
     And I should be on the dog page for "Samba y Fatiga Idilio beta"
 
-  Scenario: Updating a dog without property like a cahoot user
-    And I am signed in as "user1@example.com"
-    When I follow "Edit" within "#dog_2"
-    Then I should see "You are not authorized to access this page"
-
-  Scenario: Updating a dog with property like a registered user
-    And I am signed in as "user3@example.com"
-    When I follow "Edit" within "#dog_3"
-    Then I should see "You are not authorized to access this page"
-
-  Scenario: Updating a dog without property like a registered user
-    And I am signed in as "user3@example.com"
-    When I follow "Edit" within "#dog_1"
-    Then I should see "You are not authorized to access this page"
-
   Scenario: Updating a dog for admin
     When I am signed in as "admin@example.com"
     When I follow "Edit" within "#dog_1"

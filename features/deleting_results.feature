@@ -87,21 +87,3 @@ Feature: Deleting results
     And I follow "My results"
     And I follow "Delete" within "#result_3"
     Then I should see "Result has not been deleted."
-
-  Scenario: Deleting a Pending result like a registered user
-    When I am signed in as "user3@example.com"
-    And I follow "My results"
-    And I follow "Delete" within "#result_4"
-    Then I should see "You are not authorized to access this page. "
-
-  Scenario: Deleting a Rejected result like a registered user
-    When I am signed in as "user3@example.com"
-    And I follow "My results"
-    And I follow "Delete" within "#result_5"
-    Then I should see "You are not authorized to access this page. "
-
-  Scenario: Deleting a Validated result like a registered user
-    When I am signed in as "user3@example.com"
-    And I follow "My results"
-    And I follow "Delete" within "#result_6"
-    Then I should see "You are not authorized to access this page. "

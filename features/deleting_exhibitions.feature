@@ -32,15 +32,3 @@ Feature: Deleting exhibitions
     And I follow "Delete" within "#exhibition_1"
     Then I should see "Exhibition has been deleted."
     And I should not see "exhibition 1"
-
-  Scenario: Deleting an exhibition like a cahoot user
-    When I am signed in as "user1@example.com"
-    And I follow "Exhibitions"
-    And I follow "Delete" within "#exhibition_1"
-    Then I should see "You must be an admin to do that"
-
-  Scenario: Deleting an exhibition like a registered user
-    When I am signed in as "user3@example.com"
-    And I follow "Exhibitions"
-    And I follow "Delete" within "#exhibition_1"
-    Then I should see "You must be an admin to do that"

@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe ResultsController do
+  after(:all) { DatabaseCleaner.clean_with(:truncation) }
   let(:cahoot) { FactoryGirl.create(:cahoot) }
 
   let(:registered) { FactoryGirl.create(:user) }

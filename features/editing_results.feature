@@ -53,13 +53,3 @@ Feature: Editing Results
     And I select "Validated" from "Status"
     And I press "Update Result"
     Then I should see "Result has been updated. A message with the result's link has been sent to user email address"
-
-  Scenario: Updating a result like a cahoot user
-    When I am signed in as "user1@example.com"
-    And I follow "Results management"
-    Then I should see "You must be an admin to do that"
-
-  Scenario: Updating a result like a registered user
-    When I am signed in as "user3@example.com"
-    And I follow "Results management"
-    Then I should see "You must be an admin to do that"

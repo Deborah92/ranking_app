@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe UsersController do
 
+  after(:all) { DatabaseCleaner.clean_with(:truncation) }
   let(:registered) { FactoryGirl.create(:user) }
   let(:cahoot) { FactoryGirl.create(:cahoot) }
   let(:user2) { FactoryGirl.create(:user) }

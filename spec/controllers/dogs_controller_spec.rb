@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe DogsController do
-
+  after(:all) { DatabaseCleaner.clean_with(:truncation) }
   let(:user) { FactoryGirl.create(:user) }
 
   let(:valid_attributes) { {name: 'Samba y Fatiga Idilio', sex: 'male', birth_date: '01/01/2001', user_id: user.id,
