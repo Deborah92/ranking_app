@@ -88,13 +88,3 @@ Feature: Creating dogs
     And I fill in "Name" with "Frael Valderrama"
     And I press "Create Dog"
     Then I should see "Birth date can not be in the future"
-
-  # Este test debe estar en RSPEC
-#  Scenario: Creating a dog with an invalid birth date format
-#    And I select "male" from "Sex"
-#    And I fill in "Titles" with "CH OF SPAIN"
-#    And I click in "Birth date"
-#    And I fill in "datepicker" with "30/02/2002"
-#    And I fill in "Name" with "Frael Valderrama"
-#    And I press "Create Dog"
-#    Then I should see "Birth date must be a valid date"

@@ -15,7 +15,7 @@ Feature: Viewing users
 
   Scenario: Viewing users like an admin
     When I am signed in as "admin@example.com"
-    And I follow "Users management"
+    And I follow "Users"
     Then I should see "user1@example.com"
     And I should see "user2@example.com"
     And I should see "user3@example.com"

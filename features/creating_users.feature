@@ -16,7 +16,7 @@ Feature: Creating Users
 
 
   Scenario: Creating a user
-    When I follow "Users management"
+    When I follow "Users"
     And I follow "New User"
     And I attach the file "images/user/user.jpeg" to "Image"
     And I fill in "Email" with "user4@example.com"
@@ -27,7 +27,7 @@ Feature: Creating Users
     And I should see "user4@example.com (User)"
 @working
   Scenario: Creating a cahoot user
-    When I follow "Users management"
+    When I follow "Users"
     And I follow "New User"
     And I attach the file "images/user/user.jpeg" to "Image"
     And I fill in "Email" with "user4@example.com"
@@ -39,7 +39,7 @@ Feature: Creating Users
     And I should see "user4@example.com (User)(Cahoot)"
 
   Scenario: Creating an admin user
-    When I follow "Users management"
+    When I follow "Users"
     And I follow "New User"
     And I attach the file "images/user/user.jpeg" to "Image"
     When I fill in "Email" with "admin2@example.com"
@@ -51,7 +51,7 @@ Feature: Creating Users
     And I should see "admin2@example.com (Admin)"
 
   Scenario: Creating a user without password
-    When I follow "Users management"
+    When I follow "Users"
     And I follow "New User"
     And I attach the file "images/user/user.jpeg" to "Image"
     And I fill in "Email" with "user4@example.com"
@@ -60,7 +60,7 @@ Feature: Creating Users
     And I should see "Password can't be blank"
 
   Scenario: Creating a user without email
-    When I follow "Users management"
+    When I follow "Users"
     And I follow "New User"
     And I attach the file "images/user/user.jpeg" to "Image"
     And I fill in "Password" with "password"
@@ -70,7 +70,7 @@ Feature: Creating Users
     And I should see "Email can't be blank"
 
   Scenario: Creating a user with a different password and confirmation password
-    When I follow "Users management"
+    When I follow "Users"
     And I follow "New User"
     And I attach the file "images/user/user.jpeg" to "Image"
     And I fill in "Email" with "user4@example.com"

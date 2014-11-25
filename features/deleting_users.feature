@@ -18,7 +18,7 @@ Feature: Deleting users
 
     When I am signed in as "admin@example.com"
     And I am on the dogs page
-    And I follow "Users management"
+    And I follow "Users"
 
   Scenario: Deleting a user like an admin
     When I follow "Delete" within "#user_1"

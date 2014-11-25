@@ -1,5 +1,5 @@
 <%= form_for [:admin, @user], html: {multipart: true, "data-ajax" => "false", class: "form"}  do |f| %>
-    <div  class="alert alert-error">
+    <div  class="alert alert-error msgAlert">
         <% @user.errors.full_messages.each do |message| %>
             <p><%= message %></p>
         <% end %>

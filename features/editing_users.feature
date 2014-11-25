@@ -15,7 +15,7 @@ Feature: Editing Users
 
   Scenario: Updating a user's details like an admin
     When I am signed in as "admin@example.com"
-    And I follow "Users management"
+    And I follow "Users"
     And I follow "Edit" within "#user_1"
     And I attach the file "images/user/user.jpeg" to "Image"
     And I fill in "Email" with "user1beta@example.com"
@@ -28,7 +28,7 @@ Feature: Editing Users
 
   Scenario: Toggling a user's admin ability like an admin
     When I am signed in as "admin@example.com"
-    And I follow "Users management"
+    And I follow "Users"
     And I follow "Edit" within "#user_1"
     And I fill in "Email" with "user1@example.com"
     And I fill in "Password" with "password"
@@ -36,13 +36,13 @@ Feature: Editing Users
     And I check "Is an admin?"
     And I press "Update User"
     Then I should see "User has been updated."
-    And I follow "Users management"
+    And I follow "Users"
     And I should see "user1@example.com (Admin)"
     And I should not see "user1@example.com (User)"
 
   Scenario: Toggling a user's cahoot ability like an admin
     When I am signed in as "admin@example.com"
-    And I follow "Users management"
+    And I follow "Users"
     And I follow "Edit" within "#user_3"
     And I fill in "Email" with "user3@example.com"
     And I fill in "Password" with "password"
@@ -50,7 +50,7 @@ Feature: Editing Users
     And I check "Is a cahoot?"
     And I press "Update User"
     Then I should see "User has been updated."
-    And I follow "Users management"
+    And I follow "Users"
     And I should see "user3@example.com (User)(Cahoot)"
 
   Scenario: Updating a user's details like own user cahoot
@@ -81,7 +81,7 @@ Feature: Editing Users
 
   Scenario: Updating with an invalid email fails like an admin
     When I am signed in as "admin@example.com"
-    And I follow "Users management"
+    And I follow "Users"
     And I follow "Edit" within "#user_1"
     And I fill in "Email" with "fakefakefake"
     And I fill in "Password" with "password"

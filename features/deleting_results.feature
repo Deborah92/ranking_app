@@ -54,19 +54,19 @@ Feature: Deleting results
 
   Scenario: Deleting a Pending result like an admin
     When I am signed in as "admin@example.com"
-    And I follow "Results management"
+    And I follow "Results"
     And I follow "Delete" within "#result_1"
     Then I should see "Result has been deleted."
 
   Scenario: Deleting a Rejected result like an admin
     When I am signed in as "admin@example.com"
-    And I follow "Results management"
+    And I follow "Results"
     And I follow "Delete" within "#result_2"
     Then I should see "Result has been deleted."
 
   Scenario: Deleting a Validated result like an admin
     When I am signed in as "admin@example.com"
-    And I follow "Results management"
+    And I follow "Results"
     And I follow "Delete" within "#result_3"
     Then I should see "Result has been deleted."
 

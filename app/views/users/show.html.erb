@@ -1,11 +1,10 @@
 <h2 class="title">Profile of <%= @user.email %></h2>
 
-<h2 class="imageUser"><%= image_tag(@user.image_url) if @user.image.present? %></h2>
+<h2><%= image_tag(@user.image_url, class: "imageUser") if @user.image.present? %></h2>
 
 <% if current_user.try(:admin?) || current_user.try(:id) == @user.id %>
-    <%= link_to("Edit User", edit_user_path, class: "glyphicon glyphicon-user")  %>
+    <%= link_to("Edit User", edit_user_path, class: "glyphicon glyphicon-user link editUser") %></p>
 <% end %>
-
 <table class="table table-hover table-striped">
 
 <% @userdogs.each do |dogs| %>
@@ -24,7 +23,7 @@
     <td><%= link_to dogs.name, dog_path(dogs) %></td>
     <td><%= dogs.sex %></td>
     <td><%= dogs.titles %></td>
-    <td><%= dogs.birth_date %></td>
+    <td><%= dogs.birth_date.strftime('%d/%m/%Y') %></td>
   </tr>
 </table>
  <% end %>

@@ -28,7 +28,8 @@ describe "layouts/application.html.erb" do
     expect(rendered).to match /class="nav navbar-nav"/
     expect(rendered).to match /class="textHeader"/
     expect(rendered).to match /class="navbar-text navbar-right textSign"/
-    expect(rendered).to match /class="msg"/
+    expect(rendered).to match /class="msgNotice"/
+    expect(rendered).to match /class="msgAlert"/
     expect(rendered).to match /id="gif"/
   end
 end

@@ -47,7 +47,7 @@ Feature: Creating results
 
   Scenario: Creating a result like an admin
     When I am signed in as "admin@example.com"
-    And I follow "Results management"
+    And I follow "Results"
     And I follow "New Result"
     And I select "exhibition 2" from "Exhibition"
     And I select "MEJOR DE RAZA" from "Award"

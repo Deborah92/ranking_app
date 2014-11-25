@@ -92,15 +92,15 @@ Feature: Creating dogs
     Then I should not see the "New Result" link
 
   Scenario: Users management link is hidden for non-signed-in users
-    Then I should not see the "Users management" link
+    Then I should not see the "Users" link
 
   Scenario: Users management link is hidden for registered users
     When I am signed in as "user3@example.com"
-    Then I should not see the "Users management" link
+    Then I should not see the "Users" link
 
   Scenario: Users management link is hidden for cahoot users
     When I am signed in as "user2@example.com"
-    Then I should not see the "Users management" link
+    Then I should not see the "Users" link
 
   Scenario: Delete dog link is hidden for non-signed-in users
     Then I should not see "Delete" within "#dog_2"
@@ -143,15 +143,15 @@ Feature: Creating dogs
     Then I should not see "Delete" within "#result_6"
 
   Scenario: Results management link is hidden for non-signed-in users
-    Then I should not see the "Results management" link
+    Then I should not see the "Results" link
 
   Scenario: Results management link is hidden for registered users
     When I am signed in as "user3@example.com"
-    Then I should not see the "Results management" link
+    Then I should not see the "Results" link
 
   Scenario: Results management link is hidden for cahoot users
     When I am signed in as "user2@example.com"
-    Then I should not see the "Results management" link
+    Then I should not see the "Results" link
 
   Scenario: Edit a dog link for non-signed-in users
     Then I should not see "Edit" within "#dog_2"

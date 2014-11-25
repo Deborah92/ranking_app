@@ -2,22 +2,24 @@
     <%= stylesheet_link_tag "dogs", media: "all", "data-turbolinks-track" => true %>
     <%= javascript_include_tag 'filter' %>
 <%end%>
-<div class="row">
+<div class="row card">
     <div class="col-md-4">
       <%= image_tag(@dog.image_url, class: "imgDog img-thumbnail") if @dog.image.present? %>
       <% if current_user.try(:admin?) || ( current_user.try(:id) == @dog.user_id && current_user.try(:cahoot?)) %>
-        <p class="editDog"><%= link_to "Edit Dog", edit_dog_path, class: "glyphicon glyphicon-pencil link" %></p>
+        <%= link_to "Edit Dog", edit_dog_path, class: "glyphicon glyphicon-pencil link editDog" %>
       <% end %>
     </div>
-    <div class="col-md-8 textDog">
+    <div class="col-md-5 textDog">
       <ul >
-          <li><label>Name: </label><%= @dog.name %></li>
-          <li><label>Sex: </label><%= @dog.sex %></br></li>
-          <li><label>CH: </label><%= @dog.titles %></br></li>
-          <li><label>Birthdate: </label><%= @dog.birth_date.strftime('%d/%m/%Y') %></br></li>
-          <li><label>Owner: </label><%= @dog.user.try :email %></br></li>
-          <li>
+          <li class="information"><label class="fields">Name: </label><%= @dog.name %></li>
+          <li class="information"><label class="fields">Sex: </label><%= @dog.sex %></br></li>
+          <li class="information"><label class="fields">CH: </label><%= @dog.titles %></br></li>
+          <li class="information"><label class="fields">Birthdate: </label><%= @dog.birth_date.strftime('%d/%m/%Y') %></br></li>
+          <li class="information"><label class="fields">Owner: </label><%= @dog.user.try :email %></br></li>
       </ul>
+    </div>
+    <div class="col-md-3">
+      <%= image_tag("huella.png", class: "footprint") %>
     </div>
 </div>
 

@@ -48,7 +48,7 @@ Feature: Editing Results
 
   Scenario: Updating a result like an admin
     When I am signed in as "admin@example.com"
-    And I follow "Results management"
+    And I follow "Results"
     And I follow "Edit" within "#result_1"
     And I select "Validated" from "Status"
     And I press "Update Result"

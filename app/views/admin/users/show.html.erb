@@ -1,8 +1,8 @@
 <h2 class="title">Profile of <%= @user.email %></h2>
 
-<h2><%= image_tag(@user.image_url) if @user.image.present? %></h2>
+<h2><%= image_tag(@user.image_url, class: "imageUser") if @user.image.present? %></h2>
 
-<%= link_to("Edit User", edit_user_path, class: "glyphicon glyphicon-user link")  %>
+<%= link_to("Edit User", edit_user_path, class: "glyphicon glyphicon-user link editUser")  %>
 
 <table class="table table-hover table-striped">
 
@@ -22,7 +22,7 @@
         <td><%= link_to dogs.name, dog_path(dogs) %></td>
         <td><%= dogs.sex %></td>
         <td><%= dogs.titles %></td>
-        <td><%= dogs.birth_date %></td>
+        <td><%= dogs.birth_date.strftime('%d/%m/%Y') %></td>
       </tr>
       </table>
   <% end %>

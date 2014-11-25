@@ -6,7 +6,7 @@
 <%end%>
 
 <%= form_for @exhibition, html: { class: "form"} do |f| %>
-    <div  class="alert alert-error">
+    <div  class="alert alert-error msgAlert">
         <% @exhibition.errors.full_messages.each do |message| %>
             <p><%= message %></p>
         <% end %>

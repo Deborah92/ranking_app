@@ -1,5 +1,9 @@
 <%= content_tag_for :tr, user do %>
-    <td><%= image_tag(user.image_url, class: "imgUser img-rounded") if user.image.present? %></td>
+    <td>
+      <% if user.image.present? %>
+        <%= link_to image_tag(user.image_url, class: "imgUser img-rounded"), admin_user_path(user) %>
+      <% end %>
+    </td>
     <td><% if !user.cahoot? %>
             <%= link_to user, admin_user_path(user) %>
         <% else %>

@@ -10,32 +10,38 @@ user1 = User.create(email: 'user1@example.com',
                     password: 'password',
                     password_confirmation: 'password',
                     confirmed_at: DateTime.now,
-                    image: File.open(File.join(Rails.root, "/public/uploads/user/image/1/man.jpg")))
+                    cahoot: 'true',
+                    image: File.open(File.join(Rails.root, "/public/uploads/user/image/1/usuaria2.png")))
 
 user2 = User.create(email: 'user2@example.com',
                     password: 'password',
                     password_confirmation: 'password',
                     confirmed_at: DateTime.now,
-                    image: File.open(File.join(Rails.root, "/public/uploads/user/image/2/man.jpg")))
+                    image: File.open(File.join(Rails.root, "/public/uploads/user/image/2/usuario.png")))
 
 user3 = User.create(email: 'admin@example.com',
                     password: 'password',
                     password_confirmation: 'password',
                     confirmed_at: DateTime.now,
+                    cahoot: 'true',
                     admin: 'true',
-                    image: File.open(File.join(Rails.root, "/public/uploads/user/image/3/woman.jpg")))
+                    image: File.open(File.join(Rails.root, "/public/uploads/user/image/3/usuaria.png")))
 
 
 
-dog1 = Dog.create(name: 'Samba y Fatiga Idilio',
-           sex: 'male', birth_date: '27/01/2006',
+dog1 = Dog.create(name: 'Samba y Fatiga Idilio', sex: 'male', birth_date: '27/01/2006',
+           titles: "JR CH LUXEMBURGO, CH LUXEMBURGO, CH PORTUGAL, CH BULGARIA, CH MONTENEGRO, CH MACEDONIA, CH BALCANES",
            user_id: user1.id, image: File.open(File.join(Rails.root, "/public/uploads/dog/image/1/samba.jpg")))
 
 dog2 = Dog.create(name: 'Fortunato Hautacuperche',
            sex: 'male', birth_date: '15/05/2008',
+           titles: "CH AZERBAIJAN, CH BULGARIA, CH CHIPRE, CH COSTA RICA, CH FILIPINAS, CH GEORGIA, CH MACEDONIA,
+           CH MOLDAVIA, CH MONTENEGRO, CH SAN MARINO",
            user_id: user2.id, image: File.open(File.join(Rails.root, "/public/uploads/dog/image/2/fortunato.jpg")))
+
 dog3 = Dog.create(name: 'Iron County I Gina',
            sex: 'female', birth_date: '10/10/2009',
+           titles: "CH.JOVEN ESPAÑA, CH PORTUGAL, GRAN CH PORTUGAL, CH FRANCIA, CH LUXEMBURGO",
            user_id: user3.id, image: File.open(File.join(Rails.root, "/public/uploads/dog/image/3/iron.jpg")))
 
 

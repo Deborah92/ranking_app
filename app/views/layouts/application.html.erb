@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html">
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>RankingApp</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
@@ -22,8 +23,8 @@
             <ul id="menu" class="nav navbar-nav">
                 <% if user_signed_in? %>
                     <% if current_user.try(:admin?) %>
-                        <li id=<%= @adminUsers%>><%= link_to "Users management", admin_users_path, class:'textHeader' %></li>
-                        <li id=<%= @adminResults%>><%= link_to "Results management", admin_results_path, class:'textHeader' %></li>
+                        <li id=<%= @adminUsers%>><%= link_to "Users", admin_users_path, class:'textHeader' %></li>
+                        <li id=<%= @adminResults%>><%= link_to "Results", admin_results_path, class:'textHeader' %></li>
                     <% end %>
                     <li id=<%= @theRanking%>><%= link_to "Ranking", dogs_ranking_path, {class:'textHeader'}  %></li>
                     <li id=<%= @myProfile%>><%= link_to "My profile", user_path(current_user), class:'textHeader' %></li>
@@ -49,12 +50,22 @@
 <%# end %>
 
 <div class="container">
-  <p class="msg"><%= notice %></p>
+  <% if current_user.try(:admin?) %>
+    <p class="textSign2">Signed in as <%= current_user.email %></p>
+  <% end %>
 
-  <p class="msg"><%= alert %></p>
+  <p class="msgNotice"><%= notice %></p>
+
+  <p class="msgAlert"><%= alert %></p>
     <%= yield %>
-  <%= image_tag "bulldogs.gif", :id => "gif"%>
 </div>
 
+<footer>
+  <div class="container">
+    <%= image_tag "bulldogs.gif", :id => "gif"%>
+  </div>
+</footer>
+
 </body>
+
 </html>
