@@ -51,12 +51,13 @@ dog3 = Dog.create(name: 'Iron County I Gina',
 end
 
 ['B.I.S.','2º B.I.S.','3º B.I.S.','1º GRUPO','2ºGRUPO','3º GRUPO','MEJOR DE RAZA','BOS','CACIB','R.CACIB','RAPPEL CAC',
- 'CAC','R.CAC','Mejor Joven','CCJ/Exc.1 (Joven)'].each do |a|
+ 'CAC','R.CAC','MEJOR JOVEN','CCJ/EXC.1 (JOVEN)'].each do |a|
   Award.where(award: a).first_or_create!
 end
 
-[['Exhibition 1', '26/12/2014', '1'],['Exhibition 2', '27/12/2014', '3'],
- ['Exhibition 3', '28/12/2014', '1']].each do |n, d, t|
+[['V Monográfica Nacional de la A.E.F.R.B.F.', '02/12/2014', '1'],
+ ['Exposición Internacional de granada 2012 especial A.E.F.R.B.F.', '03/12/2014', '3'],
+ ['I Monográfica Nacional Bulldog Francés Cantabria 2014', '04/12/2014', '1']].each do |n, d, t|
   Exhibition.where(name: n, date: d, type_id: t).first_or_create!
 end
 

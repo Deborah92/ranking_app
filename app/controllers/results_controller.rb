@@ -4,6 +4,18 @@ class ResultsController < ApplicationController
   def index
     set_user
     @results = Result.where(dog_id: Dog.where(user_id: @user))
+    @dogs = Dog.where(user_id: @user)
+    @points = Array.new(@dogs.count)
+
+    i=0
+    @dogs.each do |d|
+      @points[i]=0
+      for t in @results do
+        @awards = Result.select(:award_id).where(dog_id: d.id, exhibition_id: t.exhibition.id).distinct
+        @points[i] = Point.where(award_id: t.award_id,type_id: t.exhibition.type_id, year: t.exhibition.date.year).sum(:npoint)
+        i=i+1
+      end
+    end
     @myResults = 'selected'
     authorize! :index, Result
   end
@@ -57,17 +69,20 @@ class ResultsController < ApplicationController
     if @result.status == 'Pending' || @result.status == 'Rejected'
       @result.destroy
       flash[:notice] = "Result has been deleted."
-      redirect_to results_path
+      if current_user.admin?
+        redirect_to admin_results_path
+      else
+        redirect_to results_path
+      end
     elsif current_user.admin? @result.status == 'Validated'
       @result.destroy
       flash[:notice] = "Result has been deleted."
-      redirect_to results_path
+      redirect_to admin_results_path
     else
       flash[:alert] = "Result has not been deleted."
       redirect_to results_path
     end
   end
-
 
 
   private

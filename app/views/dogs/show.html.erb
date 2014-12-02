@@ -15,11 +15,46 @@
           <li class="information"><label class="fields">Sex: </label><%= @dog.sex %></br></li>
           <li class="information"><label class="fields">CH: </label><%= @dog.titles %></br></li>
           <li class="information"><label class="fields">Birthdate: </label><%= @dog.birth_date.strftime('%d/%m/%Y') %></br></li>
-          <li class="information"><label class="fields">Owner: </label><%= @dog.user.try :email %></br></li>
+          <li class="information"><label class="fields">Owner: </label><%= link_to @dog.user.try(:email), user_path(@dog.user) %></br></li>
       </ul>
     </div>
+
     <div class="col-md-3">
       <%= image_tag("huella.png", class: "footprint") %>
     </div>
+    <% if (@dog.user_id == current_user.id) || (current_user.admin?) %>
+    <div class="col-md-12 resultDog">
+      <table class="table table-hover table-striped">
+        <tr>
+          <th>Exhibition</th>
+          <th>Date</th>
+          <th>Award</th>
+          <th>Dog</th>
+          <th>Status</th>
+          <th></th>
+          <% if can? :destroy, Result %>
+              <th></th>
+          <% end %>
+        </tr>
+
+        <% i=0 %>
+        <% @results.each do |result| %>
+            <tr>
+              <td><%= result.exhibition.try(:name) %></td>
+              <td><%= result.exhibition.try(:date).strftime('%d/%m/%Y') %></td>
+              <td><%= result.award.try(:award) %></td>
+              <td><%= @points[i] %></td>
+              <td><%= result.dog.try(:name) %></td>
+              <td><%= result.status %></td>
+              <td><% if result.status == 'Pending' || result.status == 'Rejected' || current_user.admin? %>
+                    <%= link_to("Delete", result, method: :delete, data: {confirm: 'Are you sure you want to delete this result'} ) %>
+                <% end %>
+              </td>
+              <% i= i + 1 %>
+            </tr>
+        <% end %>
+      </table></br>
+    </div>
+    <% end %>
 </div>
 

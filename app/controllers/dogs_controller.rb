@@ -2,6 +2,7 @@ class DogsController < ApplicationController
   before_action :set_dog, only: [:show, :edit, :update, :destroy]
   before_filter :set_user, only: [:new, :edit, :create, :update, :destroy]
   def index
+    @theDogs = 'selected'
     @dogs = Dog.all
   end
 
@@ -26,6 +27,20 @@ class DogsController < ApplicationController
   end
 
   def show
+    set_user
+    @results = Result.where(dog_id: Dog.where(id: @dog.id, user_id: @user.id))
+    if current_user.admin?
+      @results = Result.where(dog_id: Dog.where(id: @dog.id))
+    end
+    @points = Array.new(@results.count)
+
+    i=0
+      @points[i]=0
+      for t in @results do
+        @awards = Result.select(:award_id).where(dog_id: @dog.id, exhibition_id: t.exhibition.id).distinct
+        @points[i] = Point.where(award_id: t.award_id,type_id: t.exhibition.type_id, year: t.exhibition.date.year).sum(:npoint)
+        i=i+1
+      end
   end
 
   def edit
@@ -51,7 +66,6 @@ class DogsController < ApplicationController
   end
 
   def ranking
-    @theRanking = 'selected'
     @dogs = Dog.all
     @points = Hash.new
 

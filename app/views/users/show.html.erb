@@ -26,5 +26,8 @@
     <td><%= dogs.birth_date.strftime('%d/%m/%Y') %></td>
   </tr>
 </table>
- <% end %>
+<% end %>
+<% if can? :new, Dog  %>
+  <%= link_to "New Dog", new_dog_path, class: "glyphicon glyphicon-plus link" %>
+<% end %>
 </tr>

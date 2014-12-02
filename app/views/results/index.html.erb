@@ -2,15 +2,32 @@
 <table class="table table-hover table-striped">
   <tr>
     <th>Exhibition</th>
+    <th>Date</th>
     <th>Award</th>
+    <th>Points</th>
     <th>Dog</th>
     <th>Status</th>
     <th></th>
-    <% if can? :destroy, Result %>
-      <th></th>
-    <% end %>
   </tr>
-  <%= render @results %>
+
+
+  <% i=0 %>
+  <% @results.each do |result| %>
+      <tr>
+      <td><%= result.exhibition.try(:name) %></td>
+      <td><%= result.exhibition.try(:date).strftime('%d/%m/%Y') %></td>
+      <td><%= result.award.try(:award) %></td>
+      <td><%= @points[i] %></td>
+      <td><%= result.dog.try(:name) %></td>
+      <td><%= result.status %></td>
+      <td><% if result.status == 'Pending' || result.status == 'Rejected' || current_user.admin? %>
+            <%= link_to("Delete", result, method: :delete, data: {confirm: 'Are you sure you want to delete this result'} ) %>
+        <% end %>
+      </td>
+      <% i= i + 1 %>
+      </tr>
+  <% end %>
+
 </table></br>
 <% if can? :new, Result %>
   <%= link_to("New Result", new_result_path, class: "glyphicon glyphicon-plus link") %>

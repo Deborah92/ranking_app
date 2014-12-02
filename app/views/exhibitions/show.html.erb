@@ -8,7 +8,7 @@
     </tr>
     <tr>
         <td><%= @exhibition.name %></td>
-        <td><%= @exhibition.date %></td>
+        <td><%= @exhibition.date.strftime('%d/%m/%Y') %></td>
         <td><%= @exhibition.type.name %></td>
     </tr>
 </table>
