@@ -1,4 +1,5 @@
-<%= form_for @result, html: { class: "form"} do |f|%>
+<div id="formulario">
+<%= form_for @result, html: {multipart: true, "data-ajax" => "false", class: "form"} do |f|%>
     <div  class="alert alert-error">
         <% @result.errors.full_messages.each do |message| %>
             <p><%= message %></p>
@@ -7,11 +8,10 @@
 
     <div class="form-group">
       <%= f.label :exhibition_id, class: "control-label" %>
-      <%= f.collection_select :exhibition_id, Exhibition.all, :id, :name, {prompt: 'Exhibition...'}, {class: "form-control", style: "width:20%;"} %>
+      <%= f.collection_select :exhibition_id, Exhibition.all, :id, :name, {prompt: 'Exhibition...'}, {class: "form-control", style: "width:20%;", id:"exhibition", onchange: 'showAwards()'} %>
     </div>
-    <div class="form-group">
-      <%= f.label :award_id, class: "control-label" %>
-      <%= f.collection_select :award_id, Award.all, :id, :award, {prompt: 'Award...'}, {class: "form-control", style: "width:20%;"} %>
+    <div id="awards" class="form-group">
+
     </div>
     <div class="form-group">
       <%= f.label :dog_id, class: "control-label" %>
@@ -23,3 +23,4 @@
     </div>
     <%= f.submit :class => "btn btn-primary" %>
 <% end %>
+</div>

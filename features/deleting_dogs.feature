@@ -21,12 +21,14 @@ Feature: Deleting dogs
 
   Scenario: Deleting a dog with property like a cahoot user
     When I am signed in as "user1@example.com"
+    And I follow "Dogs"
     And I follow "Delete" within "#dog_1"
     Then I should see "Dog has been deleted."
     Then I should not see "Samba y Fatiga Idilio"
 
   Scenario: Deleting a dog like admin
     When I am signed in as "admin@example.com"
+    And I follow "Dogs"
     And I follow "Delete" within "#dog_1"
     Then I should see "Dog has been deleted."
     Then I should not see "Samba y Fatiga Idilio"

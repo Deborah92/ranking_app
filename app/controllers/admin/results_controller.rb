@@ -46,6 +46,15 @@ class Admin::ResultsController < ApplicationController
     redirect_to admin_results_path
   end
 
+  def filtrado
+    @result = Result.new
+    @points = Point.search(params).select(:award_id)
+    @selected = params[:exhibition]
+    respond_to do |format|
+      format.js
+    end
+
+  end
 
 
   private

@@ -22,6 +22,7 @@ Feature: Editing Dogs
 
   Scenario: Updating a dog with property like a cahoot user
     And I am signed in as "user1@example.com"
+    And I follow "Dogs"
     When I follow "Edit" within "#dog_1"
     And I fill in "Name" with "Samba y Fatiga Idilio beta"
     And I attach the file "images/dog/perro.jpeg" to "Image"
@@ -31,6 +32,7 @@ Feature: Editing Dogs
 
   Scenario: Updating a dog for admin
     When I am signed in as "admin@example.com"
+    And I follow "Dogs"
     When I follow "Edit" within "#dog_1"
     And I fill in "Name" with "Samba y Fatiga Idilio beta"
     And I press "Update Dog"
@@ -39,6 +41,7 @@ Feature: Editing Dogs
 
   Scenario: Updating a dog without name
     And I am signed in as "user1@example.com"
+    And I follow "Dogs"
     When I follow "Edit" within "#dog_1"
     And I fill in "Name" with " "
     And I press "Update Dog"
@@ -46,6 +49,7 @@ Feature: Editing Dogs
 
   Scenario: Updating a dog without birth date
     And I am signed in as "user1@example.com"
+    And I follow "Dogs"
     When I follow "Edit" within "#dog_1"
     And I click in "Birth date"
     And I fill in "datepicker" with ""
@@ -54,15 +58,9 @@ Feature: Editing Dogs
 
   Scenario: Updating a dog with birth date in the future
     And I am signed in as "user1@example.com"
+    And I follow "Dogs"
     When I follow "Edit" within "#dog_1"
     And I click in "Birth date"
     And I fill in "datepicker" with "1/1/2016"
     And I press "Update Dog"
     Then I should see "Birth date can not be in the future"
-
-#  Scenario: Updating a dog with an invalid birth date format
-#    When I follow "Edit" within "#dog_1"
-#    And I click in "Birth date"
-#    And I fill in "datepicker" with "1/15/2002"
-#    And I press "Update Dog"
-#    Then I should see "Birth date must be a valid date"

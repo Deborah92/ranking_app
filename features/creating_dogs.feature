@@ -19,6 +19,7 @@ Feature: Creating dogs
 
   Scenario: Creating a dog like a cahoot user
     When I am signed in as "user1@example.com"
+    And I follow "Dogs"
     And I follow "New Dog"
     And I attach the file "images/dog/perro.jpeg" to "Image"
     And I select "male" from "Sex"
@@ -33,6 +34,7 @@ Feature: Creating dogs
 
   Scenario: Creating a dog like an admin
     When I am signed in as "admin@example.com"
+    And I follow "Dogs"
     And I follow "New Dog"
     And I attach the file "images/dog/perro.jpeg" to "Image"
     And I select "male" from "Sex"
@@ -47,6 +49,7 @@ Feature: Creating dogs
 
   Scenario: Creating a dog without sex
     When I am signed in as "user1@example.com"
+    And I follow "Dogs"
     And I follow "New Dog"
     And I attach the file "images/dog/perro.jpeg" to "Image"
     And I fill in "Titles" with "CH OF SPAIN"
@@ -58,6 +61,7 @@ Feature: Creating dogs
 
   Scenario: Creating a dog without name
     When I am signed in as "user1@example.com"
+    And I follow "Dogs"
     And I follow "New Dog"
     And I attach the file "images/dog/perro.jpeg" to "Image"
     And I select "male" from "Sex"
@@ -69,6 +73,7 @@ Feature: Creating dogs
 
   Scenario: Creating a dog without birth date
     When I am signed in as "user1@example.com"
+    And I follow "Dogs"
     And I follow "New Dog"
     And I attach the file "images/dog/perro.jpeg" to "Image"
     And I select "male" from "Sex"
@@ -79,6 +84,7 @@ Feature: Creating dogs
 
   Scenario: Creating a dog with birth date in the future
     When I am signed in as "user1@example.com"
+    And I follow "Dogs"
     And I follow "New Dog"
     And I attach the file "images/dog/perro.jpeg" to "Image"
     And I select "male" from "Sex"

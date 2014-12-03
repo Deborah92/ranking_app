@@ -17,6 +17,7 @@ RankingApp::Application.routes.draw do
   resources :points
 
   namespace :admin do
+    get "admin/results/filtrado" => 'admin/results#filtrado'
     resources :users # Have the admin manage them here.
     resources :results
   end

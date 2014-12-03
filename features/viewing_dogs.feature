@@ -21,12 +21,14 @@ Feature: Viewing dogs
 
   Scenario: Viewing dogs like an admin
     When I am signed in as "admin@example.com"
+    And I follow "Dogs"
     Then I should see "Samba y Fatiga Idilio"
     And I should see "Fortunato Hautacuperche"
     And I should see "admin@example.com"
 
   Scenario: Viewing dogs like a cahoot user
     When I am signed in as "user1@example.com"
+    And I follow "Dogs"
     Then I should see "Samba y Fatiga Idilio"
     And I should see "Fortunato Hautacuperche"
     And I should see "user1@example.com"
