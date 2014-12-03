@@ -55,9 +55,9 @@ end
   Award.where(award: a).first_or_create!
 end
 
-[['V Monográfica Nacional de la A.E.F.R.B.F.', '02/12/2014', '1'],
- ['Exposición Internacional de granada 2012 especial A.E.F.R.B.F.', '03/12/2014', '3'],
- ['I Monográfica Nacional Bulldog Francés Cantabria 2014', '04/12/2014', '1']].each do |n, d, t|
+[['V Monográfica Nacional de la A.E.F.R.B.F.', '13/01/2014', '1'],
+ ['Exposición Internacional de granada 2012 especial A.E.F.R.B.F.', '25/06/2014', '3'],
+ ['I Monográfica Nacional Bulldog Francés Cantabria 2014', '05/10/2014', '1']].each do |n, d, t|
   Exhibition.where(name: n, date: d, type_id: t).first_or_create!
 end
 

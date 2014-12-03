@@ -25,23 +25,23 @@ Feature: Creating dogs
       | EXPOSICIÓN INTERNACIONAL                 |
       | EXPOSICIÓN NACIONAL                      |
 
-    And there are the following awards:
-      | award             |
-      | B.I.S.            |
-      | 2º B.I.S.         |
-      | 3º B.I.S.         |
-      | 1º GRUPO          |
-      | 2ºGRUPO           |
-      | 3º GRUPO          |
-      | MEJOR DE RAZA     |
-      | BOS               |
-      | CACIB             |
-      | R.CACIB           |
-      | RAPPEL CAC        |
-      | CAC               |
-      | R.CAC             |
-      | Mejor Joven       |
-      | CCJ/Exc.1 (Joven) |
+#    And there are the following awards:
+#      | award             |
+#      | B.I.S.            |
+#      | 2º B.I.S.         |
+#      | 3º B.I.S.         |
+#      | 1º GRUPO          |
+#      | 2ºGRUPO           |
+#      | 3º GRUPO          |
+#      | MEJOR DE RAZA     |
+#      | BOS               |
+#      | CACIB             |
+#      | R.CACIB           |
+#      | RAPPEL CAC        |
+#      | CAC               |
+#      | R.CAC             |
+#      | Mejor Joven       |
+#      | CCJ/Exc.1 (Joven) |
 
     Given there are the following exhibitions:
       | name         | date       | type                 |
@@ -49,26 +49,26 @@ Feature: Creating dogs
       | exhibition 2 | 15/07/2015 | Punto Obligatorio    |
       | exhibition 3 | 12/03/2015 | EXPOSICIÓN NACIONAL  |
 
-    And there are the following results:
-      | exhibition | award | dog | status    |
-      | 1          | 8     | 1   | Pending   |
-      | 2          | 7     | 2   | Rejected  |
-      | 3          | 12    | 1   | Validated |
-      | 1          | 7     | 3   | Pending   |
-      | 2          | 4     | 3   | Rejected  |
-      | 3          | 2     | 3   | Validated |
+#    And there are the following results:
+#      | exhibition | award | dog | status    |
+#      | 1          | 8     | 1   | Pending   |
+#      | 2          | 7     | 2   | Rejected  |
+#      | 3          | 12    | 1   | Validated |
+#      | 1          | 7     | 3   | Pending   |
+#      | 2          | 4     | 3   | Rejected  |
+#      | 3          | 2     | 3   | Validated |
+
+
 
     And I am on the dogs page
 
-  Scenario: New dog link is hidden for non-signed-in users
-    Then I should not see the "New Dog" link
+  Scenario: Dogs link is hidden for non-signed-in users
+    Then I should not see the "Dogs" link
 
   Scenario: New dog link is hidden for registered users
     When I am signed in as "user3@example.com"
+    And I follow "Dogs"
     Then I should not see the "New Dog" link
-
-  Scenario: Ranking link is hidden for non-signed-in users
-    Then I should not see the "Ranking" link
 
   Scenario: Exhibitions link is hidden for non-signed-in users
     Then I should not see the "Exhibitions" link
@@ -102,19 +102,19 @@ Feature: Creating dogs
     When I am signed in as "user2@example.com"
     Then I should not see the "Users" link
 
-  Scenario: Delete dog link is hidden for non-signed-in users
-    Then I should not see "Delete" within "#dog_2"
-
   Scenario: Delete dog link is hidden for cahoot users without property
     When I am signed in as "user1@example.com"
+    And I follow "Dogs"
     Then I should not see "Delete" within "#dog_2"
 
   Scenario: Delete dog link is hidden for registered users with property
     When I am signed in as "user3@example.com"
+    And I follow "Dogs"
     Then I should not see "Delete" within "#dog_3"
 
   Scenario: Delete dog link is hidden for registered users without property
     When I am signed in as "user3@example.com"
+    And I follow "Dogs"
     Then I should not see "Delete" within "#dog_1"
 
   Scenario: Delete an exhibition link is hidden for cahoot users
@@ -153,19 +153,19 @@ Feature: Creating dogs
     When I am signed in as "user2@example.com"
     Then I should not see the "Results" link
 
-  Scenario: Edit a dog link for non-signed-in users
-    Then I should not see "Edit" within "#dog_2"
-
   Scenario: Edit a dog link for cahoot users without property
     And I am signed in as "user1@example.com"
+    And I follow "Dogs"
     Then I should not see "Edit" within "#dog_2"
 
   Scenario: Edit a dog link for registered users with property
     And I am signed in as "user3@example.com"
+    And I follow "Dogs"
     Then I should not see "Edit" within "#dog_3"
 
   Scenario: Edit a dog link for registered users  without property
     And I am signed in as "user3@example.com"
+    And I follow "Dogs"
     Then I should not see "Edit" within "#dog_1"
 
   Scenario: Edit an exhibition for cahoot users
@@ -194,11 +194,13 @@ Feature: Creating dogs
 
   Scenario: Edit other user profile link for cahoot users
     When I am signed in as "user1@example.com"
+    And I follow "Dogs"
     And I follow "user2@example.com"
     Then I should not see the "Edit User" link
 
   Scenario: Edit other user profile link for registered users
     When I am signed in as "user3@example.com"
+    And I follow "Dogs"
     And I follow "user2@example.com"
     Then I should not see the "Edit User" link
 

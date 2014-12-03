@@ -37,11 +37,6 @@ describe DogsController do
       response.should redirect_to(new_user_session_path)
     end
 
-    it 'can access to the show action' do
-      get :show, id: @dog.to_param
-      response.should be_success
-    end
-
     it 'can access to the index action' do
       get :index
       response.should be_success
@@ -152,11 +147,6 @@ describe DogsController do
       expect { delete :destroy, id: @dog.to_param }.not_to change(Dog, :count)
       response.status.should == 403
       response.should render_template(file: "#{Rails.root}/public/403.html")
-    end
-
-    it 'can access to the show action' do
-      get :show, id: @dog.to_param
-      response.should be_success
     end
 
     it 'can access to the index action' do

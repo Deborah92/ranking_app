@@ -4,8 +4,8 @@ Feature: Creating results
   I want to create them easily
   Background:
     Given there are the following results:
-      | exhibition   | award | dog                   | status  |
-      | exhibition 1 | BOS   | Samba y Fatiga Idilio | Pending |
+      | exhibition   | date       | award | dog                   | status  |
+      | exhibition 1 | 02/12/2014 | BOS   | Samba y Fatiga Idilio | Pending |
 
     Given there are the following users:
       | email              | password | admin | image     | cahoot |

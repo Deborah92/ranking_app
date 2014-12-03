@@ -7,9 +7,9 @@ describe "admin/users/index.html.erb" do
     admin = FactoryGirl.create(:admin)
     sign_in :user, admin
     assign(:users, [
-        User.create!(email: 'user8@example.com', password: "password", password_confirmation: "password",
+        User.create!(email: 'user14@example.com', password: "password", password_confirmation: "password",
                      image: File.open(File.join(Rails.root, 'spec/support/attachments/images/user/user.jpeg'))),
-        User.create!(email: 'use9@example.com', password: "password", password_confirmation: "password",
+        User.create!(email: 'use15@example.com', password: "password", password_confirmation: "password",
                      image: File.open(File.join(Rails.root, 'spec/support/attachments/images/user/user.jpeg')))
     ])
     render :template => "admin/users/index.html.erb"
