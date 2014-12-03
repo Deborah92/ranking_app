@@ -10,6 +10,7 @@ class Ability
 
     can :index, User
     can :index, Dog
+    can :filtrado, Result
 
     if !user.cahoot?
       can [:index, :show], Dog

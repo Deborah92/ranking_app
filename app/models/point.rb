@@ -12,5 +12,11 @@ class Point < ActiveRecord::Base
 
   validates_presence_of :year, :type_id, :award_id, :npoint
 
+  def self.search(val)
+    if val[:exhibition] != ""
+      e = Exhibition.where(id: val[:exhibition]).uniq.pluck(:type_id)
+      where("type_id = ?", "#{e[0]}").select(:award_id)
+    end
+  end
 
 end

@@ -1,6 +1,8 @@
 class ResultsController < ApplicationController
   before_filter :authorize_admin!, only: [:edit, :update]
   before_action :set_result, only: [:show, :edit, :update, :destroy]
+
+
   def index
     set_user
     @results = Result.where(dog_id: Dog.where(user_id: @user))
@@ -22,11 +24,13 @@ class ResultsController < ApplicationController
 
   def new
     @result = Result.new
+    @exhib = params[:exhibition_id]
     authorize! :new, Result
   end
 
   def create
     @result = Result.new(result_params)
+    @exhib = params[:exhibition]
     if @result.status.blank?
       @result.status = 'Pending'
     end
@@ -82,6 +86,16 @@ class ResultsController < ApplicationController
       flash[:alert] = "Result has not been deleted."
       redirect_to results_path
     end
+  end
+
+  def filtrado
+    @result = Result.new
+    @points = Point.search(params).select(:award_id)
+    @selected = params[:exhibition]
+    respond_to do |format|
+      format.js
+    end
+
   end
 
 
