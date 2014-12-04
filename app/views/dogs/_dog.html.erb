@@ -1,11 +1,14 @@
 <%= content_tag_for :tr, dog do %>
   <td><%= link_to image_tag(dog.image, class: "imageDog img-rounded"), dog_path(dog) %></td>
   <td><%= link_to dog.name, dog_path(dog) %></td>
+  <% if user_signed_in? %>
   <td><% if !dog.user.nil? %>
         <%= link_to dog.user.email, user_path(dog.user) %>
       <% end %>
   </td>
+  <% end %>
   <td><%= link_to("Show", dog) %></td>
+
   <td><% if current_user.try(:admin?) || (current_user.try(:id) == dog.user_id && current_user.try(:cahoot?))  %>
         <%= link_to("Edit", edit_dog_path(dog)) %>
       <% end %>

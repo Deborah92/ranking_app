@@ -21,8 +21,8 @@
         </div>
         <div id="header2" class="collapse navbar-collapse">
             <ul id="menu" class="nav navbar-nav">
+                <li id=<%= @theDogs%>><%= link_to "Dogs", dogs_path, {class:'textHeader'}  %></li>
                 <% if user_signed_in? %>
-                    <li id=<%= @theDogs%>><%= link_to "Dogs", dogs_path, {class:'textHeader'}  %></li>
                     <% if current_user.try(:admin?) %>
                       <li id=<%= @adminUsers%>><%= link_to "Users", admin_users_path, class:'textHeader' %></li>
                       <li id=<%= @adminResults%>><%= link_to "Results", admin_results_path, class:'textHeader' %></li>

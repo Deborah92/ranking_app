@@ -1,6 +1,6 @@
 class Admin::ResultsController < ApplicationController
   before_filter :authorize_admin!, except: [:show]
-  before_action :set_result, only: [:show, :edit, :update, :destroy]
+  before_action :set_result, only: [:show, :edit, :update, :destroy, :filtrado]
   def index
     @adminResults = 'selected'
     @results = Result.all
@@ -26,6 +26,12 @@ class Admin::ResultsController < ApplicationController
   end
 
   def edit
+    @selected = @result.exhibition_id
+    @selectedDog = @result.dog_id
+    @selectedAward = @result.award_id
+    aux = {}
+    aux[:exhibition] = @selected
+    @points = Point.search(aux).select(:award_id)
   end
 
   def update
@@ -47,9 +53,10 @@ class Admin::ResultsController < ApplicationController
   end
 
   def filtrado
-    @result = Result.new
-    @points = Point.search(params).select(:award_id)
     @selected = params[:exhibition]
+    @selectedDog = @result.dog_id
+    @selectedAward = @result.award_id
+    @points = Point.search(params).select(:award_id)
     respond_to do |format|
       format.js
     end

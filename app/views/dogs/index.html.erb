@@ -12,7 +12,9 @@
   <tr>
     <th>Photo</th>
     <th>Name</th>
-    <th>Owner</th>
+    <% if user_signed_in? %>
+      <th>Owner</th>
+    <% end %>
     <th></th>
     <th></th>
     <th></th>

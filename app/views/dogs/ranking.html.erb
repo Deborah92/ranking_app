@@ -1,4 +1,4 @@
-<h2 class="title">Provisional Dogs' Ranking</h2>
+<h2 class="title">Dogs' Ranking</h2>
 
 <table class="table table-hover table-striped">
   <tr>
@@ -10,8 +10,8 @@
   <% @points.each do |k,v| %>
     <tr>
         <td><%= v[0] %></td>
-        <td><%= image_tag(v[1], class: "imageDog img-rounded") %></td>
-        <td><%= k %></td>
+        <td><%= link_to image_tag(v[1], class: "imageDog img-rounded"), dog_path(v[3]) %></td>
+        <td><%= link_to k, dog_path(v[3]) %></td>
         <td><%= v[2] %></td>
     </tr>
   <% end %>

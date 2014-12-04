@@ -15,14 +15,15 @@
           <li class="information"><label class="fields">Sex: </label><%= @dog.sex %></br></li>
           <li class="information"><label class="fields">CH: </label><%= @dog.titles %></br></li>
           <li class="information"><label class="fields">Birthdate: </label><%= @dog.birth_date.strftime('%d/%m/%Y') %></br></li>
-          <li class="information"><label class="fields">Owner: </label><%= link_to @dog.user.try(:email), user_path(@dog.user) %></br></li>
+          <% if user_signed_in? %>
+            <li class="information"><label class="fields">Owner: </label><%= link_to @dog.user.try(:email), user_path(@dog.user) %></br></li>
+          <% end %>
       </ul>
     </div>
 
     <div class="col-md-3">
       <%= image_tag("huella.png", class: "footprint") %>
     </div>
-    <% if (@dog.user_id == current_user.id) || (current_user.admin?) %>
     <div class="col-md-12 resultDog">
       <table class="table table-hover table-striped">
         <tr>
@@ -46,7 +47,7 @@
               <td><%= @points[i] %></td>
               <td><%= result.dog.try(:name) %></td>
               <td><%= result.status %></td>
-              <td><% if result.status == 'Pending' || result.status == 'Rejected' || current_user.admin? %>
+              <td><% if result.status == 'Pending' || result.status == 'Rejected' || user_signed_in? && current_user.admin? %>
                     <%= link_to("Delete", result, method: :delete, data: {confirm: 'Are you sure you want to delete this result'} ) %>
                 <% end %>
               </td>
@@ -55,6 +56,5 @@
         <% end %>
       </table></br>
     </div>
-    <% end %>
 </div>
 

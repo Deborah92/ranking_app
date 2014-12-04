@@ -28,10 +28,7 @@ class DogsController < ApplicationController
 
   def show
     set_user
-    @results = Result.where(dog_id: Dog.where(id: @dog.id, user_id: @user.id))
-    if current_user.admin?
-      @results = Result.where(dog_id: Dog.where(id: @dog.id))
-    end
+    @results = Result.where(dog_id: Dog.where(id: @dog.id))
     @points = Array.new(@results.count)
 
     i=0
@@ -70,13 +67,13 @@ class DogsController < ApplicationController
     @points = Hash.new
 
     @dogs.each do |d|
-      @results = Result.select(:award_id, :exhibition_id).where(dog_id: d.id).distinct
+      @results = Result.select(:award_id, :exhibition_id).where(dog_id: d.id, status: "Validated").distinct
       @points[d.name]=0
       for t in @results do
         @awards = Result.select(:award_id).where(dog_id: d.id, exhibition_id: t).distinct
         @points[d.name] = @points[d.name]+ Point.where(award_id: t.award_id,type_id: t.exhibition.type_id, year: t.exhibition.date.year).sum(:npoint)
       end
-      @points[d.name] = [@points[d.name], d.image, d.sex]
+      @points[d.name] = [@points[d.name], d.image, d.sex, d.id]
     end
     @points =@points.sort_by{|a, b| b[0]}.reverse
   end

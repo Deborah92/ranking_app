@@ -1,4 +1,4 @@
-<div id="formulario">
+<div id="formularioAdmin">
 <%= form_for @result, html: {multipart: true, "data-ajax" => "false", class: "form"} do |f|%>
     <div  class="alert alert-error">
         <% @result.errors.full_messages.each do |message| %>
@@ -8,15 +8,15 @@
 
     <div class="form-group">
       <%= f.label :exhibition_id, class: "control-label" %>
-      <%= f.collection_select :exhibition_id, Exhibition.all, :id, :name,{ prompt: 'Exhibition...', :selected =>@selected}, {class: "form-control", style: "width:20%;", id:"exhibition", onchange: 'showAwards()'} %>
+      <%= f.collection_select :exhibition_id, Exhibition.all, :id, :name,{:selected =>@selected}, {class: "form-control", style: "width:20%;", id:"exhibition", onchange: 'showAward()'} %>
     </div>
     <div id="awards" class="form-group">
       <%= f.label :award_id, class: "control-label" %>
-      <%= f.collection_select :award_id, Award.where(id: @points), :id, :award, {prompt: 'Award...'}, {class: "form-control", style: "width:20%;"} %>
+      <%= f.collection_select :award_id, Award.where(id: @points), :id, :award, {:selected =>@selectedAward}, {class: "form-control", style: "width:20%;"} %>
     </div>
     <div class="form-group">
       <%= f.label :dog_id, class: "control-label" %>
-      <%= f.collection_select :dog_id, Dog.all, :id, :name, {prompt: 'Dog...'}, {class: "form-control", style: "width:20%;"} %>
+      <%= f.collection_select :dog_id, Dog.all, :id, :name, {:selected =>@selectedDog}, {class: "form-control", style: "width:20%;"} %>
     </div>
     <div class="form-group">
       <%= f.label :status, class: "control-label" %>

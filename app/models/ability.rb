@@ -9,7 +9,7 @@ class Ability
     cannot :manage, :all
 
     can :index, User
-    can :index, Dog
+    can [:index, :show], Dog
     can :filtrado, Result
 
     if !user.cahoot?
@@ -17,7 +17,7 @@ class Ability
       can [:edit, :update], User, ['user.id = ?', user.id] do |u|
         u.id == user.id
       end
-      can [:index, :show], Result, ['dog_id = ?', user.id] do |r|
+      can [:index], Result, ['dog_id = ?', user.id] do |r|
         r.dog_id.user_id == user.id
       end
     end
@@ -32,7 +32,7 @@ class Ability
         u.id == user.id
       end
       can [:new, :create], Result
-      can [:index, :show, :destroy], Result, ['dog_id = ?', user.id] do |r|
+      can [:index, :destroy], Result, ['dog_id = ?', user.id] do |r|
         r.dog_id.user_id == user.id
       end
     end
