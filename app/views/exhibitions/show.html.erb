@@ -13,6 +13,45 @@
     </tr>
 </table>
 
+<table class="table table-hover table-striped">
+  <tr>
+    <th colspan="8" style="text-align:center">Exhibition's results</th>
+  </tr>
+  <tr>
+    <th>Exhibition</th>
+    <th>Date</th>
+    <th>Award</th>
+    <th>Points</th>
+    <th>Dog</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% i=0 %>
+    <% @resultsExhibition.each do |result| %>
+        <tr>
+          <td><%= result.exhibition.try(:name) %></td>
+          <td><%= result.exhibition.try(:date).strftime('%d/%m/%Y') %></td>
+          <td><%= result.award.try(:award) %></td>
+          <td><%= @points[i] %></td>
+          <td><%= link_to result.dog.try(:name), dog_path(result.dog) %></td>
+          <td><%= result.status %></td>
+          <td><% if can? :edit, result %>
+                <%= link_to "Edit", exhibition_path(result.exhibition) %>
+              <% end %>
+          </td>
+          <td><% if can? :destroy, result %>
+                <% if result.status == 'Pending' || result.status == 'Rejected' %>
+                  <%= link_to("Delete", result, method: :delete, data: {confirm: 'Are you sure you want to delete this result'} ) %>
+                <% end %>
+            <% end %>
+          </td>
+          <% i= i + 1 %>
+        </tr>
+    <% end %>
+</table></br>
+
 <% if  current_user.try(:admin?) %>
   <%= link_to("Edit Exhibition", edit_exhibition_path, class: "glyphicon glyphicon-pencil")  %>
 <% end %>

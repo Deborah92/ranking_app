@@ -1,6 +1,6 @@
 class Dog < ActiveRecord::Base
   belongs_to  :user
-  has_many :results
+  has_many :results, :dependent => :destroy
 
   mount_uploader :image, ImageUploader
 

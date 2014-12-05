@@ -27,7 +27,9 @@ class UsersController < ApplicationController
 
   def show
     @userdogs = @user.dogs.where("user_id = ?", @user.id)
-    @myProfile = 'selected'
+    if current_user.id == @user.id
+      @myProfile = 'selected'
+    end
   end
 
   def edit

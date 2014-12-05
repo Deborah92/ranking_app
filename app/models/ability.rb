@@ -17,8 +17,9 @@ class Ability
       can [:edit, :update], User, ['user.id = ?', user.id] do |u|
         u.id == user.id
       end
+      can [:show], Result
       can [:index], Result, ['dog_id = ?', user.id] do |r|
-        r.dog_id.user_id == user.id
+        r.dog.user_id == user.id
       end
     end
 
@@ -31,9 +32,9 @@ class Ability
       can [:edit, :update], User, ['user.id = ?', user.id] do |u|
         u.id == user.id
       end
-      can [:new, :create], Result
+      can [:new, :create, :show], Result
       can [:index, :destroy], Result, ['dog_id = ?', user.id] do |r|
-        r.dog_id.user_id == user.id
+        r.dog.user_id == user.id
       end
     end
 

@@ -27,28 +27,39 @@
     <div class="col-md-12 resultDog">
       <table class="table table-hover table-striped">
         <tr>
+          <th colspan="8" style="text-align:center">Dog's results</th>
+        </tr>
+
+        <tr>
           <th>Exhibition</th>
           <th>Date</th>
           <th>Award</th>
+          <th>Points</th>
           <th>Dog</th>
           <th>Status</th>
           <th></th>
-          <% if can? :destroy, Result %>
-              <th></th>
-          <% end %>
+          <th></th>
+
         </tr>
 
         <% i=0 %>
         <% @results.each do |result| %>
             <tr>
-              <td><%= result.exhibition.try(:name) %></td>
+              <td><%= link_to result.exhibition.try(:name), exhibition_path(result.exhibition) %>
+              </td>
               <td><%= result.exhibition.try(:date).strftime('%d/%m/%Y') %></td>
               <td><%= result.award.try(:award) %></td>
               <td><%= @points[i] %></td>
               <td><%= result.dog.try(:name) %></td>
               <td><%= result.status %></td>
-              <td><% if result.status == 'Pending' || result.status == 'Rejected' || user_signed_in? && current_user.admin? %>
-                    <%= link_to("Delete", result, method: :delete, data: {confirm: 'Are you sure you want to delete this result'} ) %>
+              <td><% if can? :edit, result %>
+                    <%= link_to("Edit", edit_admin_result_path(result) ) %>
+                <% end %>
+              </td>
+              <td><% if can? :destroy, result %>
+                    <% if result.status == 'Pending' || result.status == 'Rejected' %>
+                      <%= link_to("Delete", result, method: :delete, data: {confirm: 'Are you sure you want to delete this result'} ) %>
+                    <% end %>
                 <% end %>
               </td>
               <% i= i + 1 %>

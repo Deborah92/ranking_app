@@ -14,14 +14,16 @@
   <% i=0 %>
   <% @results.each do |result| %>
       <tr>
-      <td><%= result.exhibition.try(:name) %></td>
+      <td><%= link_to result.exhibition.try(:name), exhibition_path(result.exhibition) %></td>
       <td><%= result.exhibition.try(:date).strftime('%d/%m/%Y') %></td>
       <td><%= result.award.try(:award) %></td>
       <td><%= @points[i] %></td>
-      <td><%= result.dog.try(:name) %></td>
+      <td><%= link_to result.dog.try(:name), dog_path(result.dog) %></td>
       <td><%= result.status %></td>
-      <td><% if result.status == 'Pending' || result.status == 'Rejected' || current_user.admin? %>
-            <%= link_to("Delete", result, method: :delete, data: {confirm: 'Are you sure you want to delete this result'} ) %>
+      <td><% if can? :destroy, result %>
+            <% if result.status == 'Pending' || result.status == 'Rejected' %>
+              <%= link_to("Delete", result, method: :delete, data: {confirm: 'Are you sure you want to delete this result'} ) %>
+            <% end %>
         <% end %>
       </td>
       <% i= i + 1 %>

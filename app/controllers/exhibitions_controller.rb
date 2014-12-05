@@ -23,6 +23,16 @@ class ExhibitionsController < ApplicationController
   end
 
   def show
+    @resultsExhibition = Result.where(exhibition_id: @exhibition.id)
+    @points = Array.new(@resultsExhibition.count)
+
+    i=0
+    @points[i]=0
+    for t in @resultsExhibition do
+      @awards = Result.select(:award_id).where(dog_id: t.dog.id, exhibition_id: t.exhibition.id).distinct
+      @points[i] = Point.where(award_id: t.award_id,type_id: t.exhibition.type_id, year: t.exhibition.date.year).sum(:npoint)
+      i=i+1
+    end
   end
 
   def edit

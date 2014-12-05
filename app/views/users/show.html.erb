@@ -7,9 +7,8 @@
 <% end %>
 <table class="table table-hover table-striped">
 
-<% @userdogs.each do |dogs| %>
   <tr>
-    <th colspan="5" style="text-align:center">Dogs of <%= @user.email %></th>
+    <th colspan="7" style="text-align:center">Dogs of <%= @user.email %></th>
   </tr>
   <tr>
     <th>Photo</th>
@@ -17,17 +16,31 @@
     <th>Sex</th>
     <th>CH</th>
     <th>Birthdate</th>
+    <th></th>
+    <th></th>
   </tr>
+  <% @userdogs.each do |dogs| %>
   <tr>
     <td><%= link_to image_tag(dogs.image, class: "imageDog"), dog_path(dogs) %></td>
     <td><%= link_to dogs.name, dog_path(dogs) %></td>
     <td><%= dogs.sex %></td>
     <td><%= dogs.titles %></td>
     <td><%= dogs.birth_date.strftime('%d/%m/%Y') %></td>
+    <td><% if can? :edit, dogs %>
+          <%= link_to "Edit", edit_dog_path(dogs) %>
+        <% end %>
+    </td>
+    <td><% if can? :destroy, dogs %>
+          <%= link_to("Delete", dogs, method: :delete, data: {confirm: 'Are you sure you want to delete this dog'} ) %>
+      <% end %>
+    </td>
   </tr>
+  <% end %>
 </table>
-<% end %>
+
 <% if can? :new, Dog  %>
-  <%= link_to "New Dog", new_dog_path, class: "glyphicon glyphicon-plus link" %>
+  <% if current_user.id == @user.id %>
+    <%= link_to "New Dog", new_dog_path, class: "glyphicon glyphicon-plus link" %>
+  <% end %>
 <% end %>
 </tr>
