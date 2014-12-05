@@ -7,7 +7,6 @@
       <% end %>
   </td>
   <% end %>
-  <td><%= link_to("Show", dog) %></td>
 
   <td><% if current_user.try(:admin?) || (current_user.try(:id) == dog.user_id && current_user.try(:cahoot?))  %>
         <%= link_to("Edit", edit_dog_path(dog)) %>

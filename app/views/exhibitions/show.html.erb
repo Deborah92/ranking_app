@@ -42,7 +42,7 @@
               <% end %>
           </td>
           <td><% if can? :destroy, result %>
-                <% if result.status == 'Pending' || result.status == 'Rejected' %>
+                <% if result.status == 'Pending' || result.status == 'Rejected' || current_user.try(:admin?) %>
                   <%= link_to("Delete", result, method: :delete, data: {confirm: 'Are you sure you want to delete this result'} ) %>
                 <% end %>
             <% end %>

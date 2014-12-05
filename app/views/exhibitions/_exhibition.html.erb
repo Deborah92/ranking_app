@@ -1,7 +1,6 @@
 <%= content_tag_for :tr, exhibition do %>
     <td><%= link_to exhibition.name, exhibition_path(exhibition) %></td>
     <td><%= exhibition.date.strftime('%d/%m/%Y') %></td>
-    <td><%= link_to("Show", exhibition) %></td>
     <% if current_user.try(:admin?) %>
         <td><%= link_to("Edit", edit_exhibition_path(exhibition)) %></td>
         <td><%= link_to("Delete", exhibition, method: :delete, data: {confirm: 'Are you sure you want to delete this exhibition'} ) %></td>
