@@ -102,3 +102,7 @@ end
  ['3','8','3'],['2','12','3']].each do |e, a, d|
   Result.create(exhibition_id: e, award_id: a, dog_id: d, status: 'Validated')
 end
+
+[['2','1','1'],['1','12','3']].each do |e, a, d|
+  Result.create(exhibition_id: e, award_id: a, dog_id: d, status: 'Pending')
+end

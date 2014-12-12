@@ -6,7 +6,7 @@ describe ExhibitionsController do
 
   let(:type) { FactoryGirl.create(:type)}
 
-  let(:valid_attributes) { {name: 'Exhibition 1', date: '28/05/2015', type_id: type}  }
+  let(:valid_attributes) { {name: 'Exhibition 1', date: '28/05/2014', type_id: type}  }
 
   context 'Guest users about exhibitions' do
 

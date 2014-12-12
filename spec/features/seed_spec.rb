@@ -61,12 +61,12 @@ feature "Seed Data" do
 
   scenario "Results" do
     load Rails.root + "db/seeds.rb"
-    Result.all.count.should eq 6
+    Result.all.count.should eq 8
     @dogs = Dog.all
     @points = Hash.new
 
     @dogs.each do |d|
-      @results = Result.select(:award_id, :exhibition_id).where(dog_id: d.id).distinct
+      @results = Result.select(:award_id, :exhibition_id).where(dog_id: d.id, status: "Validated").distinct
       @points[d.name]=0
       for t in @results do
         @awards = Result.select(:award_id).where(dog_id: d.id, exhibition_id: t).distinct

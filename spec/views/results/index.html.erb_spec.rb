@@ -5,6 +5,7 @@ describe "results/index.html.erb" do
   after(:all) { DatabaseCleaner.clean_with(:truncation) }
   it "display my results" do
     cahoot = FactoryGirl.create(:cahoot)
+    exhibition = FactoryGirl.create(:exhibition)
     sign_in :user, cahoot
     assign(:results, [
         Result.create!(exhibition_id: '1', award_id: '8', dog_id: '1', status: 'Validated'),
