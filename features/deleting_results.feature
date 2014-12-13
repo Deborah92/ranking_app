@@ -6,27 +6,27 @@ Feature: Deleting results
   Background:
     Given there are the following exhibitions:
       | name         | date       | type                 |
-      | exhibition 1 | 27/03/2015 | MONOGRÁFICA NACIONAL |
-      | exhibition 2 | 15/07/2015 | Punto Obligatorio    |
-      | exhibition 3 | 12/03/2015 | EXPOSICIÓN NACIONAL  |
+      | exhibition 1 | 27/03/2014 | MONOGRÁFICA NACIONAL |
+      | exhibition 2 | 15/07/2014 | Punto Obligatorio    |
+      | exhibition 3 | 12/03/2014 | EXPOSICIÓN NACIONAL  |
 
-    And there are the following awards:
-      | award             |
-      | B.I.S.            |
-      | 2º B.I.S.         |
-      | 3º B.I.S.         |
-      | 1º GRUPO          |
-      | 2ºGRUPO           |
-      | 3º GRUPO          |
-      | MEJOR DE RAZA     |
-      | BOS               |
-      | CACIB             |
-      | R.CACIB           |
-      | RAPPEL CAC        |
-      | CAC               |
-      | R.CAC             |
-      | Mejor Joven       |
-      | CCJ/Exc.1 (Joven) |
+    Given there are the following awards:
+      | award |
+      | 1     |
+      | 2     |
+      | 3     |
+      | 4     |
+      | 5     |
+      | 6     |
+      | 7     |
+      | 8     |
+      | 9     |
+      | 10    |
+      | 11    |
+      | 12    |
+      | 13    |
+      | 14    |
+      | 15    |
 
     And there are the following users:
       | email              | password | admin | image     | cahoot |
@@ -44,11 +44,11 @@ Feature: Deleting results
     And there are the following results:
       | exhibition | award | dog | status    |
       | 1          | 8     | 1   | Pending   |
-      | 2          | 7     | 2   | Rejected  |
-      | 3          | 12    | 1   | Validated |
-      | 1          | 7     | 3   | Pending   |
-      | 2          | 4     | 3   | Rejected  |
-      | 3          | 2     | 3   | Validated |
+      | 2          | 8     | 2   | Rejected  |
+      | 3          | 8    | 1   | Validated |
+      | 1          | 8     | 3   | Pending   |
+      | 2          | 8     | 3   | Rejected  |
+      | 3          | 8     | 3   | Validated |
 
     And I am on the dogs page
 

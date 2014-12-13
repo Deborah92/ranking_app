@@ -4,9 +4,32 @@ Feature: Editing Results
   I want to be able to do that through an interface
 
   Background:
+    Given there are the following awards:
+      | award |
+      | 1     |
+      | 2     |
+      | 3     |
+      | 4     |
+      | 5     |
+      | 6     |
+      | 7     |
+      | 8     |
+      | 9     |
+      | 10    |
+      | 11    |
+      | 12    |
+      | 13    |
+      | 14    |
+      | 15    |
+
+    Given there are the following exhibitions:
+      | name         | date       | type                 |
+      | exhibition 1 | 27/03/2014 | MONOGRÁFICA NACIONAL |
+      | exhibition 2 | 15/07/2015 | Punto Obligatorio    |
+
     Given there are the following results:
-      | exhibition   | award | dog                   | status  |
-      | exhibition 1 | BOS   | Samba y Fatiga Idilio | Pending |
+      | exhibition | award | dog | status  |
+      | 1          | 8     | 1   | Pending |
 
     And there are the following users:
       | email              | password | admin | image     | cahoot |
@@ -21,28 +44,6 @@ Feature: Editing Results
       | male |        | Fortunato Hautacuperche | 15/05/2008 | user2@example.com |            |
       | male |        | Frael Valderrama        | 01/01/2001 | user3@example.com |            |
 
-    Given there are the following exhibitions:
-      | name         | date       | type                 |
-      | exhibition 1 | 27/03/2015 | MONOGRÁFICA NACIONAL |
-      | exhibition 2 | 15/07/2015 | Punto Obligatorio    |
-
-    Given there are the following awards:
-      | award             |
-      | B.I.S.            |
-      | 2º B.I.S.         |
-      | 3º B.I.S.         |
-      | 1º GRUPO          |
-      | 2ºGRUPO           |
-      | 3º GRUPO          |
-      | MEJOR DE RAZA     |
-      | BOS               |
-      | CACIB             |
-      | R.CACIB           |
-      | RAPPEL CAC        |
-      | CAC               |
-      | R.CAC             |
-      | Mejor Joven       |
-      | CCJ/Exc.1 (Joven) |
 
     And I am on the dogs page
 

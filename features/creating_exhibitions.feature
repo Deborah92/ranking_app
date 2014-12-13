@@ -72,15 +72,3 @@ Feature: Creating exhibitions
     And I press "Create Exhibition"
     Then I should see "Exhibition has not been created."
     And I should see "Type can't be blank"
-
-  Scenario: Creating an exhibition with date at the past
-    And I am signed in as "admin@example.com"
-    And I follow "Exhibitions"
-    When I follow "New Exhibition"
-    And I fill in "Name" with "exhibition 2"
-    And I click in "Date"
-    And I fill in "datepicker" with "15/05/2004"
-    And I select "MONOGRÁFICA NACIONAL" from "Type"
-    And I press "Create Exhibition"
-    Then I should see "Exhibition has not been created."
-    Then I should see "Date can not be at the past"

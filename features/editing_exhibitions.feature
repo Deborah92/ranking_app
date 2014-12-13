@@ -55,13 +55,3 @@ Feature: Editing Exhibitions
     And I press "Update Exhibition"
     Then I should see "Exhibition has not been updated."
     And I should see "Date can't be blank"
-
-  Scenario: Updating an exhibition with date at the past
-    And I am signed in as "admin@example.com"
-    And I follow "Exhibitions"
-    When I follow "Edit" within "#exhibition_1"
-    And I click in "Date"
-    And I fill in "datepicker" with "15/05/2004"
-    And I press "Update Exhibition"
-    Then I should see "Exhibition has not been updated."
-    Then I should see "Date can not be at the past"

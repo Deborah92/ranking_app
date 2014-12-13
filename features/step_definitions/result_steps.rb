@@ -6,6 +6,11 @@ Given(/^there are the following results:$/) do |table|
   end
 end
 
+Then /^I should see "([^"]*)" in the second file section$/ do |text|
+  page.should have_css("#awards form-group:nth-child(2):contains('#{text}')")
+end
+
+
 Then /^I should see the admin results page$/ do
   page.current_path.should == admin_results_path
 end

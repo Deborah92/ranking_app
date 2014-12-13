@@ -15,3 +15,13 @@ And /^I follow "([^\"]*)" on the "([^\"]*)" row$/ do |link, row|
     click_link(link)
   end
 end
+
+Given(/^"(.*?)" is the result of the following exhibition:$/) do |exhibition, table|
+  # table is a Cucumber::Ast::Table
+  table.map_headers!( 'exhibition' => :name, 'date' => :date, 'type' => :type_id )
+  table.hashes.each do |attributes|
+    #attributes.merge!(date: Result.find_by_exhibition_id(exhibition))
+    #Dog.create!(attributes)
+    FactoryGirl.create(:result, attributes)
+  end
+end

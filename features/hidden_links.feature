@@ -3,6 +3,24 @@ Feature: Creating dogs
   As a user
   I want to create them easily
   Background:
+    Given there are the following awards:
+      | award |
+      | 1     |
+      | 2     |
+      | 3     |
+      | 4     |
+      | 5     |
+      | 6     |
+      | 7     |
+      | 8     |
+      | 9     |
+      | 10    |
+      | 11    |
+      | 12    |
+      | 13    |
+      | 14    |
+      | 15    |
+
     Given there are the following users:
       | email              | password | admin | image     | cahoot |
       | user1@example.com  | password | false | user.jpeg | true   |
@@ -25,45 +43,25 @@ Feature: Creating dogs
       | EXPOSICIÓN INTERNACIONAL                 |
       | EXPOSICIÓN NACIONAL                      |
 
-#    And there are the following awards:
-#      | award             |
-#      | B.I.S.            |
-#      | 2º B.I.S.         |
-#      | 3º B.I.S.         |
-#      | 1º GRUPO          |
-#      | 2ºGRUPO           |
-#      | 3º GRUPO          |
-#      | MEJOR DE RAZA     |
-#      | BOS               |
-#      | CACIB             |
-#      | R.CACIB           |
-#      | RAPPEL CAC        |
-#      | CAC               |
-#      | R.CAC             |
-#      | Mejor Joven       |
-#      | CCJ/Exc.1 (Joven) |
 
     Given there are the following exhibitions:
       | name         | date       | type                 |
-      | exhibition 1 | 27/03/2015 | MONOGRÁFICA NACIONAL |
-      | exhibition 2 | 15/07/2015 | Punto Obligatorio    |
-      | exhibition 3 | 12/03/2015 | EXPOSICIÓN NACIONAL  |
+      | exhibition 1 | 27/03/2014 | MONOGRÁFICA NACIONAL |
+      | exhibition 2 | 15/07/2014 | Punto Obligatorio    |
+      | exhibition 3 | 12/03/2014 | EXPOSICIÓN NACIONAL  |
 
-#    And there are the following results:
-#      | exhibition | award | dog | status    |
-#      | 1          | 8     | 1   | Pending   |
-#      | 2          | 7     | 2   | Rejected  |
-#      | 3          | 12    | 1   | Validated |
-#      | 1          | 7     | 3   | Pending   |
-#      | 2          | 4     | 3   | Rejected  |
-#      | 3          | 2     | 3   | Validated |
+    And there are the following results:
+      | exhibition | award | dog | status    |
+      | 1          | 8     | 1   | Pending   |
+      | 2          | 8     | 2   | Rejected  |
+      | 3          | 8     | 1   | Validated |
+      | 1          | 8     | 3   | Pending   |
+      | 2          | 8     | 3   | Rejected  |
+      | 3          | 8     | 3   | Validated |
 
 
 
     And I am on the dogs page
-
-  Scenario: Dogs link is hidden for non-signed-in users
-    Then I should not see the "Dogs" link
 
   Scenario: New dog link is hidden for registered users
     When I am signed in as "user3@example.com"
@@ -130,17 +128,17 @@ Feature: Creating dogs
   Scenario: Delete a Pending result link for registered users
     When I am signed in as "user3@example.com"
     And I follow "My results"
-    Then I should not see "Delete" within "#result_4"
+    Then I should not see the "Delete" link
 
   Scenario: Delete a Rejected result link for registered users
     When I am signed in as "user3@example.com"
     And I follow "My results"
-    Then I should not see "Delete" within "#result_5"
+    Then I should not see the "Delete" link
 
   Scenario: Delete a Validated result link for registered users
     When I am signed in as "user3@example.com"
     And I follow "My results"
-    Then I should not see "Delete" within "#result_6"
+    Then I should not see the "Delete" link
 
   Scenario: Results management link is hidden for non-signed-in users
     Then I should not see the "Results" link
@@ -181,16 +179,16 @@ Feature: Creating dogs
   Scenario: Edit a result link for cahoot users
     When I am signed in as "user1@example.com"
     And I follow "My results"
-    Then I should not see "Edit" within "#result_1"
+    Then I should not see the "Edit" link
 
   Scenario: Edit a result link for registered users
     When I am signed in as "user3@example.com"
     And I follow "My results"
-    Then I should not see "Edit" within "#result_4"
+    Then I should not see the "Edit" link
 
   Scenario: Edit other user profile link for  non-signed-in users
-    And I follow "user2@example.com"
-    Then I should not see the "Edit User" link
+    And I follow "Dogs"
+    Then I should not see the "user2@example.com" link
 
   Scenario: Edit other user profile link for cahoot users
     When I am signed in as "user1@example.com"

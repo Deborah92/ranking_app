@@ -6,27 +6,27 @@ Feature: Viewing results
   Background:
     Given there are the following exhibitions:
       | name         | date       | type                 |
-      | exhibition 1 | 27/03/2015 | MONOGRÁFICA NACIONAL |
-      | exhibition 2 | 15/07/2015 | Punto Obligatorio    |
-      | exhibition 3 | 12/03/2015 | EXPOSICIÓN NACIONAL  |
+      | exhibition 1 | 27/03/2014 | MONOGRÁFICA NACIONAL |
+      | exhibition 2 | 15/07/2014 | Punto Obligatorio    |
+      | exhibition 3 | 12/03/2014 | EXPOSICIÓN NACIONAL  |
 
     Given there are the following awards:
-      | award             |
-      | B.I.S.            |
-      | 2º B.I.S.         |
-      | 3º B.I.S.         |
-      | 1º GRUPO          |
-      | 2ºGRUPO           |
-      | 3º GRUPO          |
-      | MEJOR DE RAZA     |
-      | BOS               |
-      | CACIB             |
-      | R.CACIB           |
-      | RAPPEL CAC        |
-      | CAC               |
-      | R.CAC             |
-      | Mejor Joven       |
-      | CCJ/Exc.1 (Joven) |
+      | award |
+      | 1     |
+      | 2     |
+      | 3     |
+      | 4     |
+      | 5     |
+      | 6     |
+      | 7     |
+      | 8     |
+      | 9     |
+      | 10    |
+      | 11    |
+      | 12    |
+      | 13    |
+      | 14    |
+      | 15    |
 
     And there are the following dogs:
       | Sex  | Titles | Name                    | Birth Date | Owner             | Image      |
@@ -37,9 +37,7 @@ Feature: Viewing results
     And there are the following results:
       | exhibition | award | dog | status    |
       | 1          | 8     | 1   | Pending   |
-      | 2          | 7     | 2   | Rejected  |
-      | 3          | 12    | 1   | Validated |
-      | 3          | 2     | 3   | Validated |
+      | 2          | 8     | 2   | Validated |
 
     Given there are the following users:
       | email              | password | admin | image     | cahoot |
@@ -56,9 +54,7 @@ Feature: Viewing results
     And I follow "Results"
     Then I should see the admin results page
     And I should see "exhibition 1 BOS Samba y Fatiga Idilio Pending"
-    And I should see "exhibition 2 MEJOR DE RAZA Fortunato Hautacuperche Rejected"
-    And I should see "exhibition 3 CAC Samba y Fatiga Idilio Validated"
-    And I should see "exhibition 3 2º B.I.S. Frael Valderrama Validated"
+    And I should see "exhibition 2 BOS Fortunato Hautacuperche Validated"
 
   @working
   Scenario: Viewing results like a cahoot user
