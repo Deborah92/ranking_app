@@ -45,7 +45,7 @@ Feature: Deleting results
       | exhibition | award | dog | status    |
       | 1          | 8     | 1   | Pending   |
       | 2          | 8     | 2   | Rejected  |
-      | 3          | 8    | 1   | Validated |
+      | 3          | 8     | 1   | Validated |
       | 1          | 8     | 3   | Pending   |
       | 2          | 8     | 3   | Rejected  |
       | 3          | 8     | 3   | Validated |
@@ -57,6 +57,7 @@ Feature: Deleting results
     And I follow "Results"
     And I follow "Delete" within "#result_1"
     Then I should see "Result has been deleted."
+
 
   Scenario: Deleting a Rejected result like an admin
     When I am signed in as "admin@example.com"
@@ -75,15 +76,8 @@ Feature: Deleting results
     And I follow "My results"
     And I follow "Delete" within "#result_1"
     Then I should see "Result has been deleted"
-
+  @working
   Scenario: Deleting a Rejected result like a cahoot user
     When I am signed in as "user2@example.com"
     And I follow "My results"
-    And I follow "Delete" within "#result_2"
-    Then I should see "Result has been deleted"
-
-  Scenario: Deleting a Validated result like a cahoot user
-    When I am signed in as "user1@example.com"
-    And I follow "My results"
-    And I follow "Delete" within "#result_3"
-    Then I should see "Result has not been deleted."
+    And I follow "Delete" within "#result_1"
