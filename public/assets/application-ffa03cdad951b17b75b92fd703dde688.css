@@ -1,0 +1,254 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ */
+
+
+body {
+  padding-top: 100px;
+}
+
+table, td, th {
+  margin-top: 100px;
+}
+
+th {
+  border-bottom: 3px solid #DDD;
+}
+
+td {
+  border-bottom: 1px solid #DDD;
+}
+textarea {
+  resize: vertical;
+}
+
+.imageDog { width: 110px;
+  height: 100px;
+}
+
+#menu #selected{
+  background-color: #E5ECF9;
+}
+
+#header2 #menu #selected .textHeader{
+  color: #000000;
+}
+
+.page {
+  background-color: #E5ECF9;
+}
+
+#bar{
+  background-color: #205081;
+  overflow: visible;
+}
+
+#menu{
+  overflow: visible;
+}
+
+#header2{
+  margin-left: 7%;
+}
+
+.bigBar {
+  background-color: #205081;
+}
+
+#header2 #menu li .textHeader, #header1 a{
+  color:#FFFFFF;
+  font-weight: bold;
+  font-size: 11pt;
+}
+
+
+#header2 #menu li .textSign{
+  color:#FFFFFF;
+}
+
+.link{
+  color:#205081;
+}
+
+#gif{
+  margin-left: 46%;
+  width: 70px;
+}
+
+.aefrbf img{
+  width: 5em;
+  height: 6em;
+  border: 4px solid #205081;
+}
+
+.title{
+  text-align: center;
+  color: #000000;
+  /*font-family: Sans-Serif ,Georgia, Serif;*/
+  font-size: 32px;
+  letter-spacing: 0;
+  margin-top: 1em;
+}
+
+.title2{
+  color: #000000;
+  /*font-family: Sans-Serif ,Georgia, Serif;*/
+  font-size: 32px;
+  letter-spacing: 0;
+  margin-top: 1em;
+}
+
+.search{
+  margin-top: 5%;
+  margin-bottom: -7%;
+}
+
+.search span{
+  background: #205081;
+  color: #ffffff;
+}
+
+.msgNotice {
+  color: darkgreen;
+  margin-left: 8em;
+  margin-top: -1em;
+}
+
+.msgAlert{
+  color: red;
+  margin-left: 8em;
+  margin-top: -1em;
+}
+
+footer{
+  margin-top: 1%;
+}
+
+.textSign2{
+    display: none;
+}
+
+@media (max-width: 1000px){
+    .aefrbf img{
+        width: 4em;
+        height: 5em;
+        border: 0,5px solid #205081;
+    }
+    #header2 #menu li .textHeader, #header1 a{
+        color:#FFFFFF;
+        font-weight: bold;
+        font-size: 9pt;
+    }
+
+    .textSign{
+        display: none;
+    }
+
+    .textSign2{
+        display: block;
+    }
+}
+/* line 4, /home/invitado/rails_projects/ranking_app/app/assets/stylesheets/dogs.css.scss */
+.textDog {
+  margin-left: -35px;
+  margin-top: 42px;
+}
+
+/* line 9, /home/invitado/rails_projects/ranking_app/app/assets/stylesheets/dogs.css.scss */
+.editDog {
+  margin-left: 130px;
+  margin-bottom: 20px;
+}
+
+/* line 14, /home/invitado/rails_projects/ranking_app/app/assets/stylesheets/dogs.css.scss */
+.imgDog {
+  position: relative;
+  overflow: visible;
+  border: 4px 4px 4px;
+  width: 300px;
+  min-height: 250px;
+  max-height: 300px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  margin-left: 30px;
+  -webkit-transition: -webkit-transform 0.5s ease-in-out;
+  -moz-transition: -moz-transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* line 28, /home/invitado/rails_projects/ranking_app/app/assets/stylesheets/dogs.css.scss */
+.imgDog:hover {
+  position: relative;
+  overflow: visible;
+  transform: scale(1, 1.05) skew(5deg, -5deg) translate(-5px, -5px);
+  -webkit-transform: scale(1, 1.05) skew(5deg, -5deg) translate(-5px, -5px);
+  -moz-transform: scale(1, 1.05) skew(5deg, -5deg) translate(-5px, -5px);
+  -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* line 40, /home/invitado/rails_projects/ranking_app/app/assets/stylesheets/dogs.css.scss */
+ul {
+  list-style: none;
+}
+
+/* line 44, /home/invitado/rails_projects/ranking_app/app/assets/stylesheets/dogs.css.scss */
+li {
+  margin-top: 10px;
+}
+
+/* line 48, /home/invitado/rails_projects/ranking_app/app/assets/stylesheets/dogs.css.scss */
+.card {
+  border: 3px solid #DDD;
+  background-color: #F0FFFF;
+  margin-top: 4%;
+}
+
+/* line 54, /home/invitado/rails_projects/ranking_app/app/assets/stylesheets/dogs.css.scss */
+.footprint {
+  width: 180px;
+  margin-top: 25%;
+  margin-left: 4%;
+}
+
+/* line 60, /home/invitado/rails_projects/ranking_app/app/assets/stylesheets/dogs.css.scss */
+.fields {
+  margin-right: 2%;
+}
+
+/* line 64, /home/invitado/rails_projects/ranking_app/app/assets/stylesheets/dogs.css.scss */
+.information {
+  font-family: Georgia, Serif;
+}
+
+/* line 68, /home/invitado/rails_projects/ranking_app/app/assets/stylesheets/dogs.css.scss */
+.resultDog {
+  margin-top: -6%;
+}
+/* line 5, /home/invitado/rails_projects/ranking_app/app/assets/stylesheets/users.css.scss */
+.imgUser {
+  width: 80px;
+  height: 80px;
+}
+
+/* line 10, /home/invitado/rails_projects/ranking_app/app/assets/stylesheets/users.css.scss */
+.imageUser {
+  width: 180px;
+  height: 180px;
+}
+
+/* line 15, /home/invitado/rails_projects/ranking_app/app/assets/stylesheets/users.css.scss */
+.editUser {
+  margin-left: 38px;
+}
