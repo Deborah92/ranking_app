@@ -29,18 +29,18 @@ user3 = User.create(email: 'admin@example.com',
 
 
 
-dog1 = Dog.create(name: 'Samba y Fatiga Idilio', sex: 'male', birth_date: '27/01/2006',
+dog1 = Dog.create(name: 'Samba y Fatiga Idilio', sex: 'male', birth_date: '2006-01-27',
            titles: "JR CH LUXEMBURGO, CH LUXEMBURGO, CH PORTUGAL, CH BULGARIA, CH MONTENEGRO, CH MACEDONIA, CH BALCANES",
            user_id: user1.id, image: File.open(File.join(Rails.root, "/public/uploads/dog/image/1/samba.jpg")))
 
 dog2 = Dog.create(name: 'Fortunato Hautacuperche',
-           sex: 'male', birth_date: '15/05/2008',
+           sex: 'male', birth_date: '2008-05-15',
            titles: "CH AZERBAIJAN, CH BULGARIA, CH CHIPRE, CH COSTA RICA, CH FILIPINAS, CH GEORGIA, CH MACEDONIA,
            CH MOLDAVIA, CH MONTENEGRO, CH SAN MARINO",
            user_id: user2.id, image: File.open(File.join(Rails.root, "/public/uploads/dog/image/2/fortunato.jpg")))
 
 dog3 = Dog.create(name: 'Iron County I Gina',
-           sex: 'female', birth_date: '10/10/2009',
+           sex: 'female', birth_date: '2009-10-10',
            titles: "CH.JOVEN ESPAÑA, CH PORTUGAL, GRAN CH PORTUGAL, CH FRANCIA, CH LUXEMBURGO",
            user_id: user3.id, image: File.open(File.join(Rails.root, "/public/uploads/dog/image/3/iron.jpg")))
 
@@ -55,9 +55,9 @@ end
   Award.where(award: a).first_or_create!
 end
 
-[['V Monográfica Nacional de la A.E.F.R.B.F.', '13/01/2014', '1'],
- ['Exposición Internacional de granada 2012 especial A.E.F.R.B.F.', '25/06/2014', '3'],
- ['I Monográfica Nacional Bulldog Francés Cantabria 2014', '05/10/2014', '1']].each do |n, d, t|
+[['V Monográfica Nacional de la A.E.F.R.B.F.', '2014-01-13', '1'],
+ ['Exposición Internacional de granada 2012 especial A.E.F.R.B.F.', '2014-06-25', '3'],
+ ['I Monográfica Nacional Bulldog Francés Cantabria 2014', '2014-10-05', '1']].each do |n, d, t|
   Exhibition.where(name: n, date: d, type_id: t).first_or_create!
 end
 
