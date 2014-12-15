@@ -3,7 +3,7 @@ class ResultMailer < ActionMailer::Base
 
   def create_result(user, result)
     @user = user
-    @url  = 'http://ranking-app.herokuapp.com/#{result_path(result)}'
+    @url  = "http://ranking-app.herokuapp.com/results/#{result.id}"
     mail(to: @user.email, subject: 'The result has been created')
   end
 
