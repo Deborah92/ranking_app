@@ -60,7 +60,7 @@ class ResultsController < ApplicationController
       set_result_user
       ResultMailer.edit_result_by_admin(@user = User.find(id:@result.dog.user),@result,current_user)
       flash[:notice] = "Result has been updated. A message with the result's link has been sent to user email address"
-        redirect_to admin_results_path
+        redirect_to @result
     else
       flash[:alert] = 'Result has not been updated.'
       render 'edit'
