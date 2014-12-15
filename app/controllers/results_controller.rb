@@ -40,7 +40,7 @@ class ResultsController < ApplicationController
       set_admins
       ResultMailer.create_result_to_admin(current_user, @result, @admins)
       flash[:notice] = "Result has been created. A message with the result's link has been sent to your email address"
-      redirect_to Result
+      redirect_to results_path
     else
       flash[:alert] = 'Result has not been created.'
       render 'new'
@@ -60,7 +60,7 @@ class ResultsController < ApplicationController
       set_result_user
       ResultMailer.edit_result_by_admin(@user,@result,current_user)
       flash[:notice] = "Result has been updated. A message with the result's link has been sent to user email address"
-      redirect_to @result
+      redirect_to results_path
     else
       flash[:alert] = 'Result has not been updated.'
       render 'edit'
