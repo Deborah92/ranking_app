@@ -38,7 +38,7 @@ class ResultsController < ApplicationController
     if @result.save
       ResultMailer.create_result(current_user, @result).deliver
       set_admins
-      ResultMailer.create_result_to_admin(current_user, @result, @admins)
+      ResultMailer.create_result_to_admin(current_user, @result, @admins).deliver
       flash[:notice] = "Result has been created. A message with the result's link has been sent to your email address"
       redirect_to results_path
     else
@@ -58,7 +58,7 @@ class ResultsController < ApplicationController
   def update
     if @result.update_attributes(result_params)
       set_result_user
-      ResultMailer.edit_result_by_admin(@user = User.find(id:@result.dog.user),@result,current_user)
+      ResultMailer.edit_result_by_admin(@user = User.find(id:@result.dog.user),@result,current_user).deliver
       flash[:notice] = "Result has been updated. A message with the result's link has been sent to user email address"
         redirect_to results_path
     else
