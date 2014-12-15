@@ -1,5 +1,5 @@
 class ResultMailer < ActionMailer::Base
-  default from: "notifications@example.com"
+  default from: "deborah92ah@gmail.com"
 
   def create_result(user, result)
     @user = user

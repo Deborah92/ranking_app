@@ -36,7 +36,7 @@ class ResultsController < ApplicationController
     end
     authorize! :create, Result
     if @result.save
-      ResultMailer.create_result(current_user, @result)
+      ResultMailer.create_result(current_user, @result).deliver
       set_admins
       ResultMailer.create_result_to_admin(current_user, @result, @admins)
       flash[:notice] = "Result has been created. A message with the result's link has been sent to your email address"
