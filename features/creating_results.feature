@@ -57,9 +57,9 @@ Feature: Creating results
     And I follow "Results"
     And I follow "New Result"
     And I select "exhibition 1" from "exhibition"
+    And Save and open page
     And I select "BOS" from "Award"
     And I select "Fortunato Hautacuperche" from "Dog"
-      And Save and open page
     And I select "Validated" from "Status"
     And I press "Create Result"
     Then I should see "Result has been created. A message with the result's link has been sent to your email address"

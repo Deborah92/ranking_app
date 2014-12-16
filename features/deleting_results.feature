@@ -80,4 +80,5 @@ Feature: Deleting results
   Scenario: Deleting a Rejected result like a cahoot user
     When I am signed in as "user2@example.com"
     And I follow "My results"
-    And I follow "Delete" within "#result_1"
+    And Save and open page
+    And I follow "Delete" within "#result_2"

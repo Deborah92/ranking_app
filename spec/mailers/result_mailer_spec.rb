@@ -20,7 +20,7 @@ describe ResultMailer do
     end
 
     it 'renders the sender email' do
-      expect(mail.from).to eql(['notifications@example.com'])
+      expect(mail.from).to eql(['deborah92ah@gmail.com'])
     end
 
     it 'assigns @email' do
@@ -46,7 +46,7 @@ describe ResultMailer do
     let(:admin2) { FactoryGirl.create(:admin)}
     let(:mail) { ResultMailer.create_result_to_admin(user, result, [admin, admin2]) }
 
-    let(:asserted_body) { ["The user #{user.email} has been created a dog's result.",
+    let(:asserted_body) { ["The user #{user.email} has created a dog's result.",
                            "You can validate or reject in the following link",
                            "admin/results/#{result.id}/edit" ] }
 
@@ -59,7 +59,7 @@ describe ResultMailer do
     end
 
     it 'renders the sender email' do
-      expect(mail.from).to eql([user.email])
+      expect(mail.from).to eql(['deborah92ah@gmail.com'])
     end
 
     it 'assigns @email' do
@@ -82,7 +82,7 @@ describe ResultMailer do
     let(:user) { FactoryGirl.create(:user) }
     let(:result) { FactoryGirl.create(:result)}
     let(:admin) { FactoryGirl.create(:admin)}
-    let(:mail) { ResultMailer.edit_result_by_admin(user, result, admin) }
+    let(:mail) { ResultMailer.edit_result_by_admin(user, result) }
 
     let(:asserted_body) { ["In the following link you can see if the administrator has validated or has rejected the result sent by #{user.email}",
                            "results/#{result.id}" ] }
@@ -96,7 +96,7 @@ describe ResultMailer do
     end
 
     it 'renders the sender email' do
-      expect(mail.from).to eql([admin.email])
+      expect(mail.from).to eql(['deborah92ah@gmail.com'])
     end
 
     it 'assigns @email' do

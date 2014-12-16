@@ -71,6 +71,7 @@ describe ResultsController do
     it "can access the create action" do
       sign_in(:user, cahoot)
       post :create, result: valid_attributes
+
       response.should redirect_to(results_path)
       flash[:notice].should eql("Result has been created. A message with the result's link has been sent to your email address")
     end
