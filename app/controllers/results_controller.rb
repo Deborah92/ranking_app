@@ -57,8 +57,8 @@ class ResultsController < ApplicationController
 
   def update
     if @result.update_attributes(result_params)
-      set_result_user
-      ResultMailer.edit_result_by_admin(@user = User.find(id:@result.dog.user),@result,current_user).deliver
+      #set_result_user
+      #ResultMailer.edit_result_by_admin(@user = User.find(id:@result.dog.user),@result,current_user).deliver
       flash[:notice] = "Result has been updated. A message with the result's link has been sent to user email address"
         redirect_to results_path
     else
