@@ -9,7 +9,7 @@ class ResultMailer < ActionMailer::Base
 
   def create_result_to_admin(user, result, admins)
     @user = user
-    @url  = "http://ranking-app.herokuapp.com/admin/results/#{result.id}"
+    @url  = "http://ranking-app.herokuapp.com/admin/results/#{result.id}/edit"
     emails = admins.collect(&:email).join(",")
     mail(to: emails, subject: "A result has been created by #{@user.email}")
   end
