@@ -14,7 +14,7 @@ class ResultMailer < ActionMailer::Base
     mail(to: emails, subject: "A result has been created by #{@user.email}")
   end
 
-  def edit_result_by_admin(user, result, admin)
+  def edit_result_by_admin(user, result)
     @user = user
     @url  = "http://ranking-app.herokuapp.com/results/#{result.id}"
     mail(to: @user.email, subject: 'The response to the result sent')
