@@ -59,7 +59,7 @@ class ResultsController < ApplicationController
     if @result.update_attributes(result_params)
       #set_result_user
       #@owner = Dog.where(id: @result.dog_id)
-      @user = User.where(id: Dog.where(id: @result.dog_id).select(:user_id))
+      @user = User.where(id: Dog.where(id: @result.dog_id).select(:user_id)).first
       ResultMailer.edit_result_by_admin(@user,@result).deliver
       flash[:notice] = "Result has been updated. A message with the result's link has been sent to user email address"
         redirect_to results_path
