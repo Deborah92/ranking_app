@@ -18,3 +18,9 @@ end
 Then /^I should see the results page$/ do
   page.current_path.should == results_path
 end
+
+And /^I follow "([^\"]*)" link on the "([^\"]*)" row$/ do |link, row|
+  within "tr:contains('#{ row }')" do
+    click_link(link)
+  end
+end

@@ -43,28 +43,28 @@ Feature: Creating results
       | male |        | Fortunato Hautacuperche | 15/05/2008 | user2@example.com |            |
 
     Given there are the following points:
-      | year  | type | award | points    |
-      | 2014  | 1 | 8 | 200 |
+      | year  | type | award | points |
+      | 2014  | 1    | 8     | 200    |
 
 
 
 
     And I am on the dogs page
 
-
+  @working
   Scenario: Creating a result like an admin
     When I am signed in as "admin@example.com"
     And I follow "Results"
     And I follow "New Result"
     And I select "exhibition 1" from "exhibition"
-    And Save and open page
-    And I select "BOS" from "Award"
+    And I select "" from "Award"
     And I select "Fortunato Hautacuperche" from "Dog"
     And I select "Validated" from "Status"
+    And I select "BOS" from "Award"
     And I press "Create Result"
     Then I should see "Result has been created. A message with the result's link has been sent to your email address"
 
-      @working
+
   Scenario: Creating a result like a cahoot user
     When I am signed in as "user2@example.com"
     And I follow "My results"
