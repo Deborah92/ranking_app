@@ -895,7 +895,7 @@ var hljs=new function(){function l(o){return o.replace(/&/gm,"&amp;").replace(/<
 				}, 1);
 			});
 			
-			setTimeout(function () { // A pause because Opera 19.6+ will sometimes not run the onload function otherwise.
+			setTimeout(function () { // A pause because Opera 10.6+ will sometimes not run the onload function otherwise.
 				photo.src = href;
 			}, 1);
 		} else if (href) {

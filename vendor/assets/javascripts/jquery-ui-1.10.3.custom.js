@@ -12,7 +12,7 @@ var uuid = 0,
 $.ui = $.ui || {};
 
 $.extend( $.ui, {
-	version: "1.19.3",
+	version: "1.10.3",
 
 	keyCode: {
 		BACKSPACE: 8,
@@ -89,7 +89,7 @@ $.fn.extend({
 					// IE returns 0 when zIndex is not specified
 					// other browsers return a string
 					// we ignore the case of nested elements with an explicit value of 0
-					// <div style="z-index: -19;"><div style="z-index: 0;"></div></div>
+					// <div style="z-index: -10;"><div style="z-index: 0;"></div></div>
 					value = parseInt( elem.css( "zIndex" ), 10 );
 					if ( !isNaN( value ) && value !== 0 ) {
 						return value;
@@ -832,7 +832,7 @@ $( document ).mouseup( function() {
 });
 
 $.widget("ui.mouse", {
-	version: "1.19.3",
+	version: "1.10.3",
 	options: {
 		cancel: "input,textarea,button,select,option",
 		distance: 1,
@@ -1457,7 +1457,7 @@ $.ui.position = {
 	testElementParent = body || document.documentElement;
 	testElementParent.insertBefore( testElement, testElementParent.firstChild );
 
-	div.style.cssText = "position: absolute; left: 19.7432222px;";
+	div.style.cssText = "position: absolute; left: 10.7432222px;";
 
 	offsetLeft = $( div ).offset().left;
 	$.support.offsetFractions = offsetLeft > 10 && offsetLeft < 11;
@@ -1470,7 +1470,7 @@ $.ui.position = {
 (function( $, undefined ) {
 
 $.widget("ui.draggable", $.ui.mouse, {
-	version: "1.19.3",
+	version: "1.10.3",
 	widgetEventPrefix: "drag",
 	options: {
 		addClasses: true,
@@ -2417,7 +2417,7 @@ function isOverAxis( x, reference, size ) {
 }
 
 $.widget("ui.droppable", {
-	version: "1.19.3",
+	version: "1.10.3",
 	widgetEventPrefix: "drop",
 	options: {
 		accept: "*",
@@ -2777,7 +2777,7 @@ function isNumber(value) {
 }
 
 $.widget("ui.resizable", $.ui.mouse, {
-	version: "1.19.3",
+	version: "1.10.3",
 	widgetEventPrefix: "resize",
 	options: {
 		alsoResize: false,
@@ -3722,7 +3722,7 @@ $.ui.plugin.add("resizable", "grid", {
 (function( $, undefined ) {
 
 $.widget("ui.selectable", $.ui.mouse, {
-	version: "1.19.3",
+	version: "1.10.3",
 	options: {
 		appendTo: "body",
 		autoRefresh: true,
@@ -3994,7 +3994,7 @@ function isFloating(item) {
 }
 
 $.widget("ui.sortable", $.ui.mouse, {
-	version: "1.19.3",
+	version: "1.10.3",
 	widgetEventPrefix: "sort",
 	ready: false,
 	options: {
@@ -5263,7 +5263,7 @@ showProps.height = showProps.paddingTop = showProps.paddingBottom =
 	showProps.borderTopWidth = showProps.borderBottomWidth = "show";
 
 $.widget( "ui.accordion", {
-	version: "1.19.3",
+	version: "1.10.3",
 	options: {
 		active: 0,
 		animate: {},
@@ -5815,7 +5815,7 @@ $.widget( "ui.accordion", {
 var requestIndex = 0;
 
 $.widget( "ui.autocomplete", {
-	version: "1.19.3",
+	version: "1.10.3",
 	defaultElement: "<input>",
 	options: {
 		appendTo: null,
@@ -6434,7 +6434,7 @@ var lastActive, startXPos, startYPos, clickDragged,
 	};
 
 $.widget( "ui.button", {
-	version: "1.19.3",
+	version: "1.10.3",
 	defaultElement: "<button>",
 	options: {
 		disabled: null,
@@ -6751,7 +6751,7 @@ $.widget( "ui.button", {
 });
 
 $.widget( "ui.buttonset", {
-	version: "1.19.3",
+	version: "1.10.3",
 	options: {
 		items: "button, input[type=button], input[type=submit], input[type=reset], input[type=checkbox], input[type=radio], a, :data(ui-button)"
 	},
@@ -6810,7 +6810,7 @@ $.widget( "ui.buttonset", {
 }( jQuery ) );
 (function( $, undefined ) {
 
-$.extend($.ui, { datepicker: { version: "1.19.3" } });
+$.extend($.ui, { datepicker: { version: "1.10.3" } });
 
 var PROP_NAME = "datepicker",
 	instActive;
@@ -6871,7 +6871,7 @@ function Datepicker() {
 		gotoCurrent: false, // True if today link goes back to current selection instead
 		changeMonth: false, // True if month can be selected directly, false if only prev/next
 		changeYear: false, // True if year can be selected directly, false if only prev/next
-		yearRange: "c-19:c+19", // Range of years to display in drop-down,
+		yearRange: "c-10:c+10", // Range of years to display in drop-down,
 			// either relative to today's year (-nn:+nn), relative to currently displayed year
 			// (c-nn:c+nn), absolute (nnnn:nnnn), or a combination of the above (nnnn:-n)
 		showOtherMonths: false, // True to show dates in other months, false to leave blank
@@ -6879,7 +6879,7 @@ function Datepicker() {
 		showWeek: false, // True to show week of the year, false to not show it
 		calculateWeek: this.iso8601Week, // How to calculate the week of the year,
 			// takes a Date and returns the number of the week for it
-		shortYearCutoff: "+19", // Short year values < this are in the current century,
+		shortYearCutoff: "+10", // Short year values < this are in the current century,
 			// > this are in the previous century,
 			// string value starting with "+" for current year + value
 		minDate: null, // The earliest selectable date, or null for no limit
@@ -8830,7 +8830,7 @@ $.fn.datepicker = function(options){
 $.datepicker = new Datepicker(); // singleton instance
 $.datepicker.initialized = false;
 $.datepicker.uuid = new Date().getTime();
-$.datepicker.version = "1.19.3";
+$.datepicker.version = "1.10.3";
 
 })(jQuery);
 (function( $, undefined ) {
@@ -8852,7 +8852,7 @@ var sizeRelatedOptions = {
 	};
 
 $.widget( "ui.dialog", {
-	version: "1.19.3",
+	version: "1.10.3",
 	options: {
 		appendTo: "body",
 		autoOpen: true,
@@ -9625,7 +9625,7 @@ if ( $.uiBackCompat !== false ) {
 (function( $, undefined ) {
 
 $.widget( "ui.menu", {
-	version: "1.19.3",
+	version: "1.10.3",
 	defaultElement: "<ul>",
 	delay: 300,
 	options: {
@@ -10231,7 +10231,7 @@ $.widget( "ui.menu", {
 (function( $, undefined ) {
 
 $.widget( "ui.progressbar", {
-	version: "1.19.3",
+	version: "1.10.3",
 	options: {
 		max: 100,
 		value: 0,
@@ -10366,7 +10366,7 @@ $.widget( "ui.progressbar", {
 var numPages = 5;
 
 $.widget( "ui.slider", $.ui.mouse, {
-	version: "1.19.3",
+	version: "1.10.3",
 	widgetEventPrefix: "slide",
 
 	options: {
@@ -11030,7 +11030,7 @@ function modifier( fn ) {
 }
 
 $.widget( "ui.spinner", {
-	version: "1.19.3",
+	version: "1.10.3",
 	defaultElement: "<input>",
 	widgetEventPrefix: "spin",
 	options: {
@@ -11510,7 +11510,7 @@ function isLocal( anchor ) {
 }
 
 $.widget( "ui.tabs", {
-	version: "1.19.3",
+	version: "1.10.3",
 	delay: 300,
 	options: {
 		active: null,
@@ -12356,7 +12356,7 @@ function removeDescribedBy( elem ) {
 }
 
 $.widget( "ui.tooltip", {
-	version: "1.19.3",
+	version: "1.10.3",
 	options: {
 		content: function() {
 			// support: IE<9, Opera in jQuery <1.7
@@ -12887,7 +12887,7 @@ function clamp( value, prop, allowEmpty ) {
 
 	if ( type.mod ) {
 		// we add mod before modding to make sure that negatives values
-		// get converted properly: -19 -> 350
+		// get converted properly: -10 -> 350
 		return (value + type.mod) % type.mod;
 	}
 
@@ -13598,7 +13598,7 @@ $.fn.extend({
 (function() {
 
 $.extend( $.effects, {
-	version: "1.19.3",
+	version: "1.10.3",
 
 	// Saves a set of properties in a data storage
 	save: function( element, set ) {
