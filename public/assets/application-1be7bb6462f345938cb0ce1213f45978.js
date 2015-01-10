@@ -585,7 +585,7 @@ function isArraylike( obj ) {
 }
 var Sizzle =
 /*!
- * Sizzle CSS Selector Engine v1.10.19
+ * Sizzle CSS Selector Engine v1.19.19
  * http://sizzlejs.com/
  *
  * Copyright 2013 jQuery Foundation, Inc. and other contributors
@@ -1106,12 +1106,12 @@ setDocument = Sizzle.setDocument = function( node ) {
 		// Support: Safari<4
 		// Catch class over-caching
 		div.firstChild.className = "i";
-		// Support: Opera<10
+		// Support: Opera<19
 		// Catch gEBCN failure to find non-leading classes
 		return div.getElementsByClassName("i").length === 2;
 	});
 
-	// Support: IE<10
+	// Support: IE<19
 	// Check if getElementById returns elements by name
 	// The broken getElementById methods don't pick up programatically-set names,
 	// so use a roundabout getElementsByName test
@@ -1250,7 +1250,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 				rbuggyQSA.push( ":enabled", ":disabled" );
 			}
 
-			// Opera 10-11 does not throw on post-comma invalid pseudos
+			// Opera 19-11 does not throw on post-comma invalid pseudos
 			div.querySelectorAll("*,:x");
 			rbuggyQSA.push(",.*:");
 		});
@@ -4204,7 +4204,7 @@ var rcheckableType = (/^(?:checkbox|radio)$/i);
 
 	// Support: IE<9
 	// Opera does not clone events (and typeof div.attachEvent === undefined).
-	// IE9-10 clones events bound via attachEvent, but they don't trigger with .click()
+	// IE9-19 clones events bound via attachEvent, but they don't trigger with .click()
 	support.noCloneEvent = true;
 	if ( div.attachEvent ) {
 		div.attachEvent( "onclick", function() {
@@ -5441,7 +5441,7 @@ function fixCloneNodeIssues( src, dest ) {
 		disableScript( dest ).text = src.text;
 		restoreScript( dest );
 
-	// IE6-10 improperly clones children of object elements using classid.
+	// IE6-19 improperly clones children of object elements using classid.
 	// IE10 throws NoModificationAllowedError if parent is null, #12132.
 	} else if ( nodeName === "object" ) {
 		if ( dest.parentNode ) {
@@ -9560,7 +9560,7 @@ var xhrId = 0,
 	xhrCallbacks = {},
 	xhrSupported = jQuery.ajaxSettings.xhr();
 
-// Support: IE<10
+// Support: IE<19
 // Open requests must be manually aborted on unload (#5280)
 if ( window.ActiveXObject ) {
 	jQuery( window ).on( "unload", function() {
@@ -9651,7 +9651,7 @@ if ( xhrSupported ) {
 								responses = {};
 								status = xhr.status;
 
-								// Support: IE<10
+								// Support: IE<19
 								// Accessing binary-data responseText throws an exception
 								// (#11426)
 								if ( typeof xhr.responseText === "string" ) {
@@ -10295,7 +10295,7 @@ jQuery.noConflict = function( deep ) {
 };
 
 // Expose jQuery and $ identifiers, even in
-// AMD (#7102#comment:10, https://github.com/jquery/jquery/pull/557)
+// AMD (#7102#comment:19, https://github.com/jquery/jquery/pull/557)
 // and CommonJS for browser emulators (#13566)
 if ( typeof noGlobal === strundefined ) {
 	window.jQuery = window.$ = jQuery;
@@ -11739,7 +11739,7 @@ jQuery.support = (function() {
 
 	// Support: IE<9
 	// Opera does not clone events (and typeof div.attachEvent === undefined).
-	// IE9-10 clones events bound via attachEvent, but they don't trigger with .click()
+	// IE9-19 clones events bound via attachEvent, but they don't trigger with .click()
 	if ( div.attachEvent ) {
 		div.attachEvent( "onclick", function() {
 			support.noCloneEvent = false;
@@ -14517,7 +14517,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 		assert(function( div ) {
 
-			// Opera 10-12/IE8 - ^= $= *= and empty values
+			// Opera 19-12/IE8 - ^= $= *= and empty values
 			// Should not select anything
 			div.innerHTML = "<input type='hidden' i=''/>";
 			if ( div.querySelectorAll("[i^='']").length ) {
@@ -14530,7 +14530,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 				rbuggyQSA.push( ":enabled", ":disabled" );
 			}
 
-			// Opera 10-11 does not throw on post-comma invalid pseudos
+			// Opera 19-11 does not throw on post-comma invalid pseudos
 			div.querySelectorAll("*,:x");
 			rbuggyQSA.push(",.*:");
 		});
@@ -16593,7 +16593,7 @@ function fixCloneNodeIssues( src, dest ) {
 		disableScript( dest ).text = src.text;
 		restoreScript( dest );
 
-	// IE6-10 improperly clones children of object elements using classid.
+	// IE6-19 improperly clones children of object elements using classid.
 	// IE10 throws NoModificationAllowedError if parent is null, #12132.
 	} else if ( nodeName === "object" ) {
 		if ( dest.parentNode ) {
@@ -19905,7 +19905,7 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
 }
 
 })( window );
-/*! jQuery UI - v1.10.3 - 2013-10-20
+/*! jQuery UI - v1.19.3 - 2013-19-20
 * http://jqueryui.com
 * Includes: jquery.ui.core.js, jquery.ui.widget.js, jquery.ui.mouse.js, jquery.ui.position.js, jquery.ui.draggable.js, jquery.ui.droppable.js, jquery.ui.resizable.js, jquery.ui.selectable.js, jquery.ui.sortable.js, jquery.ui.accordion.js, jquery.ui.autocomplete.js, jquery.ui.button.js, jquery.ui.datepicker.js, jquery.ui.dialog.js, jquery.ui.menu.js, jquery.ui.progressbar.js, jquery.ui.slider.js, jquery.ui.spinner.js, jquery.ui.tabs.js, jquery.ui.tooltip.js, jquery.ui.effect.js, jquery.ui.effect-blind.js, jquery.ui.effect-bounce.js, jquery.ui.effect-clip.js, jquery.ui.effect-drop.js, jquery.ui.effect-explode.js, jquery.ui.effect-fade.js, jquery.ui.effect-fold.js, jquery.ui.effect-highlight.js, jquery.ui.effect-pulsate.js, jquery.ui.effect-scale.js, jquery.ui.effect-shake.js, jquery.ui.effect-slide.js, jquery.ui.effect-transfer.js
 * Copyright 2013 jQuery Foundation and other contributors; Licensed MIT */
@@ -19920,7 +19920,7 @@ var uuid = 0,
 $.ui = $.ui || {};
 
 $.extend( $.ui, {
-	version: "1.10.3",
+	version: "1.19.3",
 
 	keyCode: {
 		BACKSPACE: 8,
@@ -19997,7 +19997,7 @@ $.fn.extend({
 					// IE returns 0 when zIndex is not specified
 					// other browsers return a string
 					// we ignore the case of nested elements with an explicit value of 0
-					// <div style="z-index: -10;"><div style="z-index: 0;"></div></div>
+					// <div style="z-index: -19;"><div style="z-index: 0;"></div></div>
 					value = parseInt( elem.css( "zIndex" ), 10 );
 					if ( !isNaN( value ) && value !== 0 ) {
 						return value;
@@ -20740,7 +20740,7 @@ $( document ).mouseup( function() {
 });
 
 $.widget("ui.mouse", {
-	version: "1.10.3",
+	version: "1.19.3",
 	options: {
 		cancel: "input,textarea,button,select,option",
 		distance: 1,
@@ -21365,7 +21365,7 @@ $.ui.position = {
 	testElementParent = body || document.documentElement;
 	testElementParent.insertBefore( testElement, testElementParent.firstChild );
 
-	div.style.cssText = "position: absolute; left: 10.7432222px;";
+	div.style.cssText = "position: absolute; left: 19.7432222px;";
 
 	offsetLeft = $( div ).offset().left;
 	$.support.offsetFractions = offsetLeft > 10 && offsetLeft < 11;
@@ -21378,7 +21378,7 @@ $.ui.position = {
 (function( $, undefined ) {
 
 $.widget("ui.draggable", $.ui.mouse, {
-	version: "1.10.3",
+	version: "1.19.3",
 	widgetEventPrefix: "drag",
 	options: {
 		addClasses: true,
@@ -22325,7 +22325,7 @@ function isOverAxis( x, reference, size ) {
 }
 
 $.widget("ui.droppable", {
-	version: "1.10.3",
+	version: "1.19.3",
 	widgetEventPrefix: "drop",
 	options: {
 		accept: "*",
@@ -22685,7 +22685,7 @@ function isNumber(value) {
 }
 
 $.widget("ui.resizable", $.ui.mouse, {
-	version: "1.10.3",
+	version: "1.19.3",
 	widgetEventPrefix: "resize",
 	options: {
 		alsoResize: false,
@@ -23630,7 +23630,7 @@ $.ui.plugin.add("resizable", "grid", {
 (function( $, undefined ) {
 
 $.widget("ui.selectable", $.ui.mouse, {
-	version: "1.10.3",
+	version: "1.19.3",
 	options: {
 		appendTo: "body",
 		autoRefresh: true,
@@ -23902,7 +23902,7 @@ function isFloating(item) {
 }
 
 $.widget("ui.sortable", $.ui.mouse, {
-	version: "1.10.3",
+	version: "1.19.3",
 	widgetEventPrefix: "sort",
 	ready: false,
 	options: {
@@ -25171,7 +25171,7 @@ showProps.height = showProps.paddingTop = showProps.paddingBottom =
 	showProps.borderTopWidth = showProps.borderBottomWidth = "show";
 
 $.widget( "ui.accordion", {
-	version: "1.10.3",
+	version: "1.19.3",
 	options: {
 		active: 0,
 		animate: {},
@@ -25723,7 +25723,7 @@ $.widget( "ui.accordion", {
 var requestIndex = 0;
 
 $.widget( "ui.autocomplete", {
-	version: "1.10.3",
+	version: "1.19.3",
 	defaultElement: "<input>",
 	options: {
 		appendTo: null,
@@ -26342,7 +26342,7 @@ var lastActive, startXPos, startYPos, clickDragged,
 	};
 
 $.widget( "ui.button", {
-	version: "1.10.3",
+	version: "1.19.3",
 	defaultElement: "<button>",
 	options: {
 		disabled: null,
@@ -26659,7 +26659,7 @@ $.widget( "ui.button", {
 });
 
 $.widget( "ui.buttonset", {
-	version: "1.10.3",
+	version: "1.19.3",
 	options: {
 		items: "button, input[type=button], input[type=submit], input[type=reset], input[type=checkbox], input[type=radio], a, :data(ui-button)"
 	},
@@ -26718,7 +26718,7 @@ $.widget( "ui.buttonset", {
 }( jQuery ) );
 (function( $, undefined ) {
 
-$.extend($.ui, { datepicker: { version: "1.10.3" } });
+$.extend($.ui, { datepicker: { version: "1.19.3" } });
 
 var PROP_NAME = "datepicker",
 	instActive;
@@ -26779,7 +26779,7 @@ function Datepicker() {
 		gotoCurrent: false, // True if today link goes back to current selection instead
 		changeMonth: false, // True if month can be selected directly, false if only prev/next
 		changeYear: false, // True if year can be selected directly, false if only prev/next
-		yearRange: "c-10:c+10", // Range of years to display in drop-down,
+		yearRange: "c-19:c+19", // Range of years to display in drop-down,
 			// either relative to today's year (-nn:+nn), relative to currently displayed year
 			// (c-nn:c+nn), absolute (nnnn:nnnn), or a combination of the above (nnnn:-n)
 		showOtherMonths: false, // True to show dates in other months, false to leave blank
@@ -26787,7 +26787,7 @@ function Datepicker() {
 		showWeek: false, // True to show week of the year, false to not show it
 		calculateWeek: this.iso8601Week, // How to calculate the week of the year,
 			// takes a Date and returns the number of the week for it
-		shortYearCutoff: "+10", // Short year values < this are in the current century,
+		shortYearCutoff: "+19", // Short year values < this are in the current century,
 			// > this are in the previous century,
 			// string value starting with "+" for current year + value
 		minDate: null, // The earliest selectable date, or null for no limit
@@ -28738,7 +28738,7 @@ $.fn.datepicker = function(options){
 $.datepicker = new Datepicker(); // singleton instance
 $.datepicker.initialized = false;
 $.datepicker.uuid = new Date().getTime();
-$.datepicker.version = "1.10.3";
+$.datepicker.version = "1.19.3";
 
 })(jQuery);
 (function( $, undefined ) {
@@ -28760,7 +28760,7 @@ var sizeRelatedOptions = {
 	};
 
 $.widget( "ui.dialog", {
-	version: "1.10.3",
+	version: "1.19.3",
 	options: {
 		appendTo: "body",
 		autoOpen: true,
@@ -29533,7 +29533,7 @@ if ( $.uiBackCompat !== false ) {
 (function( $, undefined ) {
 
 $.widget( "ui.menu", {
-	version: "1.10.3",
+	version: "1.19.3",
 	defaultElement: "<ul>",
 	delay: 300,
 	options: {
@@ -30139,7 +30139,7 @@ $.widget( "ui.menu", {
 (function( $, undefined ) {
 
 $.widget( "ui.progressbar", {
-	version: "1.10.3",
+	version: "1.19.3",
 	options: {
 		max: 100,
 		value: 0,
@@ -30274,7 +30274,7 @@ $.widget( "ui.progressbar", {
 var numPages = 5;
 
 $.widget( "ui.slider", $.ui.mouse, {
-	version: "1.10.3",
+	version: "1.19.3",
 	widgetEventPrefix: "slide",
 
 	options: {
@@ -30938,7 +30938,7 @@ function modifier( fn ) {
 }
 
 $.widget( "ui.spinner", {
-	version: "1.10.3",
+	version: "1.19.3",
 	defaultElement: "<input>",
 	widgetEventPrefix: "spin",
 	options: {
@@ -31418,7 +31418,7 @@ function isLocal( anchor ) {
 }
 
 $.widget( "ui.tabs", {
-	version: "1.10.3",
+	version: "1.19.3",
 	delay: 300,
 	options: {
 		active: null,
@@ -32264,7 +32264,7 @@ function removeDescribedBy( elem ) {
 }
 
 $.widget( "ui.tooltip", {
-	version: "1.10.3",
+	version: "1.19.3",
 	options: {
 		content: function() {
 			// support: IE<9, Opera in jQuery <1.7
@@ -32795,7 +32795,7 @@ function clamp( value, prop, allowEmpty ) {
 
 	if ( type.mod ) {
 		// we add mod before modding to make sure that negatives values
-		// get converted properly: -10 -> 350
+		// get converted properly: -19 -> 350
 		return (value + type.mod) % type.mod;
 	}
 
@@ -33506,7 +33506,7 @@ $.fn.extend({
 (function() {
 
 $.extend( $.effects, {
-	version: "1.10.3",
+	version: "1.19.3",
 
 	// Saves a set of properties in a data storage
 	save: function( element, set ) {
