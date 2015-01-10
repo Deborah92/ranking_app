@@ -6,14 +6,14 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-user1 = User.create(email: 'user1@example.com',
+user1 = User.create(email: 'ranking.socio@gmail.com',
                     password: 'password',
                     password_confirmation: 'password',
                     confirmed_at: DateTime.now,
                     cahoot: 'true',
                     image: File.open(File.join(Rails.root, "/public/uploads/user/image/1/usuaria2.png")))
 
-user2 = User.create(email: 'user2@example.com',
+user2 = User.create(email: 'admi.ranking@gmail.com',
                     password: 'password',
                     password_confirmation: 'password',
                     confirmed_at: DateTime.now,
@@ -26,7 +26,6 @@ user3 = User.create(email: 'admin@example.com',
                     cahoot: 'true',
                     admin: 'true',
                     image: File.open(File.join(Rails.root, "/public/uploads/user/image/3/usuaria.png")))
-
 
 
 dog1 = Dog.create(name: 'Samba y Fatiga Idilio', sex: 'male', birth_date: '2006-01-27',
