@@ -11,15 +11,15 @@ user1 = User.create(email: 'ranking.socio@gmail.com',
                     password_confirmation: 'password',
                     confirmed_at: DateTime.now,
                     cahoot: 'true',
-                    image: File.open(File.join(Rails.root, "/public/uploads/user/image/1/usuaria2.png")))
+                    image: File.open(File.join(Rails.root, "/public/uploads/user/image/9/usuaria2.png")))
 
-user2 = User.create(email: 'admi.ranking@gmail.com',
+user2 = User.create(email: 'user2@example.com',
                     password: 'password',
                     password_confirmation: 'password',
                     confirmed_at: DateTime.now,
                     image: File.open(File.join(Rails.root, "/public/uploads/user/image/2/usuario.png")))
 
-user3 = User.create(email: 'admin@example.com',
+user3 = User.create(email: 'admi.ranking@gmail.com',
                     password: 'password',
                     password_confirmation: 'password',
                     confirmed_at: DateTime.now,
